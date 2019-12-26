@@ -3,31 +3,31 @@
     "aluno": {
       "home": {
         "title": "Alunos",
-        "createLabel": "Criar novo(a) Aluno",
-        "createOrEditLabel": "Criar ou editar Aluno",
-        "search": "Procurar por Aluno",
-        "notFound": "Nenhum Alunos encontrado"
+        "createLabel": "Novo aluno",
+        "createOrEditLabel": "Aluno",
+        "search": "Procurar por aluno",
+        "notFound": "Nenhum aluno encontrado"
       },
-      "created": "Um novo Aluno foi criado com o identificador {{ param }}",
+      "created": "Um novo aluno foi criado com o identificador {{ param }}",
       "updated": "Aluno com identificador {{ param }} foi actualizado",
       "deleted": "Aluno com identificador {{ param }} foi eliminado",
       "delete": {
-        "question": "Tem a certeza que pretende eliminar o(a) Aluno {{ id }}?"
+        "question": "Tem a certeza que pretende eliminar o aluno {{ id }}?"
       },
       "detail": {
         "title": "Aluno"
       },
-      "numeroProcesso": "Numero Processo",
+      "numeroProcesso": "Número do processo",
       "transferido": "Transferido",
       "data": "Data",
-      "turmaAnterior": "Turma Anterior",
-      "anoConclusao": "Ano Conclusao",
-      "cursoFrequentado": "Curso Frequentado",
-      "nomeEscolaAnteriror": "Nome Escola Anteriror",
-      "enderecoEscolaAnterior": "Endereco Escola Anterior",
-      "classeConcluida": "Classe Concluida",
-      "numeroProcessoAnterior": "Numero Processo Anterior",
-      "situacaoAnterior": "Situacao Anterior",
+      "turmaAnterior": "Turma",
+      "anoConclusao": "Ano de conclusão",
+      "cursoFrequentado": "Curso",
+      "nomeEscolaAnteriror": "Nome da escola",
+      "enderecoEscolaAnterior": "Endereço da escola",
+      "classeConcluida": "Classe concluida",
+      "numeroProcessoAnterior": "Número processo",
+      "situacaoAnterior": "Situação anterior",
       "pessoa": "Pessoa",
       "matricula": "Matricula",
       "contrato": "Contrato",
