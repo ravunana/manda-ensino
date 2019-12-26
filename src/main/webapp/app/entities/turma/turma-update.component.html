@@ -2,6 +2,7 @@
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
             <h2 id="rv-turma-heading" jhiTranslate="ensinoApp.turma.home.createOrEditLabel">Create or edit a Turma</h2>
+            <hr>
             <div>
                 <rv-alert-error></rv-alert-error>
                 <div class="form-group" [hidden]="!editForm.get('id')!.value">
@@ -9,7 +10,7 @@
                     <input type="text" class="form-control" id="id" name="id" formControlName="id"
                         readonly />
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="form-control-label" jhiTranslate="ensinoApp.turma.descricao" for="field_descricao">Descricao</label>
                     <input type="text" class="form-control" name="descricao" id="field_descricao"
                            formControlName="descricao"/>
@@ -19,8 +20,8 @@
                         This field is required.
                         </small>
                     </div>
-                </div>
-                <div class="form-group">
+                </div> -->
+                <!-- <div class="form-group">
                     <label class="form-control-label" jhiTranslate="ensinoApp.turma.anoLectivo" for="field_anoLectivo">Ano Lectivo</label>
                     <div class="input-group">
                         <input id="field_anoLectivo" type="text" class="form-control" name="anoLectivo" ngbDatepicker  #anoLectivoDp="ngbDatepicker" formControlName="anoLectivo"/>
@@ -28,6 +29,59 @@
                             <button type="button" class="btn btn-secondary" (click)="anoLectivoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
                         </span>
                     </div>
+                </div> -->
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.turma.curso" for="field_curso">Curso</label>
+                    <select class="form-control" id="field_curso" name="curso" formControlName="cursoId">
+                        <option *ngIf="!editForm.get('cursoId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="cursoOption.id" *ngFor="let cursoOption of cursos; trackBy: trackById">{{cursoOption.nome}}</option>
+                    </select>
+                    <div *ngIf="editForm.get('cursoId')!.invalid && (editForm.get('cursoId')!.dirty || editForm.get('cursoId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('cursoId')?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="form-group col">
+                        <label class="form-control-label" jhiTranslate="ensinoApp.turma.turno" for="field_turno">Turno</label>
+                        <input type="text" class="form-control" name="turno" id="field_turno"
+                               formControlName="turno"/>
+                        <div *ngIf="editForm.get('turno')!.invalid && (editForm.get('turno')!.dirty || editForm.get('turno')!.touched)">
+                            <small class="form-text text-danger"
+                                   *ngIf="editForm.get('turno')?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                            </small>
+                        </div>
+                    </div>
+                <div class="form-group col">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.turma.classe" for="field_classe">Classe</label>
+                    <select class="form-control" id="field_classe" name="classe" formControlName="classeId">
+                        <option *ngIf="!editForm.get('classeId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="classeOption.id" *ngFor="let classeOption of classes; trackBy: trackById">{{classeOption.descricao}}ª classe</option>
+                    </select>
+                    <div *ngIf="editForm.get('classeId')!.invalid && (editForm.get('classeId')!.dirty || editForm.get('classeId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('classeId')?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.turma.sala" for="field_sala">Sala</label>
+                    <select class="form-control" id="field_sala" name="sala" formControlName="salaId">
+                        <option *ngIf="!editForm.get('salaId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="salaOption.id" *ngFor="let salaOption of salas; trackBy: trackById">{{salaOption.numero}}</option>
+                    </select>
+                    <div *ngIf="editForm.get('salaId')!.invalid && (editForm.get('salaId')!.dirty || editForm.get('salaId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('salaId')?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="ensinoApp.turma.regime" for="field_regime">Regime</label>
@@ -40,76 +94,27 @@
                         </small>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="ensinoApp.turma.turno" for="field_turno">Turno</label>
-                    <input type="text" class="form-control" name="turno" id="field_turno"
-                           formControlName="turno"/>
-                    <div *ngIf="editForm.get('turno')!.invalid && (editForm.get('turno')!.dirty || editForm.get('turno')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('turno')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                    </div>
-                </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="form-control-label" jhiTranslate="ensinoApp.turma.data" for="field_data">Data</label>
                     <div class="d-flex">
                         <input id="field_data" type="datetime-local" class="form-control" name="data" formControlName="data" placeholder="YYYY-MM-DD HH:mm"/>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="ensinoApp.turma.ativo" for="field_ativo">Ativo</label>
-                    <input type="checkbox" class="form-control" name="ativo" id="field_ativo"
-                           formControlName="ativo"/>
-                </div>
+                </div> -->
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="form-control-label" jhiTranslate="ensinoApp.turma.utilizador" for="field_utilizador">Utilizador</label>
                     <select class="form-control" id="field_utilizador" name="utilizador" formControlName="utilizadorId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackById">{{userOption.login}}</option>
                     </select>
-                </div>
+                </div> -->
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="ensinoApp.turma.sala" for="field_sala">Sala</label>
-                    <select class="form-control" id="field_sala" name="sala" formControlName="salaId">
-                        <option *ngIf="!editForm.get('salaId')!.value" [ngValue]="null" selected></option>
-                        <option [ngValue]="salaOption.id" *ngFor="let salaOption of salas; trackBy: trackById">{{salaOption.numero}}</option>
-                    </select>
-                </div>
-                <div *ngIf="editForm.get('salaId')!.invalid && (editForm.get('salaId')!.dirty || editForm.get('salaId')!.touched)">
-                    <small class="form-text text-danger"
-                           *ngIf="editForm.get('salaId')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                    </small>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="ensinoApp.turma.classe" for="field_classe">Classe</label>
-                    <select class="form-control" id="field_classe" name="classe" formControlName="classeId">
-                        <option *ngIf="!editForm.get('classeId')!.value" [ngValue]="null" selected></option>
-                        <option [ngValue]="classeOption.id" *ngFor="let classeOption of classes; trackBy: trackById">{{classeOption.descricao}}</option>
-                    </select>
-                </div>
-                <div *ngIf="editForm.get('classeId')!.invalid && (editForm.get('classeId')!.dirty || editForm.get('classeId')!.touched)">
-                    <small class="form-text text-danger"
-                           *ngIf="editForm.get('classeId')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                    </small>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="ensinoApp.turma.curso" for="field_curso">Curso</label>
-                    <select class="form-control" id="field_curso" name="curso" formControlName="cursoId">
-                        <option *ngIf="!editForm.get('cursoId')!.value" [ngValue]="null" selected></option>
-                        <option [ngValue]="cursoOption.id" *ngFor="let cursoOption of cursos; trackBy: trackById">{{cursoOption.nome}}</option>
-                    </select>
-                </div>
-                <div *ngIf="editForm.get('cursoId')!.invalid && (editForm.get('cursoId')!.dirty || editForm.get('cursoId')!.touched)">
-                    <small class="form-text text-danger"
-                           *ngIf="editForm.get('cursoId')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                    </small>
+                    <label class="form-control-label" jhiTranslate="ensinoApp.turma.ativo" for="field_ativo">Ativo</label>
+                    <input type="checkbox" class="form-control" name="ativo" id="field_ativo"
+                           formControlName="ativo"/>
                 </div>
             </div>
+            <hr>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
                     <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>

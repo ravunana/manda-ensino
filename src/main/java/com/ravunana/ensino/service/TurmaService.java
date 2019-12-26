@@ -3,16 +3,22 @@ package com.ravunana.ensino.service;
 import com.ravunana.ensino.domain.Turma;
 import com.ravunana.ensino.repository.TurmaRepository;
 import com.ravunana.ensino.repository.search.TurmaSearchRepository;
+import com.ravunana.ensino.service.dto.AreaFormacaoDTO;
+import com.ravunana.ensino.service.dto.CursoDTO;
+import com.ravunana.ensino.service.dto.SalaDTO;
 import com.ravunana.ensino.service.dto.TurmaDTO;
+import com.ravunana.ensino.service.dto.ClasseDTO;
 import com.ravunana.ensino.service.mapper.TurmaMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.Optional;
 
 import static org.elasticsearch.index.query.QueryBuilders.*;
@@ -32,6 +38,18 @@ public class TurmaService {
 
     private final TurmaSearchRepository turmaSearchRepository;
 
+    @Autowired
+    private AreaFormacaoService areaFormacaoService;
+
+    @Autowired
+    private CursoService cursoService;
+
+    @Autowired
+    private ClasseService classeService;
+
+    @Autowired
+    private SalaService salaService;
+
     public TurmaService(TurmaRepository turmaRepository, TurmaMapper turmaMapper, TurmaSearchRepository turmaSearchRepository) {
         this.turmaRepository = turmaRepository;
         this.turmaMapper = turmaMapper;
@@ -46,11 +64,26 @@ public class TurmaService {
      */
     public TurmaDTO save(TurmaDTO turmaDTO) {
         log.debug("Request to save Turma : {}", turmaDTO);
+        turmaDTO.setDescricao( getDescricaoTurma(turmaDTO.getCursoId(), turmaDTO.getClasseId(), turmaDTO.getSalaId(), turmaDTO.getTurno(), turmaDTO.getRegime() ));
         Turma turma = turmaMapper.toEntity(turmaDTO);
+        turma.setAnoLectivo(LocalDate.now());
+        turma.setData(ZonedDateTime.now());
         turma = turmaRepository.save(turma);
         TurmaDTO result = turmaMapper.toDto(turma);
         turmaSearchRepository.save(turma);
         return result;
+    }
+
+    private String getDescricaoTurma( Long cursoId, Long classeId, Long salaId, String turno, String regime ) {
+        String descricao = "";
+
+        ClasseDTO classe = classeService.findOne( classeId ).get();
+        SalaDTO sala = salaService.findOne( salaId ).get();
+        CursoDTO curso = cursoService.findOne( cursoId ).get();
+        AreaFormacaoDTO areaFormacao =  areaFormacaoService.findOne( curso.getAreaFormacaoId() ).get();
+        descricao = areaFormacao.getNome().substring(0, 1) + " " + curso.getSigla() + " " + classe.getDescricao() + "ª" + "." + sala.getNumero() + turno.substring(0, 1) +  "/" + regime;
+
+        return descricao;
     }
 
     /**

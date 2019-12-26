@@ -35,8 +35,8 @@
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
             <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th scope="col"  jhiSortBy="numero"><span jhiTranslate="ensinoApp.sala.numero">Numero</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th scope="col"  jhiSortBy="descricao"><span jhiTranslate="ensinoApp.sala.descricao">Descricao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th scope="col"  jhiSortBy="lotacao"><span jhiTranslate="ensinoApp.sala.lotacao">Lotacao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="descricao"><span jhiTranslate="ensinoApp.sala.descricao">Descricao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th scope="col"></th>
             </tr>
             </thead>
@@ -44,8 +44,8 @@
             <tr *ngFor="let sala of salas ;trackBy: trackId">
                 <td><a [routerLink]="['/sala', sala.id, 'view' ]">{{sala.id}}</a></td>
                 <td>{{sala.numero}}</td>
-                <td>{{sala.descricao}}</td>
                 <td>{{sala.lotacao}}</td>
+                <td>{{sala.descricao}}</td>
                 <td class="text-right">
                     <div class="btn-group">
                         <button type="submit"

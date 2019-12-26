@@ -56,7 +56,7 @@ export class DisciplinaUpdateComponent implements OnInit {
       ...new Disciplina(),
       id: this.editForm.get(['id'])!.value,
       nome: this.editForm.get(['nome'])!.value,
-      sigla: this.editForm.get(['sigla'])!.value
+      sigla: this.editForm.get(['sigla'])!.value.toUpperCase()
     };
   }
 

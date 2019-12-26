@@ -3,27 +3,27 @@
     "curso": {
       "home": {
         "title": "Cursos",
-        "createLabel": "Criar novo(a) Curso",
-        "createOrEditLabel": "Criar ou editar Curso",
+        "createLabel": "Novo curso",
+        "createOrEditLabel": "Curso",
         "search": "Procurar por Curso",
-        "notFound": "Nenhum Cursos encontrado"
+        "notFound": "Nenhum curso encontrado"
       },
-      "created": "Um novo Curso foi criado com o identificador {{ param }}",
+      "created": "Um novo curso foi criado com o identificador {{ param }}",
       "updated": "Curso com identificador {{ param }} foi actualizado",
       "deleted": "Curso com identificador {{ param }} foi eliminado",
       "delete": {
-        "question": "Tem a certeza que pretende eliminar o(a) Curso {{ id }}?"
+        "question": "Tem a certeza que pretende eliminar o curso {{ id }}?"
       },
       "detail": {
         "title": "Curso"
       },
-      "nome": "Nome",
+      "nome": "Nome do curso",
       "sigla": "Sigla",
       "competencias": "Competencias",
       "turma": "Turma",
       "matrizCurricular": "Matriz Curricular",
       "emolumento": "Emolumento",
-      "areaFormacao": "Area Formacao",
+      "areaFormacao": "Área de formação",
       "dossificacao": "Dossificacao"
     }
   }

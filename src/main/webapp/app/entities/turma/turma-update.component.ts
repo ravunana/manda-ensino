@@ -39,7 +39,7 @@ export class TurmaUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    descricao: [null, [Validators.required]],
+    descricao: [null],
     anoLectivo: [],
     regime: [null, [Validators.required]],
     turno: [null, [Validators.required]],
@@ -137,13 +137,17 @@ export class TurmaUpdateComponent implements OnInit {
     return {
       ...new Turma(),
       id: this.editForm.get(['id'])!.value,
-      descricao: this.editForm.get(['descricao'])!.value,
-      anoLectivo: this.editForm.get(['anoLectivo'])!.value,
+      descricao: '',
+      anoLectivo: moment(),
+      // descricao: this.editForm.get(['descricao'])!.value,
+      // anoLectivo: this.editForm.get(['anoLectivo'])!.value,
       regime: this.editForm.get(['regime'])!.value,
-      turno: this.editForm.get(['turno'])!.value,
-      data: this.editForm.get(['data'])!.value != null ? moment(this.editForm.get(['data'])!.value, DATE_TIME_FORMAT) : undefined,
+      turno: this.editForm.get(['turno'])!.value.toUpperCase(),
+      data: moment(),
+      // data: this.editForm.get(['data'])!.value != null ? moment(this.editForm.get(['data'])!.value, DATE_TIME_FORMAT) : undefined,
       ativo: this.editForm.get(['ativo'])!.value,
-      utilizadorId: this.editForm.get(['utilizadorId'])!.value,
+      utilizadorId: 1,
+      // utilizadorId: this.editForm.get(['utilizadorId'])!.value,
       salaId: this.editForm.get(['salaId'])!.value,
       classeId: this.editForm.get(['classeId'])!.value,
       cursoId: this.editForm.get(['cursoId'])!.value
