@@ -2,29 +2,29 @@
   "ensinoApp": {
     "documentacaoPessoa": {
       "home": {
-        "title": "Documentacao Pessoas",
-        "createLabel": "Criar novo(a) Documentacao Pessoa",
-        "createOrEditLabel": "Criar ou editar Documentacao Pessoa",
-        "search": "Procurar por Documentacao Pessoa",
-        "notFound": "Nenhum Documentacao Pessoas encontrado"
+        "title": "Documentação",
+        "createLabel": "Nova documentação",
+        "createOrEditLabel": "Documentação",
+        "search": "Procurar por documento",
+        "notFound": "Nenhum documento encontrado"
       },
-      "created": "Um novo Documentacao Pessoa foi criado com o identificador {{ param }}",
-      "updated": "Documentacao Pessoa com identificador {{ param }} foi actualizado",
-      "deleted": "Documentacao Pessoa com identificador {{ param }} foi eliminado",
+      "created": "Um novo documento foi criado com o identificador {{ param }}",
+      "updated": "Documento com identificador {{ param }} foi actualizado",
+      "deleted": "Documento com identificador {{ param }} foi eliminado",
       "delete": {
-        "question": "Tem a certeza que pretende eliminar o(a) Documentacao Pessoa {{ id }}?"
+        "question": "Tem a certeza que pretende eliminar o documento {{ id }}?"
       },
       "detail": {
-        "title": "Documentacao Pessoa"
+        "title": "Documentação"
       },
-      "tipo": "Tipo",
-      "numero": "Numero",
-      "emissao": "Emissao",
-      "validade": "Validade",
+      "tipo": "Tipo de documento",
+      "numero": "Número do documento",
+      "emissao": "Data de emissão",
+      "validade": "Data de validade",
       "naturalidade": "Naturalidade",
       "nacionalidade": "Nacionalidade",
-      "localEmissao": "Local Emissao",
-      "nif": "Nif",
+      "localEmissao": "Local de emissão",
+      "nif": "NIF",
       "pessoa": "Pessoa"
     }
   }

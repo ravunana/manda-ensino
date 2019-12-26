@@ -2,23 +2,23 @@
   "ensinoApp": {
     "contactoPessoa": {
       "home": {
-        "title": "Contacto Pessoas",
-        "createLabel": "Criar novo(a) Contacto Pessoa",
-        "createOrEditLabel": "Criar ou editar Contacto Pessoa",
-        "search": "Procurar por Contacto Pessoa",
-        "notFound": "Nenhum Contacto Pessoas encontrado"
+        "title": "Contactos",
+        "createLabel": "Novo contacto",
+        "createOrEditLabel": "Contacto",
+        "search": "Procurar por contacto",
+        "notFound": "Nenhum contacto encontrado"
       },
-      "created": "Um novo Contacto Pessoa foi criado com o identificador {{ param }}",
-      "updated": "Contacto Pessoa com identificador {{ param }} foi actualizado",
-      "deleted": "Contacto Pessoa com identificador {{ param }} foi eliminado",
+      "created": "Um novo contacto foi criado com o identificador {{ param }}",
+      "updated": "Contacto com identificador {{ param }} foi actualizado",
+      "deleted": "Contacto com identificador {{ param }} foi eliminado",
       "delete": {
-        "question": "Tem a certeza que pretende eliminar o(a) Contacto Pessoa {{ id }}?"
+        "question": "Tem a certeza que pretende eliminar o contacto {{ id }}?"
       },
       "detail": {
-        "title": "Contacto Pessoa"
+        "title": "Contacto"
       },
-      "tipoContacto": "Tipo Contacto",
-      "descricao": "Descricao",
+      "tipoContacto": "Tipo de contacto",
+      "descricao": "Descrição",
       "contacto": "Contacto",
       "pessoa": "Pessoa"
     }

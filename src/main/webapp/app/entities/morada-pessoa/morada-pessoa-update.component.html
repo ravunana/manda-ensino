@@ -2,6 +2,7 @@
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
             <h2 id="rv-morada-pessoa-heading" jhiTranslate="ensinoApp.moradaPessoa.home.createOrEditLabel">Create or edit a Morada Pessoa</h2>
+            <hr>
             <div>
                 <rv-alert-error></rv-alert-error>
                 <div class="form-group" [hidden]="!editForm.get('id')!.value">
@@ -90,6 +91,7 @@
                     </small>
                 </div>
             </div>
+            <hr>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
                     <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>

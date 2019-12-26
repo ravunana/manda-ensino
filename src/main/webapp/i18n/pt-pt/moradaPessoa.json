@@ -2,27 +2,27 @@
   "ensinoApp": {
     "moradaPessoa": {
       "home": {
-        "title": "Morada Pessoas",
-        "createLabel": "Criar novo(a) Morada Pessoa",
-        "createOrEditLabel": "Criar ou editar Morada Pessoa",
-        "search": "Procurar por Morada Pessoa",
-        "notFound": "Nenhum Morada Pessoas encontrado"
+        "title": "Morada",
+        "createLabel": "Nova morada",
+        "createOrEditLabel": "Morada",
+        "search": "Procurar por morada",
+        "notFound": "Nenhuma morada encontrada"
       },
-      "created": "Um novo Morada Pessoa foi criado com o identificador {{ param }}",
-      "updated": "Morada Pessoa com identificador {{ param }} foi actualizado",
-      "deleted": "Morada Pessoa com identificador {{ param }} foi eliminado",
+      "created": "Uma nova morada foi criada com o identificador {{ param }}",
+      "updated": "Morada com identificador {{ param }} foi actualizado",
+      "deleted": "Morada com identificador {{ param }} foi eliminado",
       "delete": {
-        "question": "Tem a certeza que pretende eliminar o(a) Morada Pessoa {{ id }}?"
+        "question": "Tem a certeza que pretende eliminar a morada {{ id }}?"
       },
       "detail": {
-        "title": "Morada Pessoa"
+        "title": "Morada"
       },
-      "provincia": "Provincia",
-      "municipio": "Municipio",
+      "provincia": "Província",
+      "municipio": "Município",
       "bairro": "Bairro",
       "rua": "Rua",
-      "quarteirao": "Quarteirao",
-      "numeroPorta": "Numero Porta",
+      "quarteirao": "Quarteirão",
+      "numeroPorta": "Número da porta | quarteirão",
       "pessoa": "Pessoa"
     }
   }

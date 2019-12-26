@@ -2,24 +2,24 @@
   "ensinoApp": {
     "relacionamentoPessoa": {
       "home": {
-        "title": "Relacionamento Pessoas",
-        "createLabel": "Criar novo(a) Relacionamento Pessoa",
-        "createOrEditLabel": "Criar ou editar Relacionamento Pessoa",
-        "search": "Procurar por Relacionamento Pessoa",
-        "notFound": "Nenhum Relacionamento Pessoas encontrado"
+        "title": "Relacionamento entre pessoas",
+        "createLabel": "Novo relacionamento",
+        "createOrEditLabel": "Relacionamento entre pessoas",
+        "search": "Procurar por relacionamento",
+        "notFound": "Nenhum relacionamento encontrado"
       },
-      "created": "Um novo Relacionamento Pessoa foi criado com o identificador {{ param }}",
-      "updated": "Relacionamento Pessoa com identificador {{ param }} foi actualizado",
-      "deleted": "Relacionamento Pessoa com identificador {{ param }} foi eliminado",
+      "created": "Um novo relacionamento foi criado com o identificador {{ param }}",
+      "updated": "Relacionamento com identificador {{ param }} foi actualizado",
+      "deleted": "Relacionamento com identificador {{ param }} foi eliminado",
       "delete": {
-        "question": "Tem a certeza que pretende eliminar o(a) Relacionamento Pessoa {{ id }}?"
+        "question": "Tem a certeza que pretende eliminar o relacionamento {{ id }}?"
       },
       "detail": {
-        "title": "Relacionamento Pessoa"
+        "title": "Relacionamento"
       },
-      "grauParentesco": "Grau Parentesco",
+      "grauParentesco": "Grau parentesco",
       "de": "De",
-      "para": "Para"
+      "para": "Nome do(a) "
     }
   }
 }
