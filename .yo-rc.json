@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.ravunana.ensino",
+      "nativeLanguage": "pt-pt"
+    },
+    "jhipsterVersion": "6.6.0",
+    "applicationType": "monolith",
+    "baseName": "ensino",
+    "packageName": "com.ravunana.ensino",
+    "packageFolder": "com/ravunana/ensino",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "elasticsearch",
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MGU0MTEwNzI2MDk1NDUwNDMyOGZiYzAzZjdmZDQ1NDhiNzA0Zjc3MTRiNWMzYzNmNzljN2NlNjEwZTI0MmE5YzA3NDY0ZjEyYTJkNGNkMDI3MGQ2MThlNjc2YTMzNGIxYTFhNzAwMTI1YzE2MDVjZWU1ZDRmZjFhYjgyNjhmNzk=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "flatly",
+    "clientThemeVariant": "dark",
+    "creationTimestamp": 1577356444156,
+    "testFrameworks": ["gatling", "cucumber", "protractor"],
+    "jhiPrefix": "rv",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "pt-pt",
+    "languages": ["pt-pt"],
+    "blueprints": []
+  }
+}
