@@ -6,6 +6,10 @@ import { AlertErrorComponent } from './alert/alert-error.component';
 import { LoginModalComponent } from './login/login.component';
 import { HasAnyAuthorityDirective } from './auth/has-any-authority.directive';
 import { PrimengModule } from 'app/primeng/primeng.module';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { ExportAsModule } from 'ngx-export-as';
 
 @NgModule({
   imports: [EnsinoSharedLibsModule],
@@ -18,7 +22,11 @@ import { PrimengModule } from 'app/primeng/primeng.module';
     AlertErrorComponent,
     LoginModalComponent,
     HasAnyAuthorityDirective,
-    PrimengModule
+    PrimengModule,
+    LoadingBarHttpClientModule,
+    LoadingBarModule,
+    LoadingBarRouterModule,
+    ExportAsModule
   ]
 })
 export class EnsinoSharedModule {}
