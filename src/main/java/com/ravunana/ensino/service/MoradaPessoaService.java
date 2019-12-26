@@ -13,6 +13,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static org.elasticsearch.index.query.QueryBuilders.*;
@@ -31,6 +33,8 @@ public class MoradaPessoaService {
     private final MoradaPessoaMapper moradaPessoaMapper;
 
     private final MoradaPessoaSearchRepository moradaPessoaSearchRepository;
+
+    private List<MoradaPessoaDTO> moradas = new ArrayList<>();
 
     public MoradaPessoaService(MoradaPessoaRepository moradaPessoaRepository, MoradaPessoaMapper moradaPessoaMapper, MoradaPessoaSearchRepository moradaPessoaSearchRepository) {
         this.moradaPessoaRepository = moradaPessoaRepository;
@@ -103,5 +107,27 @@ public class MoradaPessoaService {
         log.debug("Request to search for a page of MoradaPessoas for query {}", query);
         return moradaPessoaSearchRepository.search(queryStringQuery(query), pageable)
             .map(moradaPessoaMapper::toDto);
+    }
+
+    // Array de morada
+
+    public MoradaPessoaDTO addMorada(MoradaPessoaDTO morada) {
+        Boolean result = moradas.add(morada);
+        if ( result )
+            return morada;
+        else
+            return new MoradaPessoaDTO();
+    }
+
+    public MoradaPessoaDTO deleteMorada(int index) {
+        return moradas.remove(index);
+    }
+
+    public List<MoradaPessoaDTO> listMoradas() {
+        return moradas;
+    }
+
+    public void limparMoradas() {
+        moradas.clear();
     }
 }

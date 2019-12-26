@@ -21,10 +21,10 @@
       "nome": "Nome",
       "imagem": "Imagem",
       "pai": "Nome do pai",
-      "mae": "Nome da mae",
+      "mae": "Nome da mãe",
       "nascimento": "Data de nascimento",
       "moradaPessoa": "Morada Pessoa",
-      "contactoPessoa": "Contacto Pessoa",
+      "contactoPessoa": "Cantacto Pessoa",
       "documentacaoPessoa": "Documentacao Pessoa",
       "utilizador": "Utilizador"
     }

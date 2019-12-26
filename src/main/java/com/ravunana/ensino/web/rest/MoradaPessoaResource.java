@@ -145,4 +145,21 @@ public class MoradaPessoaResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
+
+    // Array morada
+
+    @PostMapping("/morada-pessoas/add")
+    public MoradaPessoaDTO addMorada(@RequestBody MoradaPessoaDTO morada) {
+        return moradaPessoaService.addMorada(morada);
+    }
+
+    @DeleteMapping("/morada-pessoas/delete/{index}")
+    public MoradaPessoaDTO deleteMorada(@PathVariable int index) {
+        return moradaPessoaService.deleteMorada(index);
+    }
+
+    @GetMapping("/morada-pessoas/lista")
+    public List<MoradaPessoaDTO> listarMoradas() {
+        return moradaPessoaService.listMoradas();
+    }
 }

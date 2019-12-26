@@ -84,6 +84,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        <h5>Filiação</h5> <hr>
                         <div class="row">
 
                             <div class="form-group col">
@@ -102,17 +104,121 @@
                     </div>
                 </div>
 
-                <hr>
-                <button type="button" class="btn btn-primary" [routerLink]="['/contacto-pessoa/new']">Incluir contacto</button>
+                <p-accordion>
+                    <p-accordionTab header="Contacto" [selected]="true">
+                        <button type="button" class="btn btn-success" [routerLink]="['/contacto-pessoa/new']">Incluir contacto</button>
 
-                <hr>
-                <button type="button" class="btn btn-primary" [routerLink]="['/morada-pessoa/new']" >Incluir morada</button>
+                        <table class="table table-striped" *ngIf="contactos.length > 0">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Tipo de contacto</th>
+                                <th scope="col">Descrição</th>
+                                <th scope="col">Contacto</th>
+                                <th scope="col"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let contacto of contactos; let i = index" >
+                                <th scope="row"> {{ i }} </th>
+                                <td> {{ contacto.tipoContacto }} </td>
+                                <td> {{ contacto.descricao }} </td>
+                                <td> {{ contacto.contacto }} </td>
+                                <td>
+                                    <button type="button" > <fa-icon [icon]="'trush'" ></fa-icon> </button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </p-accordionTab>
 
-                <hr>
-                <button type="button" class="btn btn-primary" [routerLink]="['/documentacao-pessoa/new']" >Incluir documentação</button>
+                    <p-accordionTab header="Morada" >
+                        <button type="button" class="btn btn-success" [routerLink]="['/morada-pessoa/new']" >Incluir morada</button>
+                        <table class="table table-striped" *ngIf="moradas.length > 0">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Provincia</th>
+                                <th scope="col">Municipio</th>
+                                <th scope="col">Bairro</th>
+                                <th scope="col">Rua</th>
+                                <th scope="col">Quarteirão | Edificio</th>
+                                <th scope="col">Nº da casa | apartamento</th>
+                                <th scope="col"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let morada of moradas; let i = index" >
+                                <th scope="row"> {{ i }} </th>
+                                <td> {{ morada.provincia }} </td>
+                                <td> {{ morada.municipio }} </td>
+                                <td> {{ morada.bairro }} </td>
+                                <td> {{ morada.rua }} </td>
+                                <td> {{ morada.quarteirao }} </td>
+                                <td> {{ morada.numeroPorta }} </td>
+                                <td>
+                                    <button type="button" > <fa-icon [icon]="'trush'" ></fa-icon> </button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </p-accordionTab>
 
-                <hr>
-                <button type="button" class="btn btn-primary" [routerLink]="['/relacionamento-pessoa/new']" >Adicionar grau parentesco</button>
+                    <p-accordionTab header="Documentação" >
+                        <button type="button" class="btn btn-success" [routerLink]="['/documentacao-pessoa/new']" >Incluir documentação</button>
+
+                        <table class="table table-striped" *ngIf="documentos.length > 0">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Tipo de documento</th>
+                                <th scope="col">Número do documento</th>
+                                <th scope="col">Data de emissão</th>
+                                <th scope="col">Data de validade</th>
+                                <th scope="col"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let documento of documentos; let i = index" >
+                                <th scope="row"> {{ i }} </th>
+                                <td> {{ documento.tipo }} </td>
+                                <td> {{ documento.numero }} </td>
+                                <td> {{ documento.emissao }} </td>
+                                <td> {{ documento.validade }} </td>
+                                <td>
+                                    <button type="button" > <fa-icon [icon]="'trush'" ></fa-icon> </button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </p-accordionTab>
+
+                    <p-accordionTab header="Grau parentesco" >
+                        <button type="button" class="btn btn-success" [routerLink]="['/relacionamento-pessoa/new']" >Adicionar grau parentesco</button>
+
+                        <table class="table table-striped" *ngIf="relacionamentos.length > 0">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Grau parentesco</th>
+                                <th scope="col">Nome do parente</th>
+                                <th scope="col"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let relacionamento of relacionamentos; let i = index" >
+                                <th scope="row"> {{ i }} </th>
+                                <td> {{ relacionamento.grauParentesco }} </td>
+                                <td> {{ relacionamento.paraNome }} </td>
+                                <td>
+                                    <button type="button" > <fa-icon [icon]="'trush'" ></fa-icon> </button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </p-accordionTab>
+                </p-accordion>
+
 
                 <!-- <div class="form-group">
                     <label class="form-control-label" jhiTranslate="ensinoApp.pessoa.utilizador"

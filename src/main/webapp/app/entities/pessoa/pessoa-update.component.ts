@@ -13,6 +13,10 @@ import { PessoaService } from './pessoa.service';
 import { AlertError } from 'app/shared/alert/alert-error.model';
 import { IUser } from 'app/core/user/user.model';
 import { UserService } from 'app/core/user/user.service';
+import { IContactoPessoa } from 'app/shared/model/contacto-pessoa.model';
+import { IMoradaPessoa } from 'app/shared/model/morada-pessoa.model';
+import { IDocumentacaoPessoa } from 'app/shared/model/documentacao-pessoa.model';
+import { IRelacionamentoPessoa } from 'app/shared/model/relacionamento-pessoa.model';
 
 @Component({
   selector: 'rv-pessoa-update',
@@ -23,6 +27,11 @@ export class PessoaUpdateComponent implements OnInit {
 
   users: IUser[] = [];
   nascimentoDp: any;
+
+  contactos: IContactoPessoa[] = [];
+  moradas: IMoradaPessoa[] = [];
+  documentos: IDocumentacaoPessoa[] = [];
+  relacionamentos: IRelacionamentoPessoa[] = [];
 
   editForm = this.fb.group({
     id: [],

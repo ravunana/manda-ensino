@@ -13,6 +13,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static org.elasticsearch.index.query.QueryBuilders.*;
@@ -31,6 +33,8 @@ public class ContactoPessoaService {
     private final ContactoPessoaMapper contactoPessoaMapper;
 
     private final ContactoPessoaSearchRepository contactoPessoaSearchRepository;
+
+    private List<ContactoPessoaDTO> contactos = new ArrayList<>();
 
     public ContactoPessoaService(ContactoPessoaRepository contactoPessoaRepository, ContactoPessoaMapper contactoPessoaMapper, ContactoPessoaSearchRepository contactoPessoaSearchRepository) {
         this.contactoPessoaRepository = contactoPessoaRepository;
@@ -103,5 +107,28 @@ public class ContactoPessoaService {
         log.debug("Request to search for a page of ContactoPessoas for query {}", query);
         return contactoPessoaSearchRepository.search(queryStringQuery(query), pageable)
             .map(contactoPessoaMapper::toDto);
+    }
+
+    // Array contacto
+
+    public ContactoPessoaDTO addContacto(ContactoPessoaDTO contacto) {
+
+        Boolean result = contactos.add(contacto);
+        if ( result )
+            return contacto;
+        else
+            return new ContactoPessoaDTO();
+    }
+
+    public ContactoPessoaDTO deleteContacto(int index) {
+        return contactos.remove(index);
+    }
+
+    public List<ContactoPessoaDTO> listContactos() {
+        return contactos;
+    }
+
+    public void limparContactos() {
+        contactos.clear();
     }
 }
