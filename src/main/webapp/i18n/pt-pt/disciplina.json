@@ -3,16 +3,16 @@
     "disciplina": {
       "home": {
         "title": "Disciplinas",
-        "createLabel": "Criar novo(a) Disciplina",
-        "createOrEditLabel": "Criar ou editar Disciplina",
-        "search": "Procurar por Disciplina",
-        "notFound": "Nenhum Disciplinas encontrado"
+        "createLabel": "Nova disciplina",
+        "createOrEditLabel": "Disciplina",
+        "search": "Procurar por disciplina",
+        "notFound": "Nenhuma disciplina encontrada"
       },
-      "created": "Um novo Disciplina foi criado com o identificador {{ param }}",
+      "created": "Uma nova disciplina foi criada com o identificador {{ param }}",
       "updated": "Disciplina com identificador {{ param }} foi actualizado",
       "deleted": "Disciplina com identificador {{ param }} foi eliminado",
       "delete": {
-        "question": "Tem a certeza que pretende eliminar o(a) Disciplina {{ id }}?"
+        "question": "Tem a certeza que pretende eliminar a disciplina {{ id }}?"
       },
       "detail": {
         "title": "Disciplina"

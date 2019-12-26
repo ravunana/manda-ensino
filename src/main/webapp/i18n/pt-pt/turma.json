@@ -3,26 +3,26 @@
     "turma": {
       "home": {
         "title": "Turmas",
-        "createLabel": "Criar novo(a) Turma",
-        "createOrEditLabel": "Criar ou editar Turma",
-        "search": "Procurar por Turma",
-        "notFound": "Nenhum Turmas encontrado"
+        "createLabel": "Nova turma",
+        "createOrEditLabel": "Turma",
+        "search": "Procurar por turma",
+        "notFound": "Nenhuma turma encontrada"
       },
-      "created": "Um novo Turma foi criado com o identificador {{ param }}",
+      "created": "Uma nova turma foi criada com o identificador {{ param }}",
       "updated": "Turma com identificador {{ param }} foi actualizado",
       "deleted": "Turma com identificador {{ param }} foi eliminado",
       "delete": {
-        "question": "Tem a certeza que pretende eliminar o(a) Turma {{ id }}?"
+        "question": "Tem a certeza que pretende eliminar a turma {{ id }}?"
       },
       "detail": {
         "title": "Turma"
       },
-      "descricao": "Descricao",
-      "anoLectivo": "Ano Lectivo",
-      "regime": "Regime",
+      "descricao": "Descrição",
+      "anoLectivo": "Ano lectivo",
+      "regime": "Regime curricular",
       "turno": "Turno",
       "data": "Data",
-      "ativo": "Ativo",
+      "ativo": "Activo",
       "horario": "Horario",
       "nota": "Nota",
       "aula": "Aula",

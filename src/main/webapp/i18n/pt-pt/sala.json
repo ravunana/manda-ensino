@@ -3,23 +3,23 @@
     "sala": {
       "home": {
         "title": "Salas",
-        "createLabel": "Criar novo(a) Sala",
-        "createOrEditLabel": "Criar ou editar Sala",
-        "search": "Procurar por Sala",
-        "notFound": "Nenhum Salas encontrado"
+        "createLabel": "Nova sala",
+        "createOrEditLabel": "Sala",
+        "search": "Procurar por sala",
+        "notFound": "Nenhuma sala encontrada"
       },
-      "created": "Um novo Sala foi criado com o identificador {{ param }}",
+      "created": "Uma nova sala foi criada com o identificador {{ param }}",
       "updated": "Sala com identificador {{ param }} foi actualizado",
       "deleted": "Sala com identificador {{ param }} foi eliminado",
       "delete": {
-        "question": "Tem a certeza que pretende eliminar o(a) Sala {{ id }}?"
+        "question": "Tem a certeza que pretende eliminar a sala {{ id }}?"
       },
       "detail": {
         "title": "Sala"
       },
-      "numero": "Numero",
-      "descricao": "Descricao",
-      "lotacao": "Lotacao",
+      "numero": "Número da sala",
+      "descricao": "Descrição",
+      "lotacao": "Número máximo de aluno",
       "turma": "Turma"
     }
   }
