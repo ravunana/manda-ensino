@@ -1,0 +1,88 @@
+/*
+valor 15.000,00,
+valor multa 5000,
+tempo multa 10 dias ureis
+quantidade 10 unidade : Mes
+emolumento Propina
+classe 10
+curso Informatica de gestao
+*/
+entity Emolumento(fin_emolumento) {
+    nome String required unique,
+    valor BigDecimal required min(0),
+    valorMulta Double required min(0), // porcentagem
+    tempoMulta Integer required min(1),
+    quantidade Double min(0)
+}
+
+entity Deposito(fin_deposito) {
+    numeroTalao String required unique,
+    dataDeposito LocalDate required,
+    valor BigDecimal min(0) required,
+    saldo BigDecimal min(0) required // saldo é igual ao valor depositado, quando usado o deposito é decrementado o saldo pelo valor de pagamento quando o saldo é zera é dado como usado o deposito
+}
+
+// Pronto pagamento e Prestacoes (Ex, 1X, 2X, 3X, 4X, ...)
+// Forma de pagamento
+entity FormaLiquidacao(fin_forma_liquidacao) {
+    nome String unique required,
+    juro Double required min(0) max(100), // em porcentagem
+    prazoLiquidacao Integer required min(0) // em dias
+    quantidade Integer required min(1), // Numero de prestacoe 1,2,3,...N
+    icon String
+}
+
+// Cartao Credito, Deposito BPC, Transferencia BPC, Numerario, TPA BPC,
+entity MeioLiquidacao(fin_meio_liquidacao) {
+    nome String unique required,
+    sigla String unique,
+    icon String,
+    mostrarPontoVenda Boolean required
+}
+
+entity Pagamento(fin_pagamento) {
+    data ZonedDateTime,
+    numero String unique required
+}
+
+entity DetalhePagamento(fin_detalhe_pagamento) {
+    descricao String required , // se mensalidade true sera o Mes de Jan a Dez se nao vai uma descricao tipo Disciplina (Mat, TLP)
+    mensalidade Boolean required,
+    quantidade Integer required min(1),
+    valor BigDecimal required min(0),
+    desconto Double min(0), // porcentagem
+    multa Double min(0) , // porcentagem
+    juro Double min(0),
+    data ZonedDateTime,
+    vencimento LocalDate,
+    quitado Boolean required
+}
+
+
+/**
+ * One to many relationship.
+ */
+relationship OneToMany {
+    Emolumento to DetalhePagamento{emolumento(nome) required},
+    Deposito to DetalhePagamento{deposito(numeroTalao) required},
+    Aluno to Pagamento{aluno(numeroProcesso) required },
+    FormaLiquidacao to Pagamento{formaLiquidacao(nome) required },
+    MeioLiquidacao to Deposito{meioLiquidacao(nome) required },
+    Aluno to Deposito{aluno(numeroProcesso) required },
+    Curso to Emolumento{curso(nome)},
+    Classe to Emolumento{classe(descricao)},
+    CoordenadaBancaria to Deposito{conta(descricao) required }
+}
+
+/**
+ * Many to one relationship.
+ */
+relationship ManyToOne {
+    Deposito{utilizador(login) required } to User,
+    Pagamento{utilizador(login) required } to User,
+    DetalhePagamento{utilizador(login) required } to User
+}
+
+dto * with mapstruct
+paginate * with pagination
+service * with serviceClass

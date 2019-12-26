@@ -1,0 +1,79 @@
+
+entity Exemplar {
+    titulo String required unique,
+    subTitulo String unique,
+    isbn String unique required,
+    edicao Integer required,
+    numeroRegistro String unique required,
+    assunto String,
+    localPublicacao String,
+    dataPublicacao LocalDate,
+    duracao Double, // ou numero de paginas ou tempo de leitura do exemplar
+    arquivo AnyBlob,
+    resenha TextBlob,
+    valorMulta BigDecimal required min(0),
+    tempoEmprestimo Double required,
+    tipoMaterial String required,
+    generoLiterario String,
+    classificacaoEtaria String,
+    situacaoExemplar String required,
+    usuarioID String
+}
+
+entity Emprestimo {
+    descricao TextBlob,
+    numero String required unique,
+    usuarioID String
+}
+
+entity Devolucao {
+    dataEntrega LocalDate required,
+    usuarioID String
+}
+
+entity Autor {
+    nome String required
+}
+
+entity Editora {
+    nome String required
+}
+
+entity Requisitante {
+    nome String required,
+    numero String,
+    aluno Boolean required
+}
+
+entity ItemRequisitado {
+    quantidade Double,
+    dataDevolucao LocalDate required,
+    usoLocal Boolean required,
+    numero String
+}
+
+/**
+ * One to one relationship.
+ */
+relationship OneToOne {
+    Devolucao{emprestimo(numero) required} to ItemRequisitado
+}
+
+/**
+ * Many to one relationship.
+ */
+relationship ManyToOne {
+    Exemplar to ItemRequisitado{exemplar(titulo) required},
+    Requisitante to Emprestimo{requisitante(nome) required},
+    Emprestimo to ItemRequisitado{emprestimo(numero) required}
+}
+
+relationship ManyToMany {
+    Exemplar{autor(nome) required} to Autor,
+    Exemplar{editora(nome) required} to Editora
+}
+
+dto * with mapstruct
+microservice * with biblioteca
+paginate * with pagination
+service * with serviceClass

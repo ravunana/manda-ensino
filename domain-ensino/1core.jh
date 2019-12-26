@@ -1,0 +1,180 @@
+enum LookupType {
+	USUARIO,
+    SISTEMA
+}
+
+entity SerieDocumento(core_serie_documento) {
+    serie String,
+    sequencia Integer,
+    entidade String // Ocoorencia, Matricula, Aluno
+}
+
+entity Software(rv_software) {
+	InstituicaoEnsino String required,
+    tipoSistema String required, // DP
+    nif String required,
+    numeroValidacaoAGT Integer required, // DP
+    nome String maxlength(255) required,
+    versao String maxlength(30) required,
+    hashCode String required,
+    hashControl String required
+}
+
+entity LicencaSoftware(rv_licenca_software) {
+    tipoSubscricao String required, // MENSAL, SEMESTRAL, ANUAL
+    inicio ZonedDateTime required,
+    fim ZonedDateTime required,
+    data ZonedDateTime,
+    valor BigDecimal min(0) required,
+    codigo String unique required,
+    numeroUsuario Integer min(1),
+    numeroInstituicaoEnsino Integer min(1)
+}
+
+entity Lookup(core_lookup) {
+    nome String required unique,
+    entidade String, // Pesoa, CLiente, Produto
+    modificavel Boolean
+}
+
+entity LookupItem(core_lookup_item) {
+	valor String, // M
+    nome String, // Masculino
+    type LookupType
+}
+
+entity MoradaPessoa(core_morada_pessoa) {
+	provincia String required,
+    municipio String required,
+    bairro String required,
+    rua String maxlength(200),
+    quarteirao String maxlength(10),
+    numeroPorta String maxlength(10)
+}
+
+entity ContactoPessoa(core_contacto_pessoa) {
+	tipoContacto String required, // EMAIL, TELEFONE; FAX; SITE; REDE_SOCIAL
+	descricao String required, // Ex. CASA, TRABALHO, PESSOAL, DEPARTAMENTO
+    contacto String unique required
+}
+
+entity Pessoa(core_pessoa) {
+	tipoPessoa String required,
+    nome String required,
+    imagem ImageBlob,
+    pai String,
+    mae String,
+    nascimento LocalDate
+}
+
+entity DocumentacaoPessoa(core_documento_pessoa) {
+    tipo String required,
+    numero String unique required,
+    emissao LocalDate,
+    validade LocalDate,
+    naturalidade String,
+    nacionalidade String,
+    localEmissao String
+    nif String unique
+}
+
+entity RelacionamentoPessoa(core_relacionamento_pessoa) {
+	grauParentesco String required // PAI, MAE; AVO, AMIGO
+}
+
+// fim pessoa module
+
+// inicio InstituicaoEnsino module
+entity InstituicaoEnsino(core_insituicao_ensino) {
+	nome String required unique,
+    logotipo ImageBlob required,
+    fundacao LocalDate,
+    numero String unique,
+    tipoVinculo String,
+    unidadePagadora String,
+    unidadeOrganica String,
+    tipoInstalacao String, // Definitiva
+    dimensao String,
+    carimbo AnyBlob
+    sede Boolean required
+}
+
+entity AssinaturaDigital(core_assinatura_digital) {
+    tipo String required, // Director pedagogico, geral, coordenador
+    assinatura AnyBlob,
+    hashcode String unique,
+    data ZonedDateTime
+}
+
+entity LocalizacaoInstituicaoEnsino(core_localizacao_instituicao) {
+	provincia String required,
+    municipio String required,
+    bairro String required,
+    rua String maxlength(200) required,
+    quarteirao String maxlength(10) required,
+    numeroPorta String maxlength(10),
+    caixaPostal String
+}
+
+entity ContactoInstituicaoEnsino(core_contacto_instituicao) {
+	tipoContacto String required,
+	descricao String required,
+    contacto String unique required
+}
+
+
+entity CoordenadaBancaria(core_coordenada_bancaria) {
+	descricao String required unique, // Nome do banco, Nome do caixa
+    proprietario String required,
+    numeroConta String unique required,
+    iban String unique,
+    ativo Boolean required,
+    mostrarDocumento Boolean,
+    mostrarPontoVenda Boolean,
+    padraoRecebimento Boolean,
+    padraoPagamento Boolean
+}
+
+entity Arquivo(core_arquivo) {
+	descricao String,
+    entidade String, // Pessoa, Venda, Compra, LancamentoFinanceiro, EscrituracaoContabil, Produto
+    anexo AnyBlob,
+    codigoEntidade String,
+    data ZonedDateTime
+}
+
+relationship ManyToOne {
+	Arquivo{utilizador(login)} to User,
+    InstituicaoEnsino{utilizador(login)} to User,
+    Pessoa{utilizador(login)} to User,
+    RelacionamentoPessoa{de(nome) required} to Pessoa,
+    RelacionamentoPessoa{para(nome) required} to Pessoa
+}
+
+relationship OneToMany {
+	InstituicaoEnsino to InstituicaoEnsino{hierarquia(nome)},
+    InstituicaoEnsino to LocalizacaoInstituicaoEnsino{InstituicaoEnsino(nome) required},
+    InstituicaoEnsino to ContactoInstituicaoEnsino{InstituicaoEnsino(nome) required},
+    Software to LicencaSoftware{software(nome)},
+    InstituicaoEnsino to LicencaSoftware{InstituicaoEnsino(nome) required},
+    Lookup to LookupItem{lookup(nome)},
+    Pessoa to MoradaPessoa{pessoa(nome) required},
+    Pessoa to ContactoPessoa{pessoa(nome) required},
+    Pessoa to DocumentacaoPessoa{pessoa(nome) required },
+    InstituicaoEnsino to AssinaturaDigital{instituicao(nome) required }
+}
+
+relationship ManyToMany {
+	CoordenadaBancaria{InstituicaoEnsino(nome) required} to InstituicaoEnsino{coordenadaBancaria}
+}
+
+/**
+ * One to one relationship.
+ */
+relationship OneToOne {
+    SerieDocumento{InstituicaoEnsino(nome)} to InstituicaoEnsino
+}
+
+dto * with mapstruct
+service * with serviceClass
+paginate * with pagination

@@ -1,0 +1,234 @@
+// enum StatusActividade {
+// 	CONCLUIDO, PROGRESSO, PENDENTE, CANCELADO
+// }
+
+// enum PeriodoLectivo {
+// 	PRIMEIRO, SEGUNDO, TERCEIRO
+// }
+
+// enum ComponenteCurricular {
+// 	SOCIOCULTURAL, CIENTIFICA, TECNICA_TECNOLOGICA_PRATICA
+// }
+
+// enum RegimeCurricular {
+// 	ANUAL, BIENAL, TRIMESTRAL
+// }
+
+// enum Turno {
+// 	MANHA, TARDE, NOITE
+// }
+
+// enum DiaSemana {
+// 	SEGUNDA, TERCA, QUARTA, QUINTA, SEXTA, SABADO, DOMINGO
+// }
+
+entity Professor(pdg_professor) {
+    numeroAgente String required unique,
+	ativo Boolean
+}
+
+entity Sala(pdg_sala) {
+	numero Integer required unique,
+	descricao TextBlob,
+	lotacao Integer required min(30)
+}
+
+entity AreaFormacao(pdg_area_formacao) {
+	nome String required minlength(10) unique,
+	competencias TextBlob
+}
+
+entity Curso(pdg_curso) {
+	nome String required minlength(10) unique,
+	sigla String required minlength(3) maxlength(12) unique,
+	competencias TextBlob
+}
+
+entity Classe(pdg_classe) {
+	descricao Integer required unique,
+    tipoEnsino String
+}
+
+entity Disciplina(pdg_disciplina) {
+	nome String required unique,
+    sigla String required minlength(3) unique
+}
+
+entity MatrizCurricular(pdg_matriz_curricular) {
+
+}
+
+entity PlanoCurricular(pdg_plano_curricular) {
+	cargaHoraria Integer required,
+	descricao String required,
+	terminal Boolean required,
+	regimeCurricular String required,
+	componente String required
+}
+
+entity UnidadeCurricular(pdg_unidade_curricular) {
+	descricao TextBlob required unique,
+	unidade String required,
+	numero Integer required
+}
+
+entity CriterioAvaliacao(pdg_criterio_avaliacao) {
+	aprovaCom Integer required min(0), // 4 dificiencias
+	reporvaCom Integer required min(0),
+	recursoCom Integer required min(0),
+	fazExame Boolean required,
+	fazRecurso Boolean required,
+	fazExameEspecial Boolean required,
+	numeroFaltaReprova Integer required min(0),
+	menorNota Double min(0) required,
+	maiorNota Double required min(0),
+	notaMinimaAprovacao Double min(0) required
+}
+
+entity Turma(pdg_turma) {
+	descricao String required unique,
+    anoLectivo LocalDate,
+    regime String required,
+    turno String required,
+    data ZonedDateTime,
+	ativo Boolean
+}
+
+entity Horario(pdg_horario) {
+	inicioAula ZonedDateTime required,
+	terminoAlua ZonedDateTime required,
+	intervalo ZonedDateTime required,
+    diaSemana String required,
+    regimeCurricular String required,
+	data ZonedDateTime required,
+    anoLectivo LocalDate,
+    categoria String // (AULA, PROVA)
+}
+
+entity PlanoActividade(pdg_plano_actividade) {
+	numeroActividade Integer unique min(1),
+	atividade String required,
+	objectivos TextBlob required,
+	de LocalDate required,
+	ate LocalDate required,
+	responsavel String required, // userID
+	local String,
+	observacao TextBlob,
+	participantes String, // Comunidade escolar, delegados de turma, professores, coordenadores, pessoal administrativo
+	coResponsavel String, // userID
+	statusActividade String required,
+	anoLectivo LocalDate required,
+	periodoLectivo String
+}
+
+entity Aula(prof_aula) {
+	data ZonedDateTime required,
+	sumario String required,
+	licao Integer required,
+	dada Boolean required
+}
+
+entity Dossificacao(pdg_dossificacao) {
+	periodoLectivo String required,
+	anoLectivo LocalDate required,
+	objectivoGeral String required,
+	objectivoEspecifico TextBlob required,
+	semanaLectiva Integer required,
+	de LocalDate required,
+	ate LocalDate required,
+	conteudo TextBlob required,
+	procedimentoEnsino TextBlob required,
+	recursosDidatico TextBlob required,
+	tempoAula ZonedDateTime required,
+	formaAvaliacao String required
+}
+
+entity PlanoAula(prof_plano_aula) {
+	objectivoGeral TextBlob required,
+	objectivoEspecifico TextBlob required,
+	conteudo TextBlob required,
+	estrategia TextBlob required,
+	actividades TextBlob required,
+	tempo ZonedDateTime required,
+	recursosEnsino TextBlob required,
+	avaliacao TextBlob required,
+	observacao TextBlob required,
+	bibliografia TextBlob required,
+	perfilEntrada TextBlob required,
+	perfilSaida TextBlob required,
+	anexo1 AnyBlob,
+	anexo2 AnyBlob,
+	anexo3 AnyBlob
+}
+
+entity CategoriaValiacao(pdg_categoria_avaliacao) {
+	nome String required unique,
+	siglaInterna String unique,
+	siglaPauta String unique required
+}
+
+entity Nota(prof_nota) {
+	valor Double min(0) max(20) required,
+	data ZonedDateTime,
+    anoLectivo LocalDate,
+    periodoLectivo String
+}
+
+/**
+ * One to one relationship.
+ */
+relationship OneToOne {
+	CriterioAvaliacao{planoCurricular(descricao)} to PlanoCurricular,
+    Professor{pessoa(nome) required } to Pessoa
+}
+
+relationship OneToMany {
+	Sala to Turma{sala(numero) required},
+    Classe to Turma{classe(descricao) required},
+	Curso to Turma{curso(nome) required},
+    Disciplina to PlanoCurricular{disciplina(nome) required},
+    AreaFormacao to Curso{areaFormacao(nome) required},
+    Turma to Horario{turma(descricao) required},
+    Professor to Horario{professor(numeroAgente) required},
+    Classe to PlanoCurricular{classe(descricao) required},
+    Curso to MatrizCurricular{curso(nome) required},
+	Disciplina to Horario{disciplina(nome) required},
+    Disciplina to Nota{disciplina(nome) required},
+    Turma to Nota{turma(descricao) required},
+    Disciplina to PlanoAula{disciplina(nome) required},
+	Disciplina to PlanoAula{disciplina(nome) required},
+	Turma to Aula{turma(descricao) required},
+	Disciplina to Dossificacao{disciplina(nome) required},
+	Dossificacao to PlanoAula{dossificacao},
+	Disciplina to UnidadeCurricular{disciplina(nome) required},
+	Classe to UnidadeCurricular{classe(descricao) required},
+	UnidadeCurricular to UnidadeCurricular{herarquia(unidade)},
+	AreaFormacao to CategoriaValiacao{areaFormacao(nome) required},
+	CategoriaValiacao to Nota{categoriaAvaliacao(nome)},
+	Matricula to Nota{matricula(numero) required }
+}
+
+/**
+ * Many to one relationship.
+ */
+relationship ManyToOne {
+	Professor{utilizador(login)} to User,
+	Horario{utilizador(login)} to User,
+	PlanoAula{utilizador(login)} to User,
+	Aula{utilizador(login)} to User,
+	Nota{utilizador(login)} to User,
+	PlanoActividade{utilizador(login)} to User,
+	Turma{utilizador(login)} to User
+}
+
+relationship ManyToMany {
+	Aula{planoAula} to PlanoAula{aula},
+	PlanoAula{turma(descricao) required} to Turma{planoAula},
+	Dossificacao{curso(nome) required} to Curso{dossificacao},
+	Dossificacao{classe(descricao) required} to Classe{dossificacao}
+}
+
+
+dto * with mapstruct
+paginate * with pagination
+service * with serviceClass
