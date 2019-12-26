@@ -1,0 +1,68 @@
+{
+    "name": "PlanoCurricular",
+    "fields": [
+        {
+            "fieldName": "cargaHoraria",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "descricao",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "terminal",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "regimeCurricular",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "componente",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "disciplina",
+            "otherEntityRelationshipName": "planoCurricular",
+            "relationshipValidateRules": "required",
+            "relationshipName": "disciplina",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "classe",
+            "otherEntityRelationshipName": "planoCurricular",
+            "relationshipValidateRules": "required",
+            "relationshipName": "classe",
+            "otherEntityField": "descricao"
+        }
+    ],
+    "changelogDate": "20191226105343",
+    "entityTableName": "pdg_plano_curricular",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

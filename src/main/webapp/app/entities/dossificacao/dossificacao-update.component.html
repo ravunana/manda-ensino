@@ -1,0 +1,214 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="rv-dossificacao-heading" jhiTranslate="ensinoApp.dossificacao.home.createOrEditLabel">Create or edit a Dossificacao</h2>
+            <div>
+                <rv-alert-error></rv-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.dossificacao.periodoLectivo" for="field_periodoLectivo">Periodo Lectivo</label>
+                    <input type="text" class="form-control" name="periodoLectivo" id="field_periodoLectivo"
+                           formControlName="periodoLectivo"/>
+                    <div *ngIf="editForm.get('periodoLectivo')!.invalid && (editForm.get('periodoLectivo')!.dirty || editForm.get('periodoLectivo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('periodoLectivo')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.dossificacao.anoLectivo" for="field_anoLectivo">Ano Lectivo</label>
+                    <div class="input-group">
+                        <input id="field_anoLectivo" type="text" class="form-control" name="anoLectivo" ngbDatepicker  #anoLectivoDp="ngbDatepicker" formControlName="anoLectivo"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="anoLectivoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('anoLectivo')!.invalid && (editForm.get('anoLectivo')!.dirty || editForm.get('anoLectivo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('anoLectivo')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.dossificacao.objectivoGeral" for="field_objectivoGeral">Objectivo Geral</label>
+                    <input type="text" class="form-control" name="objectivoGeral" id="field_objectivoGeral"
+                           formControlName="objectivoGeral"/>
+                    <div *ngIf="editForm.get('objectivoGeral')!.invalid && (editForm.get('objectivoGeral')!.dirty || editForm.get('objectivoGeral')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('objectivoGeral')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.dossificacao.objectivoEspecifico" for="field_objectivoEspecifico">Objectivo Especifico</label>
+                    <textarea class="form-control" name="objectivoEspecifico" id="field_objectivoEspecifico"
+                              formControlName="objectivoEspecifico"></textarea>
+                    <div *ngIf="editForm.get('objectivoEspecifico')!.invalid && (editForm.get('objectivoEspecifico')!.dirty || editForm.get('objectivoEspecifico')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('objectivoEspecifico')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.dossificacao.semanaLectiva" for="field_semanaLectiva">Semana Lectiva</label>
+                    <input type="number" class="form-control" name="semanaLectiva" id="field_semanaLectiva"
+                           formControlName="semanaLectiva"/>
+                    <div *ngIf="editForm.get('semanaLectiva')!.invalid && (editForm.get('semanaLectiva')!.dirty || editForm.get('semanaLectiva')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('semanaLectiva')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('semanaLectiva')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.dossificacao.de" for="field_de">De</label>
+                    <div class="input-group">
+                        <input id="field_de" type="text" class="form-control" name="de" ngbDatepicker  #deDp="ngbDatepicker" formControlName="de"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="deDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('de')!.invalid && (editForm.get('de')!.dirty || editForm.get('de')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('de')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.dossificacao.ate" for="field_ate">Ate</label>
+                    <div class="input-group">
+                        <input id="field_ate" type="text" class="form-control" name="ate" ngbDatepicker  #ateDp="ngbDatepicker" formControlName="ate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="ateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('ate')!.invalid && (editForm.get('ate')!.dirty || editForm.get('ate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('ate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.dossificacao.conteudo" for="field_conteudo">Conteudo</label>
+                    <textarea class="form-control" name="conteudo" id="field_conteudo"
+                              formControlName="conteudo"></textarea>
+                    <div *ngIf="editForm.get('conteudo')!.invalid && (editForm.get('conteudo')!.dirty || editForm.get('conteudo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('conteudo')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.dossificacao.procedimentoEnsino" for="field_procedimentoEnsino">Procedimento Ensino</label>
+                    <textarea class="form-control" name="procedimentoEnsino" id="field_procedimentoEnsino"
+                              formControlName="procedimentoEnsino"></textarea>
+                    <div *ngIf="editForm.get('procedimentoEnsino')!.invalid && (editForm.get('procedimentoEnsino')!.dirty || editForm.get('procedimentoEnsino')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('procedimentoEnsino')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.dossificacao.recursosDidatico" for="field_recursosDidatico">Recursos Didatico</label>
+                    <textarea class="form-control" name="recursosDidatico" id="field_recursosDidatico"
+                              formControlName="recursosDidatico"></textarea>
+                    <div *ngIf="editForm.get('recursosDidatico')!.invalid && (editForm.get('recursosDidatico')!.dirty || editForm.get('recursosDidatico')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('recursosDidatico')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.dossificacao.tempoAula" for="field_tempoAula">Tempo Aula</label>
+                    <div class="d-flex">
+                        <input id="field_tempoAula" type="datetime-local" class="form-control" name="tempoAula" formControlName="tempoAula" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('tempoAula')!.invalid && (editForm.get('tempoAula')!.dirty || editForm.get('tempoAula')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tempoAula')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('tempoAula')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.dossificacao.formaAvaliacao" for="field_formaAvaliacao">Forma Avaliacao</label>
+                    <input type="text" class="form-control" name="formaAvaliacao" id="field_formaAvaliacao"
+                           formControlName="formaAvaliacao"/>
+                    <div *ngIf="editForm.get('formaAvaliacao')!.invalid && (editForm.get('formaAvaliacao')!.dirty || editForm.get('formaAvaliacao')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('formaAvaliacao')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="ensinoApp.dossificacao.curso" for="field_cursos">Curso</label>
+                    <select class="form-control" id="field_cursos" multiple name="cursos" formControlName="cursos">
+                        <option [ngValue]="getSelected(editForm.get('cursos')!.value, cursoOption)" *ngFor="let cursoOption of cursos; trackBy: trackById">{{cursoOption.nome}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('cursos')!.invalid && (editForm.get('cursos')!.dirty || editForm.get('cursos')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('cursos')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="ensinoApp.dossificacao.classe" for="field_classes">Classe</label>
+                    <select class="form-control" id="field_classes" multiple name="classes" formControlName="classes">
+                        <option [ngValue]="getSelected(editForm.get('classes')!.value, classeOption)" *ngFor="let classeOption of classes; trackBy: trackById">{{classeOption.descricao}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('classes')!.invalid && (editForm.get('classes')!.dirty || editForm.get('classes')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('classes')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.dossificacao.disciplina" for="field_disciplina">Disciplina</label>
+                    <select class="form-control" id="field_disciplina" name="disciplina" formControlName="disciplinaId">
+                        <option *ngIf="!editForm.get('disciplinaId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="disciplinaOption.id" *ngFor="let disciplinaOption of disciplinas; trackBy: trackById">{{disciplinaOption.nome}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('disciplinaId')!.invalid && (editForm.get('disciplinaId')!.dirty || editForm.get('disciplinaId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('disciplinaId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

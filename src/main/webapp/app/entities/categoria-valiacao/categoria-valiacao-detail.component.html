@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="categoriaValiacao">
+            <h2><span jhiTranslate="ensinoApp.categoriaValiacao.detail.title">Categoria Valiacao</span> {{categoriaValiacao.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.categoriaValiacao.nome">Nome</span></dt>
+                <dd>
+                    <span>{{categoriaValiacao.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.categoriaValiacao.siglaInterna">Sigla Interna</span></dt>
+                <dd>
+                    <span>{{categoriaValiacao.siglaInterna}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.categoriaValiacao.siglaPauta">Sigla Pauta</span></dt>
+                <dd>
+                    <span>{{categoriaValiacao.siglaPauta}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.categoriaValiacao.areaFormacao">Area Formacao</span></dt>
+                <dd>
+                    <div *ngIf="categoriaValiacao.areaFormacaoId">
+                        <a [routerLink]="['/area-formacao', categoriaValiacao.areaFormacaoId, 'view']">{{categoriaValiacao.areaFormacaoNome}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/categoria-valiacao', categoriaValiacao.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

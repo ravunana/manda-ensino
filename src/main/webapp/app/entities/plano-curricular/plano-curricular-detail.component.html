@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="planoCurricular">
+            <h2><span jhiTranslate="ensinoApp.planoCurricular.detail.title">Plano Curricular</span> {{planoCurricular.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.planoCurricular.cargaHoraria">Carga Horaria</span></dt>
+                <dd>
+                    <span>{{planoCurricular.cargaHoraria}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoCurricular.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{planoCurricular.descricao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoCurricular.terminal">Terminal</span></dt>
+                <dd>
+                    <span>{{planoCurricular.terminal}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoCurricular.regimeCurricular">Regime Curricular</span></dt>
+                <dd>
+                    <span>{{planoCurricular.regimeCurricular}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoCurricular.componente">Componente</span></dt>
+                <dd>
+                    <span>{{planoCurricular.componente}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoCurricular.disciplina">Disciplina</span></dt>
+                <dd>
+                    <div *ngIf="planoCurricular.disciplinaId">
+                        <a [routerLink]="['/disciplina', planoCurricular.disciplinaId, 'view']">{{planoCurricular.disciplinaNome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoCurricular.classe">Classe</span></dt>
+                <dd>
+                    <div *ngIf="planoCurricular.classeId">
+                        <a [routerLink]="['/classe', planoCurricular.classeId, 'view']">{{planoCurricular.classeDescricao}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/plano-curricular', planoCurricular.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

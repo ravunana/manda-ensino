@@ -1,0 +1,254 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="rv-plano-aula-heading" jhiTranslate="ensinoApp.planoAula.home.createOrEditLabel">Create or edit a Plano Aula</h2>
+            <div>
+                <rv-alert-error></rv-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoAula.objectivoGeral" for="field_objectivoGeral">Objectivo Geral</label>
+                    <textarea class="form-control" name="objectivoGeral" id="field_objectivoGeral"
+                              formControlName="objectivoGeral"></textarea>
+                    <div *ngIf="editForm.get('objectivoGeral')!.invalid && (editForm.get('objectivoGeral')!.dirty || editForm.get('objectivoGeral')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('objectivoGeral')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoAula.objectivoEspecifico" for="field_objectivoEspecifico">Objectivo Especifico</label>
+                    <textarea class="form-control" name="objectivoEspecifico" id="field_objectivoEspecifico"
+                              formControlName="objectivoEspecifico"></textarea>
+                    <div *ngIf="editForm.get('objectivoEspecifico')!.invalid && (editForm.get('objectivoEspecifico')!.dirty || editForm.get('objectivoEspecifico')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('objectivoEspecifico')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoAula.conteudo" for="field_conteudo">Conteudo</label>
+                    <textarea class="form-control" name="conteudo" id="field_conteudo"
+                              formControlName="conteudo"></textarea>
+                    <div *ngIf="editForm.get('conteudo')!.invalid && (editForm.get('conteudo')!.dirty || editForm.get('conteudo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('conteudo')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoAula.estrategia" for="field_estrategia">Estrategia</label>
+                    <textarea class="form-control" name="estrategia" id="field_estrategia"
+                              formControlName="estrategia"></textarea>
+                    <div *ngIf="editForm.get('estrategia')!.invalid && (editForm.get('estrategia')!.dirty || editForm.get('estrategia')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('estrategia')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoAula.actividades" for="field_actividades">Actividades</label>
+                    <textarea class="form-control" name="actividades" id="field_actividades"
+                              formControlName="actividades"></textarea>
+                    <div *ngIf="editForm.get('actividades')!.invalid && (editForm.get('actividades')!.dirty || editForm.get('actividades')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('actividades')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoAula.tempo" for="field_tempo">Tempo</label>
+                    <div class="d-flex">
+                        <input id="field_tempo" type="datetime-local" class="form-control" name="tempo" formControlName="tempo" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('tempo')!.invalid && (editForm.get('tempo')!.dirty || editForm.get('tempo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tempo')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('tempo')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoAula.recursosEnsino" for="field_recursosEnsino">Recursos Ensino</label>
+                    <textarea class="form-control" name="recursosEnsino" id="field_recursosEnsino"
+                              formControlName="recursosEnsino"></textarea>
+                    <div *ngIf="editForm.get('recursosEnsino')!.invalid && (editForm.get('recursosEnsino')!.dirty || editForm.get('recursosEnsino')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('recursosEnsino')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoAula.avaliacao" for="field_avaliacao">Avaliacao</label>
+                    <textarea class="form-control" name="avaliacao" id="field_avaliacao"
+                              formControlName="avaliacao"></textarea>
+                    <div *ngIf="editForm.get('avaliacao')!.invalid && (editForm.get('avaliacao')!.dirty || editForm.get('avaliacao')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('avaliacao')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoAula.observacao" for="field_observacao">Observacao</label>
+                    <textarea class="form-control" name="observacao" id="field_observacao"
+                              formControlName="observacao"></textarea>
+                    <div *ngIf="editForm.get('observacao')!.invalid && (editForm.get('observacao')!.dirty || editForm.get('observacao')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('observacao')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoAula.bibliografia" for="field_bibliografia">Bibliografia</label>
+                    <textarea class="form-control" name="bibliografia" id="field_bibliografia"
+                              formControlName="bibliografia"></textarea>
+                    <div *ngIf="editForm.get('bibliografia')!.invalid && (editForm.get('bibliografia')!.dirty || editForm.get('bibliografia')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('bibliografia')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoAula.perfilEntrada" for="field_perfilEntrada">Perfil Entrada</label>
+                    <textarea class="form-control" name="perfilEntrada" id="field_perfilEntrada"
+                              formControlName="perfilEntrada"></textarea>
+                    <div *ngIf="editForm.get('perfilEntrada')!.invalid && (editForm.get('perfilEntrada')!.dirty || editForm.get('perfilEntrada')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('perfilEntrada')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoAula.perfilSaida" for="field_perfilSaida">Perfil Saida</label>
+                    <textarea class="form-control" name="perfilSaida" id="field_perfilSaida"
+                              formControlName="perfilSaida"></textarea>
+                    <div *ngIf="editForm.get('perfilSaida')!.invalid && (editForm.get('perfilSaida')!.dirty || editForm.get('perfilSaida')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('perfilSaida')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoAula.anexo1" for="field_anexo1">Anexo 1</label>
+                    <div>
+                        <div *ngIf="editForm.get('anexo1')!.value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('anexo1ContentType')!.value, editForm.get('anexo1')!.value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('anexo1ContentType')!.value}}, {{byteSize(editForm.get('anexo1')!.value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({anexo1: null});editForm.patchValue({anexo1ContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_anexo1" (change)="setFileData($event, 'anexo1', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="anexo1" id="field_anexo1"
+                           formControlName="anexo1"/>
+                    <input type="hidden" class="form-control" name="anexo1ContentType" id="field_anexo1ContentType"
+                           formControlName="anexo1ContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoAula.anexo2" for="field_anexo2">Anexo 2</label>
+                    <div>
+                        <div *ngIf="editForm.get('anexo2')!.value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('anexo2ContentType')!.value, editForm.get('anexo2')!.value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('anexo2ContentType')!.value}}, {{byteSize(editForm.get('anexo2')!.value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({anexo2: null});editForm.patchValue({anexo2ContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_anexo2" (change)="setFileData($event, 'anexo2', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="anexo2" id="field_anexo2"
+                           formControlName="anexo2"/>
+                    <input type="hidden" class="form-control" name="anexo2ContentType" id="field_anexo2ContentType"
+                           formControlName="anexo2ContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoAula.anexo3" for="field_anexo3">Anexo 3</label>
+                    <div>
+                        <div *ngIf="editForm.get('anexo3')!.value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('anexo3ContentType')!.value, editForm.get('anexo3')!.value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('anexo3ContentType')!.value}}, {{byteSize(editForm.get('anexo3')!.value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({anexo3: null});editForm.patchValue({anexo3ContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_anexo3" (change)="setFileData($event, 'anexo3', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="anexo3" id="field_anexo3"
+                           formControlName="anexo3"/>
+                    <input type="hidden" class="form-control" name="anexo3ContentType" id="field_anexo3ContentType"
+                           formControlName="anexo3ContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoAula.utilizador" for="field_utilizador">Utilizador</label>
+                    <select class="form-control" id="field_utilizador" name="utilizador" formControlName="utilizadorId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackById">{{userOption.login}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="ensinoApp.planoAula.turma" for="field_turmas">Turma</label>
+                    <select class="form-control" id="field_turmas" multiple name="turmas" formControlName="turmas">
+                        <option [ngValue]="getSelected(editForm.get('turmas')!.value, turmaOption)" *ngFor="let turmaOption of turmas; trackBy: trackById">{{turmaOption.descricao}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('turmas')!.invalid && (editForm.get('turmas')!.dirty || editForm.get('turmas')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('turmas')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoAula.disciplina" for="field_disciplina">Disciplina</label>
+                    <select class="form-control" id="field_disciplina" name="disciplina" formControlName="disciplinaId">
+                        <option *ngIf="!editForm.get('disciplinaId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="disciplinaOption.id" *ngFor="let disciplinaOption of disciplinas; trackBy: trackById">{{disciplinaOption.nome}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('disciplinaId')!.invalid && (editForm.get('disciplinaId')!.dirty || editForm.get('disciplinaId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('disciplinaId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoAula.dossificacao" for="field_dossificacao">Dossificacao</label>
+                    <select class="form-control" id="field_dossificacao" name="dossificacao" formControlName="dossificacaoId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="dossificacaoOption.id" *ngFor="let dossificacaoOption of dossificacaos; trackBy: trackById">{{dossificacaoOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

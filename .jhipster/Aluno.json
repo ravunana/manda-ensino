@@ -1,0 +1,127 @@
+{
+    "name": "Aluno",
+    "fields": [
+        {
+            "fieldName": "numeroProcesso",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "unique",
+                "required"
+            ]
+        },
+        {
+            "fieldName": "transferido",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "data",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "turmaAnterior",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "anoConclusao",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "cursoFrequentado",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nomeEscolaAnteriror",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "enderecoEscolaAnterior",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "classeConcluida",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numeroProcessoAnterior",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "situacaoAnterior",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "pessoa",
+            "otherEntityRelationshipName": "aluno",
+            "relationshipValidateRules": "required",
+            "relationshipName": "pessoa",
+            "otherEntityField": "nome",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "matricula",
+            "otherEntityRelationshipName": "aluno",
+            "relationshipName": "matricula"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "contrato",
+            "otherEntityRelationshipName": "aluno",
+            "relationshipName": "contrato"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "situacaoAcademica",
+            "otherEntityRelationshipName": "aluno",
+            "relationshipName": "situacaoAcademica"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "requerimento",
+            "otherEntityRelationshipName": "aluno",
+            "relationshipName": "requerimento"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pagamento",
+            "otherEntityRelationshipName": "aluno",
+            "relationshipName": "pagamento"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "deposito",
+            "otherEntityRelationshipName": "aluno",
+            "relationshipName": "deposito"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "aluno",
+            "relationshipName": "utilizador",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "encarregadoEducacao",
+            "otherEntityRelationshipName": "aluno",
+            "relationshipName": "encarregadoEducacao",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191226105358",
+    "entityTableName": "sec_aluno",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,68 @@
+{
+    "name": "Aula",
+    "fields": [
+        {
+            "fieldName": "data",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "sumario",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "licao",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dada",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "aula",
+            "relationshipName": "utilizador",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "planoAula",
+            "otherEntityRelationshipName": "aula",
+            "relationshipName": "planoAula",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "turma",
+            "otherEntityRelationshipName": "aula",
+            "relationshipValidateRules": "required",
+            "relationshipName": "turma",
+            "otherEntityField": "descricao"
+        }
+    ],
+    "changelogDate": "20191226105349",
+    "entityTableName": "prof_aula",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

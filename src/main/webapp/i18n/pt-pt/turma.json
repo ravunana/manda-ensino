@@ -1,0 +1,37 @@
+{
+  "ensinoApp": {
+    "turma": {
+      "home": {
+        "title": "Turmas",
+        "createLabel": "Criar novo(a) Turma",
+        "createOrEditLabel": "Criar ou editar Turma",
+        "search": "Procurar por Turma",
+        "notFound": "Nenhum Turmas encontrado"
+      },
+      "created": "Um novo Turma foi criado com o identificador {{ param }}",
+      "updated": "Turma com identificador {{ param }} foi actualizado",
+      "deleted": "Turma com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Turma {{ id }}?"
+      },
+      "detail": {
+        "title": "Turma"
+      },
+      "descricao": "Descricao",
+      "anoLectivo": "Ano Lectivo",
+      "regime": "Regime",
+      "turno": "Turno",
+      "data": "Data",
+      "ativo": "Ativo",
+      "horario": "Horario",
+      "nota": "Nota",
+      "aula": "Aula",
+      "matricula": "Matricula",
+      "utilizador": "Utilizador",
+      "sala": "Sala",
+      "classe": "Classe",
+      "curso": "Curso",
+      "planoAula": "Plano Aula"
+    }
+  }
+}

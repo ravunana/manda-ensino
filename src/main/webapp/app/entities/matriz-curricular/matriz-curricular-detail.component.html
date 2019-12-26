@@ -1,0 +1,29 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="matrizCurricular">
+            <h2><span jhiTranslate="ensinoApp.matrizCurricular.detail.title">Matriz Curricular</span> {{matrizCurricular.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.matrizCurricular.curso">Curso</span></dt>
+                <dd>
+                    <div *ngIf="matrizCurricular.cursoId">
+                        <a [routerLink]="['/curso', matrizCurricular.cursoId, 'view']">{{matrizCurricular.cursoNome}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/matriz-curricular', matrizCurricular.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

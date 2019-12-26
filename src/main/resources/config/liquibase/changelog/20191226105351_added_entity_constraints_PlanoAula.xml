@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity PlanoAula.
+    -->
+    <changeSet id="20191226105351-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="utilizador_id"
+                                 baseTableName="prof_plano_aula"
+                                 constraintName="fk_prof_plano_aula_utilizador_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rv_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="plano_aula_id"
+                                 baseTableName="prof_plano_aula_turma"
+                                 constraintName="fk_prof_plano_aula_turma_prof_plano_aula_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="prof_plano_aula"/>
+
+        <addForeignKeyConstraint baseColumnNames="turma_id"
+                                 baseTableName="prof_plano_aula_turma"
+                                 constraintName="fk_prof_plano_aula_turma_turma_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pdg_turma"/>
+        
+        <addForeignKeyConstraint baseColumnNames="disciplina_id"
+                                 baseTableName="prof_plano_aula"
+                                 constraintName="fk_prof_plano_aula_disciplina_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pdg_disciplina"/>
+
+        <addForeignKeyConstraint baseColumnNames="dossificacao_id"
+                                 baseTableName="prof_plano_aula"
+                                 constraintName="fk_prof_plano_aula_dossificacao_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pdg_dossificacao"/>
+
+    </changeSet>
+</databaseChangeLog>

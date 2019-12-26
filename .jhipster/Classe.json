@@ -1,0 +1,61 @@
+{
+    "name": "Classe",
+    "fields": [
+        {
+            "fieldName": "descricao",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "tipoEnsino",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "turma",
+            "otherEntityRelationshipName": "classe",
+            "relationshipName": "turma"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "planoCurricular",
+            "otherEntityRelationshipName": "classe",
+            "relationshipName": "planoCurricular"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "unidadeCurricular",
+            "otherEntityRelationshipName": "classe",
+            "relationshipName": "unidadeCurricular"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "emolumento",
+            "otherEntityRelationshipName": "classe",
+            "relationshipName": "emolumento"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "dossificacao",
+            "otherEntityRelationshipName": "classe",
+            "relationshipName": "dossificacao",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191226105340",
+    "entityTableName": "pdg_classe",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

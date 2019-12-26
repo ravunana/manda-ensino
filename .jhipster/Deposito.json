@@ -1,0 +1,88 @@
+{
+    "name": "Deposito",
+    "fields": [
+        {
+            "fieldName": "numeroTalao",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "dataDeposito",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "valor",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "min",
+                "required"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "saldo",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "min",
+                "required"
+            ],
+            "fieldValidateRulesMin": 0
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "detalhePagamento",
+            "otherEntityRelationshipName": "deposito",
+            "relationshipName": "detalhePagamento"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "deposito",
+            "relationshipValidateRules": "required",
+            "relationshipName": "utilizador",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "meioLiquidacao",
+            "otherEntityRelationshipName": "deposito",
+            "relationshipValidateRules": "required",
+            "relationshipName": "meioLiquidacao",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "aluno",
+            "otherEntityRelationshipName": "deposito",
+            "relationshipValidateRules": "required",
+            "relationshipName": "aluno",
+            "otherEntityField": "numeroProcesso"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "coordenadaBancaria",
+            "otherEntityRelationshipName": "deposito",
+            "relationshipValidateRules": "required",
+            "relationshipName": "conta",
+            "otherEntityField": "descricao"
+        }
+    ],
+    "changelogDate": "20191226105407",
+    "entityTableName": "fin_deposito",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

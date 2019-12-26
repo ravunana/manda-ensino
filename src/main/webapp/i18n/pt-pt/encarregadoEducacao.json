@@ -1,0 +1,29 @@
+{
+  "ensinoApp": {
+    "encarregadoEducacao": {
+      "home": {
+        "title": "Encarregado Educacaos",
+        "createLabel": "Criar novo(a) Encarregado Educacao",
+        "createOrEditLabel": "Criar ou editar Encarregado Educacao",
+        "search": "Procurar por Encarregado Educacao",
+        "notFound": "Nenhum Encarregado Educacaos encontrado"
+      },
+      "created": "Um novo Encarregado Educacao foi criado com o identificador {{ param }}",
+      "updated": "Encarregado Educacao com identificador {{ param }} foi actualizado",
+      "deleted": "Encarregado Educacao com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Encarregado Educacao {{ id }}?"
+      },
+      "detail": {
+        "title": "Encarregado Educacao"
+      },
+      "profissao": "Profissao",
+      "cargo": "Cargo",
+      "faixaSalarial": "Faixa Salarial",
+      "nomeEmpresa": "Nome Empresa",
+      "contactoEmpresa": "Contacto Empresa",
+      "pessoa": "Pessoa",
+      "aluno": "Aluno"
+    }
+  }
+}

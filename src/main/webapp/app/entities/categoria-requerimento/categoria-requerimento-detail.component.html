@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="categoriaRequerimento">
+            <h2><span jhiTranslate="ensinoApp.categoriaRequerimento.detail.title">Categoria Requerimento</span> {{categoriaRequerimento.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.categoriaRequerimento.nome">Nome</span></dt>
+                <dd>
+                    <span>{{categoriaRequerimento.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.categoriaRequerimento.tempoResposta">Tempo Resposta</span></dt>
+                <dd>
+                    <span>{{categoriaRequerimento.tempoResposta}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.categoriaRequerimento.pagase">Pagase</span></dt>
+                <dd>
+                    <span>{{categoriaRequerimento.pagase}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.categoriaRequerimento.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{categoriaRequerimento.descricao}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/categoria-requerimento', categoriaRequerimento.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

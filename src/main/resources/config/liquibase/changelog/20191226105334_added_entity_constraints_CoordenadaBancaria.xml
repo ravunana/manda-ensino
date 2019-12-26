@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity CoordenadaBancaria.
+    -->
+    <changeSet id="20191226105334-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="coordenada_bancaria_id"
+                                 baseTableName="core_coordenada_bancaria_instituicao_ensino"
+                                 constraintName="core_coordenada_bancaria_insti_core_coordenada_bancaria_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="core_coordenada_bancaria"/>
+
+        <addForeignKeyConstraint baseColumnNames="instituicao_ensino_id"
+                                 baseTableName="core_coordenada_bancaria_instituicao_ensino"
+                                 constraintName="core_coordenada_bancaria_insti_instituicao_ensino_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="core_insituicao_ensino"/>
+        
+    </changeSet>
+</databaseChangeLog>

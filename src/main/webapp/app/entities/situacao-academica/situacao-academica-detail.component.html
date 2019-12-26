@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="situacaoAcademica">
+            <h2><span jhiTranslate="ensinoApp.situacaoAcademica.detail.title">Situacao Academica</span> {{situacaoAcademica.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.situacaoAcademica.anoLectivo">Ano Lectivo</span></dt>
+                <dd>
+                    <span>{{situacaoAcademica.anoLectivo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.situacaoAcademica.data">Data</span></dt>
+                <dd>
+                    <span>{{situacaoAcademica.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.situacaoAcademica.estado">Estado</span></dt>
+                <dd>
+                    <span>{{situacaoAcademica.estado}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.situacaoAcademica.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{situacaoAcademica.descricao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.situacaoAcademica.aluno">Aluno</span></dt>
+                <dd>
+                    <div *ngIf="situacaoAcademica.alunoId">
+                        <a [routerLink]="['/aluno', situacaoAcademica.alunoId, 'view']">{{situacaoAcademica.alunoNumeroProcesso}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.situacaoAcademica.disciplina">Disciplina</span></dt>
+                <dd>
+                    <div *ngIf="situacaoAcademica.disciplinaId">
+                        <a [routerLink]="['/disciplina', situacaoAcademica.disciplinaId, 'view']">{{situacaoAcademica.disciplinaNome}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/situacao-academica', situacaoAcademica.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

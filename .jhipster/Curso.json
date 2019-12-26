@@ -1,0 +1,78 @@
+{
+    "name": "Curso",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "unique"
+            ],
+            "fieldValidateRulesMinlength": 10
+        },
+        {
+            "fieldName": "sigla",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength",
+                "unique"
+            ],
+            "fieldValidateRulesMinlength": 3,
+            "fieldValidateRulesMaxlength": 12
+        },
+        {
+            "fieldName": "competencias",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "turma",
+            "otherEntityRelationshipName": "curso",
+            "relationshipName": "turma"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "matrizCurricular",
+            "otherEntityRelationshipName": "curso",
+            "relationshipName": "matrizCurricular"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "emolumento",
+            "otherEntityRelationshipName": "curso",
+            "relationshipName": "emolumento"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "areaFormacao",
+            "otherEntityRelationshipName": "curso",
+            "relationshipValidateRules": "required",
+            "relationshipName": "areaFormacao",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "dossificacao",
+            "otherEntityRelationshipName": "curso",
+            "relationshipName": "dossificacao",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191226105339",
+    "entityTableName": "pdg_curso",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,34 @@
+{
+  "ensinoApp": {
+    "fichaMedica": {
+      "home": {
+        "title": "Ficha Medicas",
+        "createLabel": "Criar novo(a) Ficha Medica",
+        "createOrEditLabel": "Criar ou editar Ficha Medica",
+        "search": "Procurar por Ficha Medica",
+        "notFound": "Nenhum Ficha Medicas encontrado"
+      },
+      "created": "Um novo Ficha Medica foi criado com o identificador {{ param }}",
+      "updated": "Ficha Medica com identificador {{ param }} foi actualizado",
+      "deleted": "Ficha Medica com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Ficha Medica {{ id }}?"
+      },
+      "detail": {
+        "title": "Ficha Medica"
+      },
+      "fazEducacaoFisica": "Faz Educacao Fisica",
+      "grupoSanguinio": "Grupo Sanguinio",
+      "altura": "Altura",
+      "peso": "Peso",
+      "autorizaMedicamento": "Autoriza Medicamento",
+      "observacao": "Observacao",
+      "nomeMedico": "Nome Medico",
+      "contactoMedico": "Contacto Medico",
+      "desmaioConstante": "Desmaio Constante",
+      "complicacoesSaude": "Complicacoes Saude",
+      "aluno": "Aluno",
+      "utilizador": "Utilizador"
+    }
+  }
+}

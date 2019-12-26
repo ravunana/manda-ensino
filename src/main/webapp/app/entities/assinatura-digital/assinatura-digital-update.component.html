@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="rv-assinatura-digital-heading" jhiTranslate="ensinoApp.assinaturaDigital.home.createOrEditLabel">Create or edit a Assinatura Digital</h2>
+            <div>
+                <rv-alert-error></rv-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.assinaturaDigital.tipo" for="field_tipo">Tipo</label>
+                    <input type="text" class="form-control" name="tipo" id="field_tipo"
+                           formControlName="tipo"/>
+                    <div *ngIf="editForm.get('tipo')!.invalid && (editForm.get('tipo')!.dirty || editForm.get('tipo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tipo')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.assinaturaDigital.assinatura" for="field_assinatura">Assinatura</label>
+                    <div>
+                        <div *ngIf="editForm.get('assinatura')!.value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('assinaturaContentType')!.value, editForm.get('assinatura')!.value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('assinaturaContentType')!.value}}, {{byteSize(editForm.get('assinatura')!.value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({assinatura: null});editForm.patchValue({assinaturaContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_assinatura" (change)="setFileData($event, 'assinatura', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="assinatura" id="field_assinatura"
+                           formControlName="assinatura"/>
+                    <input type="hidden" class="form-control" name="assinaturaContentType" id="field_assinaturaContentType"
+                           formControlName="assinaturaContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.assinaturaDigital.hashcode" for="field_hashcode">Hashcode</label>
+                    <input type="text" class="form-control" name="hashcode" id="field_hashcode"
+                           formControlName="hashcode"/>
+                    <div *ngIf="editForm.get('hashcode')!.invalid && (editForm.get('hashcode')!.dirty || editForm.get('hashcode')!.touched)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.assinaturaDigital.data" for="field_data">Data</label>
+                    <div class="d-flex">
+                        <input id="field_data" type="datetime-local" class="form-control" name="data" formControlName="data" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.assinaturaDigital.instituicao" for="field_instituicao">Instituicao</label>
+                    <select class="form-control" id="field_instituicao" name="instituicao" formControlName="instituicaoId">
+                        <option *ngIf="!editForm.get('instituicaoId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="instituicaoEnsinoOption.id" *ngFor="let instituicaoEnsinoOption of instituicaoensinos; trackBy: trackById">{{instituicaoEnsinoOption.nome}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('instituicaoId')!.invalid && (editForm.get('instituicaoId')!.dirty || editForm.get('instituicaoId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('instituicaoId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

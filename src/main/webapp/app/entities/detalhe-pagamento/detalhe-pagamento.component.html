@@ -1,0 +1,112 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ensinoApp.detalhePagamento.home.title">Detalhe Pagamentos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-detalhe-pagamento" [routerLink]="['/detalhe-pagamento/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="ensinoApp.detalhePagamento.home.createLabel">
+            Create a new Detalhe Pagamento
+            </span>
+        </button>
+    </h2>
+    <rv-alert-error></rv-alert-error>
+    <rv-alert></rv-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'ensinoApp.detalhePagamento.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="detalhePagamentos?.length === 0">
+        <span jhiTranslate="ensinoApp.detalhePagamento.home.notFound">No detalhePagamentos found</span>
+    </div>
+    <div class="table-responsive" *ngIf="detalhePagamentos?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="descricao"><span jhiTranslate="ensinoApp.detalhePagamento.descricao">Descricao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="mensalidade"><span jhiTranslate="ensinoApp.detalhePagamento.mensalidade">Mensalidade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="quantidade"><span jhiTranslate="ensinoApp.detalhePagamento.quantidade">Quantidade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="valor"><span jhiTranslate="ensinoApp.detalhePagamento.valor">Valor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="desconto"><span jhiTranslate="ensinoApp.detalhePagamento.desconto">Desconto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="multa"><span jhiTranslate="ensinoApp.detalhePagamento.multa">Multa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="juro"><span jhiTranslate="ensinoApp.detalhePagamento.juro">Juro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="data"><span jhiTranslate="ensinoApp.detalhePagamento.data">Data</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="vencimento"><span jhiTranslate="ensinoApp.detalhePagamento.vencimento">Vencimento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="quitado"><span jhiTranslate="ensinoApp.detalhePagamento.quitado">Quitado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="utilizadorLogin"><span jhiTranslate="ensinoApp.detalhePagamento.utilizador">Utilizador</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="emolumentoNome"><span jhiTranslate="ensinoApp.detalhePagamento.emolumento">Emolumento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="depositoNumeroTalao"><span jhiTranslate="ensinoApp.detalhePagamento.deposito">Deposito</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let detalhePagamento of detalhePagamentos ;trackBy: trackId">
+                <td><a [routerLink]="['/detalhe-pagamento', detalhePagamento.id, 'view' ]">{{detalhePagamento.id}}</a></td>
+                <td>{{detalhePagamento.descricao}}</td>
+                <td>{{detalhePagamento.mensalidade}}</td>
+                <td>{{detalhePagamento.quantidade}}</td>
+                <td>{{detalhePagamento.valor}}</td>
+                <td>{{detalhePagamento.desconto}}</td>
+                <td>{{detalhePagamento.multa}}</td>
+                <td>{{detalhePagamento.juro}}</td>
+                <td>{{detalhePagamento.data | date:'medium'}}</td>
+                <td>{{detalhePagamento.vencimento | date:'mediumDate'}}</td>
+                <td>{{detalhePagamento.quitado}}</td>
+                <td>
+                    {{detalhePagamento.utilizadorLogin}}
+                </td>
+                <td>
+                    <div *ngIf="detalhePagamento.emolumentoId">
+                        <a [routerLink]="['/emolumento', detalhePagamento.emolumentoId , 'view' ]" >{{detalhePagamento.emolumentoNome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="detalhePagamento.depositoId">
+                        <a [routerLink]="['/deposito', detalhePagamento.depositoId , 'view' ]" >{{detalhePagamento.depositoNumeroTalao}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/detalhe-pagamento', detalhePagamento.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/detalhe-pagamento', detalhePagamento.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(detalhePagamento)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="detalhePagamentos?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

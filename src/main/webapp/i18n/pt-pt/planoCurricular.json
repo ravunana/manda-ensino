@@ -1,0 +1,29 @@
+{
+  "ensinoApp": {
+    "planoCurricular": {
+      "home": {
+        "title": "Plano Curriculars",
+        "createLabel": "Criar novo(a) Plano Curricular",
+        "createOrEditLabel": "Criar ou editar Plano Curricular",
+        "search": "Procurar por Plano Curricular",
+        "notFound": "Nenhum Plano Curriculars encontrado"
+      },
+      "created": "Um novo Plano Curricular foi criado com o identificador {{ param }}",
+      "updated": "Plano Curricular com identificador {{ param }} foi actualizado",
+      "deleted": "Plano Curricular com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Plano Curricular {{ id }}?"
+      },
+      "detail": {
+        "title": "Plano Curricular"
+      },
+      "cargaHoraria": "Carga Horaria",
+      "descricao": "Descricao",
+      "terminal": "Terminal",
+      "regimeCurricular": "Regime Curricular",
+      "componente": "Componente",
+      "disciplina": "Disciplina",
+      "classe": "Classe"
+    }
+  }
+}

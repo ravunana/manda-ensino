@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="deposito">
+            <h2><span jhiTranslate="ensinoApp.deposito.detail.title">Deposito</span> {{deposito.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.deposito.numeroTalao">Numero Talao</span></dt>
+                <dd>
+                    <span>{{deposito.numeroTalao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.deposito.dataDeposito">Data Deposito</span></dt>
+                <dd>
+                    <span>{{deposito.dataDeposito}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.deposito.valor">Valor</span></dt>
+                <dd>
+                    <span>{{deposito.valor}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.deposito.saldo">Saldo</span></dt>
+                <dd>
+                    <span>{{deposito.saldo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.deposito.utilizador">Utilizador</span></dt>
+                <dd>
+                    {{deposito.utilizadorLogin}}
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.deposito.meioLiquidacao">Meio Liquidacao</span></dt>
+                <dd>
+                    <div *ngIf="deposito.meioLiquidacaoId">
+                        <a [routerLink]="['/meio-liquidacao', deposito.meioLiquidacaoId, 'view']">{{deposito.meioLiquidacaoNome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.deposito.aluno">Aluno</span></dt>
+                <dd>
+                    <div *ngIf="deposito.alunoId">
+                        <a [routerLink]="['/aluno', deposito.alunoId, 'view']">{{deposito.alunoNumeroProcesso}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.deposito.conta">Conta</span></dt>
+                <dd>
+                    <div *ngIf="deposito.contaId">
+                        <a [routerLink]="['/coordenada-bancaria', deposito.contaId, 'view']">{{deposito.contaDescricao}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/deposito', deposito.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

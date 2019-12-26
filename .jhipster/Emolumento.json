@@ -1,0 +1,80 @@
+{
+    "name": "Emolumento",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "valor",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "valorMulta",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "tempoMulta",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": 1
+        },
+        {
+            "fieldName": "quantidade",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "detalhePagamento",
+            "otherEntityRelationshipName": "emolumento",
+            "relationshipName": "detalhePagamento"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "curso",
+            "otherEntityRelationshipName": "emolumento",
+            "relationshipName": "curso",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "classe",
+            "otherEntityRelationshipName": "emolumento",
+            "relationshipName": "classe",
+            "otherEntityField": "descricao"
+        }
+    ],
+    "changelogDate": "20191226105406",
+    "entityTableName": "fin_emolumento",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

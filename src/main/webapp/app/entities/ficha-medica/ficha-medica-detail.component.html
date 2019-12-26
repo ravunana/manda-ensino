@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fichaMedica">
+            <h2><span jhiTranslate="ensinoApp.fichaMedica.detail.title">Ficha Medica</span> {{fichaMedica.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.fichaMedica.fazEducacaoFisica">Faz Educacao Fisica</span></dt>
+                <dd>
+                    <span>{{fichaMedica.fazEducacaoFisica}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.fichaMedica.grupoSanguinio">Grupo Sanguinio</span></dt>
+                <dd>
+                    <span>{{fichaMedica.grupoSanguinio}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.fichaMedica.altura">Altura</span></dt>
+                <dd>
+                    <span>{{fichaMedica.altura}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.fichaMedica.peso">Peso</span></dt>
+                <dd>
+                    <span>{{fichaMedica.peso}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.fichaMedica.autorizaMedicamento">Autoriza Medicamento</span></dt>
+                <dd>
+                    <span>{{fichaMedica.autorizaMedicamento}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.fichaMedica.observacao">Observacao</span></dt>
+                <dd>
+                    <span>{{fichaMedica.observacao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.fichaMedica.nomeMedico">Nome Medico</span></dt>
+                <dd>
+                    <span>{{fichaMedica.nomeMedico}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.fichaMedica.contactoMedico">Contacto Medico</span></dt>
+                <dd>
+                    <span>{{fichaMedica.contactoMedico}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.fichaMedica.desmaioConstante">Desmaio Constante</span></dt>
+                <dd>
+                    <span>{{fichaMedica.desmaioConstante}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.fichaMedica.complicacoesSaude">Complicacoes Saude</span></dt>
+                <dd>
+                    <span>{{fichaMedica.complicacoesSaude}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.fichaMedica.aluno">Aluno</span></dt>
+                <dd>
+                    <div *ngIf="fichaMedica.alunoId">
+                        <a [routerLink]="['/aluno', fichaMedica.alunoId, 'view']">{{fichaMedica.alunoNumeroProcesso}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.fichaMedica.utilizador">Utilizador</span></dt>
+                <dd>
+                    {{fichaMedica.utilizadorLogin}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ficha-medica', fichaMedica.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

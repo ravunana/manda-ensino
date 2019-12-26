@@ -1,0 +1,99 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ensinoApp.contrato.home.title">Contratoes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-contrato" [routerLink]="['/contrato/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="ensinoApp.contrato.home.createLabel">
+            Create a new Contrato
+            </span>
+        </button>
+    </h2>
+    <rv-alert-error></rv-alert-error>
+    <rv-alert></rv-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'ensinoApp.contrato.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="contratoes?.length === 0">
+        <span jhiTranslate="ensinoApp.contrato.home.notFound">No contratoes found</span>
+    </div>
+    <div class="table-responsive" *ngIf="contratoes?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="de"><span jhiTranslate="ensinoApp.contrato.de">De</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="ate"><span jhiTranslate="ensinoApp.contrato.ate">Ate</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="contrato"><span jhiTranslate="ensinoApp.contrato.contrato">Contrato</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="aceitaTermos"><span jhiTranslate="ensinoApp.contrato.aceitaTermos">Aceita Termos</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="observacao"><span jhiTranslate="ensinoApp.contrato.observacao">Observacao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="termos"><span jhiTranslate="ensinoApp.contrato.termos">Termos</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="emVigor"><span jhiTranslate="ensinoApp.contrato.emVigor">Em Vigor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="alunoNumeroProcesso"><span jhiTranslate="ensinoApp.contrato.aluno">Aluno</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let contrato of contratoes ;trackBy: trackId">
+                <td><a [routerLink]="['/contrato', contrato.id, 'view' ]">{{contrato.id}}</a></td>
+                <td>{{contrato.de | date:'mediumDate'}}</td>
+                <td>{{contrato.ate | date:'mediumDate'}}</td>
+                <td>{{contrato.contrato}}</td>
+                <td>{{contrato.aceitaTermos}}</td>
+                <td>{{contrato.observacao}}</td>
+                <td>
+                    <a *ngIf="contrato.termos" (click)="openFile(contrato.termosContentType, contrato.termos)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="contrato.termos">{{contrato.termosContentType}}, {{byteSize(contrato.termos)}}</span>
+                </td>
+                <td>{{contrato.emVigor}}</td>
+                <td>
+                    <div *ngIf="contrato.alunoId">
+                        <a [routerLink]="['/aluno', contrato.alunoId , 'view' ]" >{{contrato.alunoNumeroProcesso}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/contrato', contrato.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/contrato', contrato.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(contrato)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="contratoes?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

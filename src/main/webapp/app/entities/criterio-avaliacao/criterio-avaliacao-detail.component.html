@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="criterioAvaliacao">
+            <h2><span jhiTranslate="ensinoApp.criterioAvaliacao.detail.title">Criterio Avaliacao</span> {{criterioAvaliacao.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.criterioAvaliacao.aprovaCom">Aprova Com</span></dt>
+                <dd>
+                    <span>{{criterioAvaliacao.aprovaCom}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.criterioAvaliacao.reporvaCom">Reporva Com</span></dt>
+                <dd>
+                    <span>{{criterioAvaliacao.reporvaCom}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.criterioAvaliacao.recursoCom">Recurso Com</span></dt>
+                <dd>
+                    <span>{{criterioAvaliacao.recursoCom}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.criterioAvaliacao.fazExame">Faz Exame</span></dt>
+                <dd>
+                    <span>{{criterioAvaliacao.fazExame}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.criterioAvaliacao.fazRecurso">Faz Recurso</span></dt>
+                <dd>
+                    <span>{{criterioAvaliacao.fazRecurso}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.criterioAvaliacao.fazExameEspecial">Faz Exame Especial</span></dt>
+                <dd>
+                    <span>{{criterioAvaliacao.fazExameEspecial}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.criterioAvaliacao.numeroFaltaReprova">Numero Falta Reprova</span></dt>
+                <dd>
+                    <span>{{criterioAvaliacao.numeroFaltaReprova}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.criterioAvaliacao.menorNota">Menor Nota</span></dt>
+                <dd>
+                    <span>{{criterioAvaliacao.menorNota}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.criterioAvaliacao.maiorNota">Maior Nota</span></dt>
+                <dd>
+                    <span>{{criterioAvaliacao.maiorNota}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.criterioAvaliacao.notaMinimaAprovacao">Nota Minima Aprovacao</span></dt>
+                <dd>
+                    <span>{{criterioAvaliacao.notaMinimaAprovacao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.criterioAvaliacao.planoCurricular">Plano Curricular</span></dt>
+                <dd>
+                    <div *ngIf="criterioAvaliacao.planoCurricularId">
+                        <a [routerLink]="['/plano-curricular', criterioAvaliacao.planoCurricularId, 'view']">{{criterioAvaliacao.planoCurricularDescricao}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/criterio-avaliacao', criterioAvaliacao.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

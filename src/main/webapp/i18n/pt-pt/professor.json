@@ -1,0 +1,27 @@
+{
+  "ensinoApp": {
+    "professor": {
+      "home": {
+        "title": "Professors",
+        "createLabel": "Criar novo(a) Professor",
+        "createOrEditLabel": "Criar ou editar Professor",
+        "search": "Procurar por Professor",
+        "notFound": "Nenhum Professors encontrado"
+      },
+      "created": "Um novo Professor foi criado com o identificador {{ param }}",
+      "updated": "Professor com identificador {{ param }} foi actualizado",
+      "deleted": "Professor com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Professor {{ id }}?"
+      },
+      "detail": {
+        "title": "Professor"
+      },
+      "numeroAgente": "Numero Agente",
+      "ativo": "Ativo",
+      "pessoa": "Pessoa",
+      "horario": "Horario",
+      "utilizador": "Utilizador"
+    }
+  }
+}

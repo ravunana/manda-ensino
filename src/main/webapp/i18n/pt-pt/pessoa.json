@@ -1,0 +1,32 @@
+{
+  "ensinoApp": {
+    "pessoa": {
+      "home": {
+        "title": "Pessoas",
+        "createLabel": "Criar novo(a) Pessoa",
+        "createOrEditLabel": "Criar ou editar Pessoa",
+        "search": "Procurar por Pessoa",
+        "notFound": "Nenhum Pessoas encontrado"
+      },
+      "created": "Um novo Pessoa foi criado com o identificador {{ param }}",
+      "updated": "Pessoa com identificador {{ param }} foi actualizado",
+      "deleted": "Pessoa com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Pessoa {{ id }}?"
+      },
+      "detail": {
+        "title": "Pessoa"
+      },
+      "tipoPessoa": "Tipo Pessoa",
+      "nome": "Nome",
+      "imagem": "Imagem",
+      "pai": "Pai",
+      "mae": "Mae",
+      "nascimento": "Nascimento",
+      "moradaPessoa": "Morada Pessoa",
+      "contactoPessoa": "Contacto Pessoa",
+      "documentacaoPessoa": "Documentacao Pessoa",
+      "utilizador": "Utilizador"
+    }
+  }
+}

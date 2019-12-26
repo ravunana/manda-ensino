@@ -1,0 +1,29 @@
+{
+  "ensinoApp": {
+    "aula": {
+      "home": {
+        "title": "Aulas",
+        "createLabel": "Criar novo(a) Aula",
+        "createOrEditLabel": "Criar ou editar Aula",
+        "search": "Procurar por Aula",
+        "notFound": "Nenhum Aulas encontrado"
+      },
+      "created": "Um novo Aula foi criado com o identificador {{ param }}",
+      "updated": "Aula com identificador {{ param }} foi actualizado",
+      "deleted": "Aula com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Aula {{ id }}?"
+      },
+      "detail": {
+        "title": "Aula"
+      },
+      "data": "Data",
+      "sumario": "Sumario",
+      "licao": "Licao",
+      "dada": "Dada",
+      "utilizador": "Utilizador",
+      "planoAula": "Plano Aula",
+      "turma": "Turma"
+    }
+  }
+}

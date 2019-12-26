@@ -1,0 +1,42 @@
+{
+  "ensinoApp": {
+    "planoAula": {
+      "home": {
+        "title": "Plano Aulas",
+        "createLabel": "Criar novo(a) Plano Aula",
+        "createOrEditLabel": "Criar ou editar Plano Aula",
+        "search": "Procurar por Plano Aula",
+        "notFound": "Nenhum Plano Aulas encontrado"
+      },
+      "created": "Um novo Plano Aula foi criado com o identificador {{ param }}",
+      "updated": "Plano Aula com identificador {{ param }} foi actualizado",
+      "deleted": "Plano Aula com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Plano Aula {{ id }}?"
+      },
+      "detail": {
+        "title": "Plano Aula"
+      },
+      "objectivoGeral": "Objectivo Geral",
+      "objectivoEspecifico": "Objectivo Especifico",
+      "conteudo": "Conteudo",
+      "estrategia": "Estrategia",
+      "actividades": "Actividades",
+      "tempo": "Tempo",
+      "recursosEnsino": "Recursos Ensino",
+      "avaliacao": "Avaliacao",
+      "observacao": "Observacao",
+      "bibliografia": "Bibliografia",
+      "perfilEntrada": "Perfil Entrada",
+      "perfilSaida": "Perfil Saida",
+      "anexo1": "Anexo 1",
+      "anexo2": "Anexo 2",
+      "anexo3": "Anexo 3",
+      "utilizador": "Utilizador",
+      "turma": "Turma",
+      "disciplina": "Disciplina",
+      "dossificacao": "Dossificacao",
+      "aula": "Aula"
+    }
+  }
+}

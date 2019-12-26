@@ -1,0 +1,49 @@
+{
+    "name": "SituacaoAcademica",
+    "fields": [
+        {
+            "fieldName": "anoLectivo",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "data",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descricao",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "aluno",
+            "otherEntityRelationshipName": "situacaoAcademica",
+            "relationshipName": "aluno",
+            "otherEntityField": "numeroProcesso"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "disciplina",
+            "otherEntityRelationshipName": "situacaoAcademica",
+            "relationshipValidateRules": "required",
+            "relationshipName": "disciplina",
+            "otherEntityField": "nome"
+        }
+    ],
+    "changelogDate": "20191226105359",
+    "entityTableName": "sec_situacao_academica",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

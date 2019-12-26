@@ -1,0 +1,111 @@
+{
+    "name": "Matricula",
+    "fields": [
+        {
+            "fieldName": "data",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "numero",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "required"
+            ],
+            "fieldValidateRulesMin": 1
+        },
+        {
+            "fieldName": "observacao",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "anoLectivo",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "peridoLectivo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "nota",
+            "otherEntityRelationshipName": "matricula",
+            "relationshipName": "nota"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "matricula",
+            "otherEntityRelationshipName": "confirmacao",
+            "relationshipName": "matricula"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "ocorrencia",
+            "otherEntityRelationshipName": "matricula",
+            "relationshipName": "ocorrencia"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "documentoMatricula",
+            "otherEntityRelationshipName": "matricula",
+            "relationshipName": "documentoMatricula"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "matricula",
+            "relationshipName": "utilizador",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "aluno",
+            "otherEntityRelationshipName": "matricula",
+            "relationshipValidateRules": "required",
+            "relationshipName": "aluno",
+            "otherEntityField": "numeroProcesso"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "matricula",
+            "otherEntityRelationshipName": "matricula",
+            "relationshipName": "confirmacao",
+            "otherEntityField": "numero"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "categoriaAluno",
+            "otherEntityRelationshipName": "matricula",
+            "relationshipValidateRules": "required",
+            "relationshipName": "categoria",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "turma",
+            "otherEntityRelationshipName": "matricula",
+            "relationshipValidateRules": "required",
+            "relationshipName": "turma",
+            "otherEntityField": "descricao"
+        }
+    ],
+    "changelogDate": "20191226105401",
+    "entityTableName": "sec_matricula",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

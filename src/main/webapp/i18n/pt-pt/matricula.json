@@ -1,0 +1,36 @@
+{
+  "ensinoApp": {
+    "matricula": {
+      "home": {
+        "title": "Matriculas",
+        "createLabel": "Criar novo(a) Matricula",
+        "createOrEditLabel": "Criar ou editar Matricula",
+        "search": "Procurar por Matricula",
+        "notFound": "Nenhum Matriculas encontrado"
+      },
+      "created": "Um novo Matricula foi criado com o identificador {{ param }}",
+      "updated": "Matricula com identificador {{ param }} foi actualizado",
+      "deleted": "Matricula com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Matricula {{ id }}?"
+      },
+      "detail": {
+        "title": "Matricula"
+      },
+      "data": "Data",
+      "numero": "Numero",
+      "observacao": "Observacao",
+      "anoLectivo": "Ano Lectivo",
+      "peridoLectivo": "Perido Lectivo",
+      "nota": "Nota",
+      "matricula": "Matricula",
+      "ocorrencia": "Ocorrencia",
+      "documentoMatricula": "Documento Matricula",
+      "utilizador": "Utilizador",
+      "aluno": "Aluno",
+      "confirmacao": "Confirmacao",
+      "categoria": "Categoria",
+      "turma": "Turma"
+    }
+  }
+}

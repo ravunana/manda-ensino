@@ -1,0 +1,81 @@
+{
+    "name": "DocumentoMatricula",
+    "fields": [
+        {
+            "fieldName": "fotografia",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "certificado",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "bilhete",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "resenciamentoMilitar",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "cartaoVacina",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "atestadoMedico",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "fichaTrnasferencia",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "historicoEscolar",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "cedula",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "descricao",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "anoLectivo",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "data",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "matricula",
+            "otherEntityRelationshipName": "documentoMatricula",
+            "relationshipName": "matricula",
+            "otherEntityField": "numero"
+        }
+    ],
+    "changelogDate": "20191226105402",
+    "entityTableName": "sec_documento_matricula",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

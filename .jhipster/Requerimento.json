@@ -1,0 +1,51 @@
+{
+    "name": "Requerimento",
+    "fields": [
+        {
+            "fieldName": "requerimento",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "data",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "statusRequerimento",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "requerimento",
+            "relationshipName": "utilizador",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "categoriaRequerimento",
+            "otherEntityRelationshipName": "requerimento",
+            "relationshipName": "categoria",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "aluno",
+            "otherEntityRelationshipName": "requerimento",
+            "relationshipName": "aluno",
+            "otherEntityField": "numeroProcesso"
+        }
+    ],
+    "changelogDate": "20191226105404",
+    "entityTableName": "sec_requerimento",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

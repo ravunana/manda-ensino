@@ -1,0 +1,54 @@
+{
+    "name": "CategoriaValiacao",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "siglaInterna",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "siglaPauta",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "unique",
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "nota",
+            "otherEntityRelationshipName": "categoriaAvaliacao",
+            "relationshipName": "nota"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "areaFormacao",
+            "otherEntityRelationshipName": "categoriaValiacao",
+            "relationshipValidateRules": "required",
+            "relationshipName": "areaFormacao",
+            "otherEntityField": "nome"
+        }
+    ],
+    "changelogDate": "20191226105352",
+    "entityTableName": "pdg_categoria_avaliacao",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

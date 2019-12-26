@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Contrato.
+    -->
+    <changeSet id="20191226105405-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="aluno_id"
+                                 baseTableName="sec_contrato"
+                                 constraintName="fk_sec_contrato_aluno_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sec_aluno"/>
+
+    </changeSet>
+</databaseChangeLog>

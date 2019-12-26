@@ -1,0 +1,44 @@
+{
+    "name": "AreaFormacao",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "unique"
+            ],
+            "fieldValidateRulesMinlength": 10
+        },
+        {
+            "fieldName": "competencias",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "curso",
+            "otherEntityRelationshipName": "areaFormacao",
+            "relationshipName": "curso"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "categoriaValiacao",
+            "otherEntityRelationshipName": "areaFormacao",
+            "relationshipName": "categoriaValiacao"
+        }
+    ],
+    "changelogDate": "20191226105338",
+    "entityTableName": "pdg_area_formacao",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

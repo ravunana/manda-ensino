@@ -1,0 +1,41 @@
+{
+  "ensinoApp": {
+    "instituicaoEnsino": {
+      "home": {
+        "title": "Instituicao Ensinos",
+        "createLabel": "Criar novo(a) Instituicao Ensino",
+        "createOrEditLabel": "Criar ou editar Instituicao Ensino",
+        "search": "Procurar por Instituicao Ensino",
+        "notFound": "Nenhum Instituicao Ensinos encontrado"
+      },
+      "created": "Um novo Instituicao Ensino foi criado com o identificador {{ param }}",
+      "updated": "Instituicao Ensino com identificador {{ param }} foi actualizado",
+      "deleted": "Instituicao Ensino com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Instituicao Ensino {{ id }}?"
+      },
+      "detail": {
+        "title": "Instituicao Ensino"
+      },
+      "nome": "Nome",
+      "logotipo": "Logotipo",
+      "fundacao": "Fundacao",
+      "numero": "Numero",
+      "tipoVinculo": "Tipo Vinculo",
+      "unidadePagadora": "Unidade Pagadora",
+      "unidadeOrganica": "Unidade Organica",
+      "tipoInstalacao": "Tipo Instalacao",
+      "dimensao": "Dimensao",
+      "carimbo": "Carimbo",
+      "sede": "Sede",
+      "instituicaoEnsino": "Instituicao Ensino",
+      "localizacaoInstituicaoEnsino": "Localizacao Instituicao Ensino",
+      "contactoInstituicaoEnsino": "Contacto Instituicao Ensino",
+      "licencaSoftware": "Licenca Software",
+      "assinaturaDigital": "Assinatura Digital",
+      "utilizador": "Utilizador",
+      "hierarquia": "Hierarquia",
+      "coordenadaBancaria": "Coordenada Bancaria"
+    }
+  }
+}

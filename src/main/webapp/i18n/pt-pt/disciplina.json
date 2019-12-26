@@ -1,0 +1,31 @@
+{
+  "ensinoApp": {
+    "disciplina": {
+      "home": {
+        "title": "Disciplinas",
+        "createLabel": "Criar novo(a) Disciplina",
+        "createOrEditLabel": "Criar ou editar Disciplina",
+        "search": "Procurar por Disciplina",
+        "notFound": "Nenhum Disciplinas encontrado"
+      },
+      "created": "Um novo Disciplina foi criado com o identificador {{ param }}",
+      "updated": "Disciplina com identificador {{ param }} foi actualizado",
+      "deleted": "Disciplina com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Disciplina {{ id }}?"
+      },
+      "detail": {
+        "title": "Disciplina"
+      },
+      "nome": "Nome",
+      "sigla": "Sigla",
+      "planoCurricular": "Plano Curricular",
+      "horario": "Horario",
+      "nota": "Nota",
+      "planoAula": "Plano Aula",
+      "dossificacao": "Dossificacao",
+      "unidadeCurricular": "Unidade Curricular",
+      "situacaoAcademica": "Situacao Academica"
+    }
+  }
+}

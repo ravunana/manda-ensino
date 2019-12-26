@@ -1,0 +1,97 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ensinoApp.pessoa.home.title">Pessoas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-pessoa" [routerLink]="['/pessoa/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="ensinoApp.pessoa.home.createLabel">
+            Create a new Pessoa
+            </span>
+        </button>
+    </h2>
+    <rv-alert-error></rv-alert-error>
+    <rv-alert></rv-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'ensinoApp.pessoa.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="pessoas?.length === 0">
+        <span jhiTranslate="ensinoApp.pessoa.home.notFound">No pessoas found</span>
+    </div>
+    <div class="table-responsive" *ngIf="pessoas?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="tipoPessoa"><span jhiTranslate="ensinoApp.pessoa.tipoPessoa">Tipo Pessoa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="nome"><span jhiTranslate="ensinoApp.pessoa.nome">Nome</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="imagem"><span jhiTranslate="ensinoApp.pessoa.imagem">Imagem</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="pai"><span jhiTranslate="ensinoApp.pessoa.pai">Pai</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="mae"><span jhiTranslate="ensinoApp.pessoa.mae">Mae</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="nascimento"><span jhiTranslate="ensinoApp.pessoa.nascimento">Nascimento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="utilizadorLogin"><span jhiTranslate="ensinoApp.pessoa.utilizador">Utilizador</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let pessoa of pessoas ;trackBy: trackId">
+                <td><a [routerLink]="['/pessoa', pessoa.id, 'view' ]">{{pessoa.id}}</a></td>
+                <td>{{pessoa.tipoPessoa}}</td>
+                <td>{{pessoa.nome}}</td>
+                <td>
+                    <a *ngIf="pessoa.imagem" (click)="openFile(pessoa.imagemContentType, pessoa.imagem)">
+                        <img [src]="'data:' + pessoa.imagemContentType + ';base64,' + pessoa.imagem" style="max-height: 30px;" alt="pessoa image"/>
+                    </a>
+                    <span *ngIf="pessoa.imagem">{{pessoa.imagemContentType}}, {{byteSize(pessoa.imagem)}}</span>
+                </td>
+                <td>{{pessoa.pai}}</td>
+                <td>{{pessoa.mae}}</td>
+                <td>{{pessoa.nascimento | date:'mediumDate'}}</td>
+                <td>
+                    {{pessoa.utilizadorLogin}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/pessoa', pessoa.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/pessoa', pessoa.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(pessoa)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="pessoas?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,128 @@
+{
+    "name": "InstituicaoEnsino",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "logotipo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fundacao",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "numero",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "tipoVinculo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unidadePagadora",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unidadeOrganica",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tipoInstalacao",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dimensao",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "carimbo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "sede",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "instituicaoEnsino",
+            "otherEntityRelationshipName": "hierarquia",
+            "relationshipName": "instituicaoEnsino"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "localizacaoInstituicaoEnsino",
+            "otherEntityRelationshipName": "instituicaoEnsino",
+            "relationshipName": "localizacaoInstituicaoEnsino"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "contactoInstituicaoEnsino",
+            "otherEntityRelationshipName": "instituicaoEnsino",
+            "relationshipName": "contactoInstituicaoEnsino"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "licencaSoftware",
+            "otherEntityRelationshipName": "instituicaoEnsino",
+            "relationshipName": "licencaSoftware"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "assinaturaDigital",
+            "otherEntityRelationshipName": "instituicao",
+            "relationshipName": "assinaturaDigital"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "instituicaoEnsino",
+            "relationshipName": "utilizador",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "instituicaoEnsino",
+            "otherEntityRelationshipName": "instituicaoEnsino",
+            "relationshipName": "hierarquia",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "coordenadaBancaria",
+            "otherEntityRelationshipName": "instituicaoEnsino",
+            "relationshipName": "coordenadaBancaria",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191226105330",
+    "entityTableName": "core_insituicao_ensino",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

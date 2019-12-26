@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    
+    <!--
+        Added the entity FichaMedica.
+    -->
+    <changeSet id="20191226105357-1" author="jhipster">
+        <createTable tableName="sec_ficha_medica">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="faz_educacao_fisica" type="boolean">
+                <constraints nullable="false" />
+            </column>
+            <column name="grupo_sanguinio" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="altura" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="peso" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="autoriza_medicamento" type="boolean">
+                <constraints nullable="false" />
+            </column>
+            <column name="observacao" type="${clobType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="nome_medico" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="contacto_medico" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="desmaio_constante" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="complicacoes_saude" type="${clobType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="aluno_id" type="bigint">
+                <constraints unique="true" nullable="false" uniqueConstraintName="ux_sec_ficha_medica_aluno_id" />
+            </column>
+            <column name="utilizador_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20191226105357-1-relations" author="jhipster">
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20191226105357-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/sec_ficha_medica.csv"
+                  separator=";"
+                  tableName="sec_ficha_medica">
+            <column name="id" type="numeric"/>
+            <column name="faz_educacao_fisica" type="boolean"/>
+            <column name="grupo_sanguinio" type="string"/>
+            <column name="altura" type="numeric"/>
+            <column name="peso" type="numeric"/>
+            <column name="autoriza_medicamento" type="boolean"/>
+            <column name="observacao" type="clob"/>
+            <column name="nome_medico" type="string"/>
+            <column name="contacto_medico" type="string"/>
+            <column name="desmaio_constante" type="boolean"/>
+            <column name="complicacoes_saude" type="clob"/>
+            <column name="aluno_id" type="numeric"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here, do not remove-->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

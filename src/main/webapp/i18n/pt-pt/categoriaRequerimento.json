@@ -1,0 +1,27 @@
+{
+  "ensinoApp": {
+    "categoriaRequerimento": {
+      "home": {
+        "title": "Categoria Requerimentos",
+        "createLabel": "Criar novo(a) Categoria Requerimento",
+        "createOrEditLabel": "Criar ou editar Categoria Requerimento",
+        "search": "Procurar por Categoria Requerimento",
+        "notFound": "Nenhum Categoria Requerimentos encontrado"
+      },
+      "created": "Um novo Categoria Requerimento foi criado com o identificador {{ param }}",
+      "updated": "Categoria Requerimento com identificador {{ param }} foi actualizado",
+      "deleted": "Categoria Requerimento com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Categoria Requerimento {{ id }}?"
+      },
+      "detail": {
+        "title": "Categoria Requerimento"
+      },
+      "nome": "Nome",
+      "tempoResposta": "Tempo Resposta",
+      "pagase": "Pagase",
+      "descricao": "Descricao",
+      "requerimento": "Requerimento"
+    }
+  }
+}

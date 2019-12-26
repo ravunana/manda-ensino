@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="rv-situacao-academica-heading" jhiTranslate="ensinoApp.situacaoAcademica.home.createOrEditLabel">Create or edit a Situacao Academica</h2>
+            <div>
+                <rv-alert-error></rv-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.situacaoAcademica.anoLectivo" for="field_anoLectivo">Ano Lectivo</label>
+                    <input type="number" class="form-control" name="anoLectivo" id="field_anoLectivo"
+                           formControlName="anoLectivo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.situacaoAcademica.data" for="field_data">Data</label>
+                    <div class="d-flex">
+                        <input id="field_data" type="datetime-local" class="form-control" name="data" formControlName="data" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.situacaoAcademica.estado" for="field_estado">Estado</label>
+                    <input type="text" class="form-control" name="estado" id="field_estado"
+                           formControlName="estado"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.situacaoAcademica.descricao" for="field_descricao">Descricao</label>
+                    <textarea class="form-control" name="descricao" id="field_descricao"
+                              formControlName="descricao"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.situacaoAcademica.aluno" for="field_aluno">Aluno</label>
+                    <select class="form-control" id="field_aluno" name="aluno" formControlName="alunoId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="alunoOption.id" *ngFor="let alunoOption of alunos; trackBy: trackById">{{alunoOption.numeroProcesso}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.situacaoAcademica.disciplina" for="field_disciplina">Disciplina</label>
+                    <select class="form-control" id="field_disciplina" name="disciplina" formControlName="disciplinaId">
+                        <option *ngIf="!editForm.get('disciplinaId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="disciplinaOption.id" *ngFor="let disciplinaOption of disciplinas; trackBy: trackById">{{disciplinaOption.nome}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('disciplinaId')!.invalid && (editForm.get('disciplinaId')!.dirty || editForm.get('disciplinaId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('disciplinaId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

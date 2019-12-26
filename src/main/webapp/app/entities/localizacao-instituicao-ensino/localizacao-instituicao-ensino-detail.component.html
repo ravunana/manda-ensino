@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="localizacaoInstituicaoEnsino">
+            <h2><span jhiTranslate="ensinoApp.localizacaoInstituicaoEnsino.detail.title">Localizacao Instituicao Ensino</span> {{localizacaoInstituicaoEnsino.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.localizacaoInstituicaoEnsino.provincia">Provincia</span></dt>
+                <dd>
+                    <span>{{localizacaoInstituicaoEnsino.provincia}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.localizacaoInstituicaoEnsino.municipio">Municipio</span></dt>
+                <dd>
+                    <span>{{localizacaoInstituicaoEnsino.municipio}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.localizacaoInstituicaoEnsino.bairro">Bairro</span></dt>
+                <dd>
+                    <span>{{localizacaoInstituicaoEnsino.bairro}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.localizacaoInstituicaoEnsino.rua">Rua</span></dt>
+                <dd>
+                    <span>{{localizacaoInstituicaoEnsino.rua}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.localizacaoInstituicaoEnsino.quarteirao">Quarteirao</span></dt>
+                <dd>
+                    <span>{{localizacaoInstituicaoEnsino.quarteirao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.localizacaoInstituicaoEnsino.numeroPorta">Numero Porta</span></dt>
+                <dd>
+                    <span>{{localizacaoInstituicaoEnsino.numeroPorta}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.localizacaoInstituicaoEnsino.caixaPostal">Caixa Postal</span></dt>
+                <dd>
+                    <span>{{localizacaoInstituicaoEnsino.caixaPostal}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.localizacaoInstituicaoEnsino.instituicaoEnsino">Instituicao Ensino</span></dt>
+                <dd>
+                    <div *ngIf="localizacaoInstituicaoEnsino.instituicaoEnsinoId">
+                        <a [routerLink]="['/instituicao-ensino', localizacaoInstituicaoEnsino.instituicaoEnsinoId, 'view']">{{localizacaoInstituicaoEnsino.instituicaoEnsinoNome}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/localizacao-instituicao-ensino', localizacaoInstituicaoEnsino.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

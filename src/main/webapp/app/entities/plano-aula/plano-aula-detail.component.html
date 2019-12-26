@@ -1,0 +1,114 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="planoAula">
+            <h2><span jhiTranslate="ensinoApp.planoAula.detail.title">Plano Aula</span> {{planoAula.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.planoAula.objectivoGeral">Objectivo Geral</span></dt>
+                <dd>
+                    <span>{{planoAula.objectivoGeral}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoAula.objectivoEspecifico">Objectivo Especifico</span></dt>
+                <dd>
+                    <span>{{planoAula.objectivoEspecifico}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoAula.conteudo">Conteudo</span></dt>
+                <dd>
+                    <span>{{planoAula.conteudo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoAula.estrategia">Estrategia</span></dt>
+                <dd>
+                    <span>{{planoAula.estrategia}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoAula.actividades">Actividades</span></dt>
+                <dd>
+                    <span>{{planoAula.actividades}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoAula.tempo">Tempo</span></dt>
+                <dd>
+                    <span>{{planoAula.tempo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoAula.recursosEnsino">Recursos Ensino</span></dt>
+                <dd>
+                    <span>{{planoAula.recursosEnsino}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoAula.avaliacao">Avaliacao</span></dt>
+                <dd>
+                    <span>{{planoAula.avaliacao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoAula.observacao">Observacao</span></dt>
+                <dd>
+                    <span>{{planoAula.observacao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoAula.bibliografia">Bibliografia</span></dt>
+                <dd>
+                    <span>{{planoAula.bibliografia}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoAula.perfilEntrada">Perfil Entrada</span></dt>
+                <dd>
+                    <span>{{planoAula.perfilEntrada}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoAula.perfilSaida">Perfil Saida</span></dt>
+                <dd>
+                    <span>{{planoAula.perfilSaida}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoAula.anexo1">Anexo 1</span></dt>
+                <dd>
+                    <div *ngIf="planoAula.anexo1">
+                        <a (click)="openFile(planoAula.anexo1ContentType!, planoAula.anexo1)" jhiTranslate="entity.action.open">open</a>
+                        {{planoAula.anexo1ContentType}}, {{byteSize(planoAula.anexo1)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoAula.anexo2">Anexo 2</span></dt>
+                <dd>
+                    <div *ngIf="planoAula.anexo2">
+                        <a (click)="openFile(planoAula.anexo2ContentType!, planoAula.anexo2)" jhiTranslate="entity.action.open">open</a>
+                        {{planoAula.anexo2ContentType}}, {{byteSize(planoAula.anexo2)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoAula.anexo3">Anexo 3</span></dt>
+                <dd>
+                    <div *ngIf="planoAula.anexo3">
+                        <a (click)="openFile(planoAula.anexo3ContentType!, planoAula.anexo3)" jhiTranslate="entity.action.open">open</a>
+                        {{planoAula.anexo3ContentType}}, {{byteSize(planoAula.anexo3)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoAula.utilizador">Utilizador</span></dt>
+                <dd>
+                    {{planoAula.utilizadorLogin}}
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoAula.turma">Turma</span></dt>
+                <dd>
+                    <span *ngFor="let turma of planoAula.turmas; let last = last">
+                        <a [routerLink]="['/turma', turma?.id, 'view' ]">{{turma.descricao}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoAula.disciplina">Disciplina</span></dt>
+                <dd>
+                    <div *ngIf="planoAula.disciplinaId">
+                        <a [routerLink]="['/disciplina', planoAula.disciplinaId, 'view']">{{planoAula.disciplinaNome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoAula.dossificacao">Dossificacao</span></dt>
+                <dd>
+                    <div *ngIf="planoAula.dossificacaoId">
+                        <a [routerLink]="['/dossificacao', planoAula.dossificacaoId, 'view']">{{planoAula.dossificacaoId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/plano-aula', planoAula.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

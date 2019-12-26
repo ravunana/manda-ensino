@@ -1,0 +1,106 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="rv-ficha-medica-heading" jhiTranslate="ensinoApp.fichaMedica.home.createOrEditLabel">Create or edit a Ficha Medica</h2>
+            <div>
+                <rv-alert-error></rv-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.fichaMedica.fazEducacaoFisica" for="field_fazEducacaoFisica">Faz Educacao Fisica</label>
+                    <input type="checkbox" class="form-control" name="fazEducacaoFisica" id="field_fazEducacaoFisica"
+                           formControlName="fazEducacaoFisica"/>
+                    <div *ngIf="editForm.get('fazEducacaoFisica')!.invalid && (editForm.get('fazEducacaoFisica')!.dirty || editForm.get('fazEducacaoFisica')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('fazEducacaoFisica')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.fichaMedica.grupoSanguinio" for="field_grupoSanguinio">Grupo Sanguinio</label>
+                    <input type="text" class="form-control" name="grupoSanguinio" id="field_grupoSanguinio"
+                           formControlName="grupoSanguinio"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.fichaMedica.altura" for="field_altura">Altura</label>
+                    <input type="number" class="form-control" name="altura" id="field_altura"
+                           formControlName="altura"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.fichaMedica.peso" for="field_peso">Peso</label>
+                    <input type="number" class="form-control" name="peso" id="field_peso"
+                           formControlName="peso"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.fichaMedica.autorizaMedicamento" for="field_autorizaMedicamento">Autoriza Medicamento</label>
+                    <input type="checkbox" class="form-control" name="autorizaMedicamento" id="field_autorizaMedicamento"
+                           formControlName="autorizaMedicamento"/>
+                    <div *ngIf="editForm.get('autorizaMedicamento')!.invalid && (editForm.get('autorizaMedicamento')!.dirty || editForm.get('autorizaMedicamento')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('autorizaMedicamento')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.fichaMedica.observacao" for="field_observacao">Observacao</label>
+                    <textarea class="form-control" name="observacao" id="field_observacao"
+                              formControlName="observacao"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.fichaMedica.nomeMedico" for="field_nomeMedico">Nome Medico</label>
+                    <input type="text" class="form-control" name="nomeMedico" id="field_nomeMedico"
+                           formControlName="nomeMedico"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.fichaMedica.contactoMedico" for="field_contactoMedico">Contacto Medico</label>
+                    <input type="text" class="form-control" name="contactoMedico" id="field_contactoMedico"
+                           formControlName="contactoMedico"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.fichaMedica.desmaioConstante" for="field_desmaioConstante">Desmaio Constante</label>
+                    <input type="checkbox" class="form-control" name="desmaioConstante" id="field_desmaioConstante"
+                           formControlName="desmaioConstante"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.fichaMedica.complicacoesSaude" for="field_complicacoesSaude">Complicacoes Saude</label>
+                    <textarea class="form-control" name="complicacoesSaude" id="field_complicacoesSaude"
+                              formControlName="complicacoesSaude"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.fichaMedica.aluno" for="field_aluno">Aluno</label>
+                    <select class="form-control" id="field_aluno" name="aluno" formControlName="alunoId">
+                        <option *ngIf="!editForm.get('alunoId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="alunoOption.id" *ngFor="let alunoOption of alunos; trackBy: trackById">{{alunoOption.numeroProcesso}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('alunoId')!.invalid && (editForm.get('alunoId')!.dirty || editForm.get('alunoId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('alunoId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.fichaMedica.utilizador" for="field_utilizador">Utilizador</label>
+                    <select class="form-control" id="field_utilizador" name="utilizador" formControlName="utilizadorId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackById">{{userOption.login}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

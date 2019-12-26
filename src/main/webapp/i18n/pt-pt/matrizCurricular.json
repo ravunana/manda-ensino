@@ -1,0 +1,23 @@
+{
+  "ensinoApp": {
+    "matrizCurricular": {
+      "home": {
+        "title": "Matriz Curriculars",
+        "createLabel": "Criar novo(a) Matriz Curricular",
+        "createOrEditLabel": "Criar ou editar Matriz Curricular",
+        "search": "Procurar por Matriz Curricular",
+        "notFound": "Nenhum Matriz Curriculars encontrado"
+      },
+      "created": "Um novo Matriz Curricular foi criado com o identificador {{ param }}",
+      "updated": "Matriz Curricular com identificador {{ param }} foi actualizado",
+      "deleted": "Matriz Curricular com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Matriz Curricular {{ id }}?"
+      },
+      "detail": {
+        "title": "Matriz Curricular"
+      },
+      "curso": "Curso"
+    }
+  }
+}

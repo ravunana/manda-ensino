@@ -1,0 +1,11 @@
+id;descricao;mensalidade;quantidade;valor;desconto;multa;juro;data;vencimento;quitado;utilizador_id;emolumento_id;deposito_id
+1;Road Guinea Franc Credit Card Account;false;40877;33028;64480;86809;34144;2019-12-25T21:13:56;2019-12-26;false;2;1;1
+2;Money Market Account standardization;false;3409;13603;14657;26497;3790;2019-12-25T22:36:14;2019-12-26;true;1;2;2
+3;indigo payment;false;23955;99828;18947;57713;56177;2019-12-25T18:25:36;2019-12-26;true;2;3;3
+4;Shoal;false;81513;22818;21856;14536;11291;2019-12-26T00:07:21;2019-12-25;true;1;4;4
+5;IB;false;12636;23319;63467;5154;89882;2019-12-26T09:55:47;2019-12-26;false;2;5;5
+6;Awesome;false;2849;32840;37985;93843;81122;2019-12-25T23:47:24;2019-12-26;true;1;6;6
+7;Rubber Trinidad and Tobago Dollar;false;22249;77699;86185;88236;97012;2019-12-25T12:54:57;2019-12-25;false;2;7;7
+8;Cheese;true;25889;60864;11917;90838;47074;2019-12-25T20:08:49;2019-12-26;true;2;8;8
+9;District Metal Savings Account;true;34943;14170;4126;40496;13899;2019-12-25T15:48:05;2019-12-25;true;2;9;9
+10;Assurance paradigms;true;68984;22514;1055;21296;71542;2019-12-25T17:55:28;2019-12-26;false;2;10;10

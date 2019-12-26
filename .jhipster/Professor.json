@@ -1,0 +1,51 @@
+{
+    "name": "Professor",
+    "fields": [
+        {
+            "fieldName": "numeroAgente",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "ativo",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "pessoa",
+            "otherEntityRelationshipName": "professor",
+            "relationshipValidateRules": "required",
+            "relationshipName": "pessoa",
+            "otherEntityField": "nome",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "horario",
+            "otherEntityRelationshipName": "professor",
+            "relationshipName": "horario"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "professor",
+            "relationshipName": "utilizador",
+            "otherEntityField": "login"
+        }
+    ],
+    "changelogDate": "20191226105336",
+    "entityTableName": "pdg_professor",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

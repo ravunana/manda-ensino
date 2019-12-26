@@ -1,0 +1,81 @@
+{
+    "name": "FichaMedica",
+    "fields": [
+        {
+            "fieldName": "fazEducacaoFisica",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "grupoSanguinio",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "altura",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "peso",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "autorizaMedicamento",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "observacao",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "nomeMedico",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactoMedico",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "desmaioConstante",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "complicacoesSaude",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "aluno",
+            "otherEntityRelationshipName": "fichaMedica",
+            "relationshipValidateRules": "required",
+            "relationshipName": "aluno",
+            "otherEntityField": "numeroProcesso",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "fichaMedica",
+            "relationshipName": "utilizador",
+            "otherEntityField": "login"
+        }
+    ],
+    "changelogDate": "20191226105357",
+    "entityTableName": "sec_ficha_medica",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

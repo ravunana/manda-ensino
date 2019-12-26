@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="matricula">
+            <h2><span jhiTranslate="ensinoApp.matricula.detail.title">Matricula</span> {{matricula.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.matricula.data">Data</span></dt>
+                <dd>
+                    <span>{{matricula.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.matricula.numero">Numero</span></dt>
+                <dd>
+                    <span>{{matricula.numero}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.matricula.observacao">Observacao</span></dt>
+                <dd>
+                    <span>{{matricula.observacao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.matricula.anoLectivo">Ano Lectivo</span></dt>
+                <dd>
+                    <span>{{matricula.anoLectivo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.matricula.peridoLectivo">Perido Lectivo</span></dt>
+                <dd>
+                    <span>{{matricula.peridoLectivo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.matricula.utilizador">Utilizador</span></dt>
+                <dd>
+                    {{matricula.utilizadorLogin}}
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.matricula.aluno">Aluno</span></dt>
+                <dd>
+                    <div *ngIf="matricula.alunoId">
+                        <a [routerLink]="['/aluno', matricula.alunoId, 'view']">{{matricula.alunoNumeroProcesso}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.matricula.confirmacao">Confirmacao</span></dt>
+                <dd>
+                    <div *ngIf="matricula.confirmacaoId">
+                        <a [routerLink]="['/matricula', matricula.confirmacaoId, 'view']">{{matricula.confirmacaoNumero}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.matricula.categoria">Categoria</span></dt>
+                <dd>
+                    <div *ngIf="matricula.categoriaId">
+                        <a [routerLink]="['/categoria-aluno', matricula.categoriaId, 'view']">{{matricula.categoriaNome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.matricula.turma">Turma</span></dt>
+                <dd>
+                    <div *ngIf="matricula.turmaId">
+                        <a [routerLink]="['/turma', matricula.turmaId, 'view']">{{matricula.turmaDescricao}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/matricula', matricula.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

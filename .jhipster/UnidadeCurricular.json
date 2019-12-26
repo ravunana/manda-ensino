@@ -1,0 +1,69 @@
+{
+    "name": "UnidadeCurricular",
+    "fields": [
+        {
+            "fieldName": "descricao",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "unidade",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numero",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "unidadeCurricular",
+            "otherEntityRelationshipName": "herarquia",
+            "relationshipName": "unidadeCurricular"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "disciplina",
+            "otherEntityRelationshipName": "unidadeCurricular",
+            "relationshipValidateRules": "required",
+            "relationshipName": "disciplina",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "classe",
+            "otherEntityRelationshipName": "unidadeCurricular",
+            "relationshipValidateRules": "required",
+            "relationshipName": "classe",
+            "otherEntityField": "descricao"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "unidadeCurricular",
+            "otherEntityRelationshipName": "unidadeCurricular",
+            "relationshipName": "herarquia",
+            "otherEntityField": "unidade"
+        }
+    ],
+    "changelogDate": "20191226105344",
+    "entityTableName": "pdg_unidade_curricular",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

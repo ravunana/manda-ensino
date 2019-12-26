@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="rv-categoria-aluno-heading" jhiTranslate="ensinoApp.categoriaAluno.home.createOrEditLabel">Create or edit a Categoria Aluno</h2>
+            <div>
+                <rv-alert-error></rv-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.categoriaAluno.nome" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                           formControlName="nome"/>
+                    <div *ngIf="editForm.get('nome')!.invalid && (editForm.get('nome')!.dirty || editForm.get('nome')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nome')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.categoriaAluno.desconto" for="field_desconto">Desconto</label>
+                    <input type="number" class="form-control" name="desconto" id="field_desconto"
+                           formControlName="desconto"/>
+                    <div *ngIf="editForm.get('desconto')!.invalid && (editForm.get('desconto')!.dirty || editForm.get('desconto')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('desconto')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('desconto')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.categoriaAluno.pagaPropina" for="field_pagaPropina">Paga Propina</label>
+                    <input type="checkbox" class="form-control" name="pagaPropina" id="field_pagaPropina"
+                           formControlName="pagaPropina"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.categoriaAluno.pagaMulta" for="field_pagaMulta">Paga Multa</label>
+                    <input type="checkbox" class="form-control" name="pagaMulta" id="field_pagaMulta"
+                           formControlName="pagaMulta"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.categoriaAluno.descricao" for="field_descricao">Descricao</label>
+                    <textarea class="form-control" name="descricao" id="field_descricao"
+                              formControlName="descricao"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.categoriaAluno.diaPagamento" for="field_diaPagamento">Dia Pagamento</label>
+                    <input type="number" class="form-control" name="diaPagamento" id="field_diaPagamento"
+                           formControlName="diaPagamento"/>
+                    <div *ngIf="editForm.get('diaPagamento')!.invalid && (editForm.get('diaPagamento')!.dirty || editForm.get('diaPagamento')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('diaPagamento')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 1 }">
+                            This field should be at least 1.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('diaPagamento')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.categoriaAluno.mesAtual" for="field_mesAtual">Mes Atual</label>
+                    <input type="checkbox" class="form-control" name="mesAtual" id="field_mesAtual"
+                           formControlName="mesAtual"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.categoriaAluno.ativo" for="field_ativo">Ativo</label>
+                    <input type="checkbox" class="form-control" name="ativo" id="field_ativo"
+                           formControlName="ativo"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

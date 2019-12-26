@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="serieDocumento">
+            <h2><span jhiTranslate="ensinoApp.serieDocumento.detail.title">Serie Documento</span> {{serieDocumento.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.serieDocumento.serie">Serie</span></dt>
+                <dd>
+                    <span>{{serieDocumento.serie}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.serieDocumento.sequencia">Sequencia</span></dt>
+                <dd>
+                    <span>{{serieDocumento.sequencia}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.serieDocumento.entidade">Entidade</span></dt>
+                <dd>
+                    <span>{{serieDocumento.entidade}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.serieDocumento.instituicaoEnsino">Instituicao Ensino</span></dt>
+                <dd>
+                    <div *ngIf="serieDocumento.instituicaoEnsinoId">
+                        <a [routerLink]="['/instituicao-ensino', serieDocumento.instituicaoEnsinoId, 'view']">{{serieDocumento.instituicaoEnsinoNome}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/serie-documento', serieDocumento.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

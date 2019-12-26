@@ -1,0 +1,42 @@
+{
+    "name": "DetalheOcorrencia",
+    "fields": [
+        {
+            "fieldName": "de",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "ate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "motivo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "ocorrencia",
+            "otherEntityRelationshipName": "detalheOcorrencia",
+            "relationshipValidateRules": "required",
+            "relationshipName": "ocorrencia",
+            "otherEntityField": "numero",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20191226105356",
+    "entityTableName": "sec_detalhe_ocorrencia",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

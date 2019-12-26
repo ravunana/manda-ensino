@@ -1,0 +1,45 @@
+{
+    "name": "Arquivo",
+    "fields": [
+        {
+            "fieldName": "descricao",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "entidade",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "anexo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "codigoEntidade",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "data",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "arquivo",
+            "relationshipName": "utilizador",
+            "otherEntityField": "login"
+        }
+    ],
+    "changelogDate": "20191226105335",
+    "entityTableName": "core_arquivo",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

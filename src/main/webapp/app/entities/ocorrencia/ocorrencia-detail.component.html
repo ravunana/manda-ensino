@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ocorrencia">
+            <h2><span jhiTranslate="ensinoApp.ocorrencia.detail.title">Ocorrencia</span> {{ocorrencia.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.ocorrencia.tipo">Tipo</span></dt>
+                <dd>
+                    <span>{{ocorrencia.tipo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.ocorrencia.data">Data</span></dt>
+                <dd>
+                    <span>{{ocorrencia.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.ocorrencia.numero">Numero</span></dt>
+                <dd>
+                    <span>{{ocorrencia.numero}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.ocorrencia.reportarEncarregado">Reportar Encarregado</span></dt>
+                <dd>
+                    <span>{{ocorrencia.reportarEncarregado}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.ocorrencia.utilizador">Utilizador</span></dt>
+                <dd>
+                    {{ocorrencia.utilizadorLogin}}
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.ocorrencia.matricula">Matricula</span></dt>
+                <dd>
+                    <div *ngIf="ocorrencia.matriculaId">
+                        <a [routerLink]="['/matricula', ocorrencia.matriculaId, 'view']">{{ocorrencia.matriculaNumero}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ocorrencia', ocorrencia.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

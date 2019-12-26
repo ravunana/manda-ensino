@@ -1,0 +1,77 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="horario">
+            <h2><span jhiTranslate="ensinoApp.horario.detail.title">Horario</span> {{horario.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.horario.inicioAula">Inicio Aula</span></dt>
+                <dd>
+                    <span>{{horario.inicioAula}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.horario.terminoAlua">Termino Alua</span></dt>
+                <dd>
+                    <span>{{horario.terminoAlua}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.horario.intervalo">Intervalo</span></dt>
+                <dd>
+                    <span>{{horario.intervalo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.horario.diaSemana">Dia Semana</span></dt>
+                <dd>
+                    <span>{{horario.diaSemana}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.horario.regimeCurricular">Regime Curricular</span></dt>
+                <dd>
+                    <span>{{horario.regimeCurricular}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.horario.data">Data</span></dt>
+                <dd>
+                    <span>{{horario.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.horario.anoLectivo">Ano Lectivo</span></dt>
+                <dd>
+                    <span>{{horario.anoLectivo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.horario.categoria">Categoria</span></dt>
+                <dd>
+                    <span>{{horario.categoria}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.horario.utilizador">Utilizador</span></dt>
+                <dd>
+                    {{horario.utilizadorLogin}}
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.horario.turma">Turma</span></dt>
+                <dd>
+                    <div *ngIf="horario.turmaId">
+                        <a [routerLink]="['/turma', horario.turmaId, 'view']">{{horario.turmaDescricao}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.horario.professor">Professor</span></dt>
+                <dd>
+                    <div *ngIf="horario.professorId">
+                        <a [routerLink]="['/professor', horario.professorId, 'view']">{{horario.professorNumeroAgente}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.horario.disciplina">Disciplina</span></dt>
+                <dd>
+                    <div *ngIf="horario.disciplinaId">
+                        <a [routerLink]="['/disciplina', horario.disciplinaId, 'view']">{{horario.disciplinaNome}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/horario', horario.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

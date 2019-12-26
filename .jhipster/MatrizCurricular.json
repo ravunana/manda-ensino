@@ -1,0 +1,24 @@
+{
+    "name": "MatrizCurricular",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "curso",
+            "otherEntityRelationshipName": "matrizCurricular",
+            "relationshipValidateRules": "required",
+            "relationshipName": "curso",
+            "otherEntityField": "nome"
+        }
+    ],
+    "changelogDate": "20191226105342",
+    "entityTableName": "pdg_matriz_curricular",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

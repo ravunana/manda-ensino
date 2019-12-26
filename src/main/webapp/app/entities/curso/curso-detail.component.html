@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="curso">
+            <h2><span jhiTranslate="ensinoApp.curso.detail.title">Curso</span> {{curso.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.curso.nome">Nome</span></dt>
+                <dd>
+                    <span>{{curso.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.curso.sigla">Sigla</span></dt>
+                <dd>
+                    <span>{{curso.sigla}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.curso.competencias">Competencias</span></dt>
+                <dd>
+                    <span>{{curso.competencias}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.curso.areaFormacao">Area Formacao</span></dt>
+                <dd>
+                    <div *ngIf="curso.areaFormacaoId">
+                        <a [routerLink]="['/area-formacao', curso.areaFormacaoId, 'view']">{{curso.areaFormacaoNome}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/curso', curso.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

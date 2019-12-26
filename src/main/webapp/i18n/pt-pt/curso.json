@@ -1,0 +1,30 @@
+{
+  "ensinoApp": {
+    "curso": {
+      "home": {
+        "title": "Cursos",
+        "createLabel": "Criar novo(a) Curso",
+        "createOrEditLabel": "Criar ou editar Curso",
+        "search": "Procurar por Curso",
+        "notFound": "Nenhum Cursos encontrado"
+      },
+      "created": "Um novo Curso foi criado com o identificador {{ param }}",
+      "updated": "Curso com identificador {{ param }} foi actualizado",
+      "deleted": "Curso com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Curso {{ id }}?"
+      },
+      "detail": {
+        "title": "Curso"
+      },
+      "nome": "Nome",
+      "sigla": "Sigla",
+      "competencias": "Competencias",
+      "turma": "Turma",
+      "matrizCurricular": "Matriz Curricular",
+      "emolumento": "Emolumento",
+      "areaFormacao": "Area Formacao",
+      "dossificacao": "Dossificacao"
+    }
+  }
+}

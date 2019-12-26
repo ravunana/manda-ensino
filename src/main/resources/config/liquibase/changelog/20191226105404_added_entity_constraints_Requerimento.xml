@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Requerimento.
+    -->
+    <changeSet id="20191226105404-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="utilizador_id"
+                                 baseTableName="sec_requerimento"
+                                 constraintName="fk_sec_requerimento_utilizador_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rv_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="categoria_id"
+                                 baseTableName="sec_requerimento"
+                                 constraintName="fk_sec_requerimento_categoria_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sec_categoria_requerimento"/>
+
+        <addForeignKeyConstraint baseColumnNames="aluno_id"
+                                 baseTableName="sec_requerimento"
+                                 constraintName="fk_sec_requerimento_aluno_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sec_aluno"/>
+
+    </changeSet>
+</databaseChangeLog>

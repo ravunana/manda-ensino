@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="emolumento">
+            <h2><span jhiTranslate="ensinoApp.emolumento.detail.title">Emolumento</span> {{emolumento.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.emolumento.nome">Nome</span></dt>
+                <dd>
+                    <span>{{emolumento.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.emolumento.valor">Valor</span></dt>
+                <dd>
+                    <span>{{emolumento.valor}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.emolumento.valorMulta">Valor Multa</span></dt>
+                <dd>
+                    <span>{{emolumento.valorMulta}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.emolumento.tempoMulta">Tempo Multa</span></dt>
+                <dd>
+                    <span>{{emolumento.tempoMulta}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.emolumento.quantidade">Quantidade</span></dt>
+                <dd>
+                    <span>{{emolumento.quantidade}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.emolumento.curso">Curso</span></dt>
+                <dd>
+                    <div *ngIf="emolumento.cursoId">
+                        <a [routerLink]="['/curso', emolumento.cursoId, 'view']">{{emolumento.cursoNome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.emolumento.classe">Classe</span></dt>
+                <dd>
+                    <div *ngIf="emolumento.classeId">
+                        <a [routerLink]="['/classe', emolumento.classeId, 'view']">{{emolumento.classeDescricao}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/emolumento', emolumento.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

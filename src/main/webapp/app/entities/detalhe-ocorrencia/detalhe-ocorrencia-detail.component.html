@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="detalheOcorrencia">
+            <h2><span jhiTranslate="ensinoApp.detalheOcorrencia.detail.title">Detalhe Ocorrencia</span> {{detalheOcorrencia.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.detalheOcorrencia.de">De</span></dt>
+                <dd>
+                    <span>{{detalheOcorrencia.de}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.detalheOcorrencia.ate">Ate</span></dt>
+                <dd>
+                    <span>{{detalheOcorrencia.ate}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.detalheOcorrencia.motivo">Motivo</span></dt>
+                <dd>
+                    <span>{{detalheOcorrencia.motivo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.detalheOcorrencia.ocorrencia">Ocorrencia</span></dt>
+                <dd>
+                    <div *ngIf="detalheOcorrencia.ocorrenciaId">
+                        <a [routerLink]="['/ocorrencia', detalheOcorrencia.ocorrenciaId, 'view']">{{detalheOcorrencia.ocorrenciaNumero}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/detalhe-ocorrencia', detalheOcorrencia.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Deposito.
+    -->
+    <changeSet id="20191226105407-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="utilizador_id"
+                                 baseTableName="fin_deposito"
+                                 constraintName="fk_fin_deposito_utilizador_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rv_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="meio_liquidacao_id"
+                                 baseTableName="fin_deposito"
+                                 constraintName="fk_fin_deposito_meio_liquidacao_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fin_meio_liquidacao"/>
+
+        <addForeignKeyConstraint baseColumnNames="aluno_id"
+                                 baseTableName="fin_deposito"
+                                 constraintName="fk_fin_deposito_aluno_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sec_aluno"/>
+
+        <addForeignKeyConstraint baseColumnNames="conta_id"
+                                 baseTableName="fin_deposito"
+                                 constraintName="fk_fin_deposito_conta_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="core_coordenada_bancaria"/>
+
+    </changeSet>
+</databaseChangeLog>

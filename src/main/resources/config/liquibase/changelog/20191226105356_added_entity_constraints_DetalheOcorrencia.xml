@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity DetalheOcorrencia.
+    -->
+    <changeSet id="20191226105356-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="ocorrencia_id"
+                                 baseTableName="sec_detalhe_ocorrencia"
+                                 constraintName="fk_sec_detalhe_ocorrencia_ocorrencia_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sec_ocorrencia"/>
+
+    </changeSet>
+</databaseChangeLog>

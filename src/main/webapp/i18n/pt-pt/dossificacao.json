@@ -1,0 +1,38 @@
+{
+  "ensinoApp": {
+    "dossificacao": {
+      "home": {
+        "title": "Dossificacaos",
+        "createLabel": "Criar novo(a) Dossificacao",
+        "createOrEditLabel": "Criar ou editar Dossificacao",
+        "search": "Procurar por Dossificacao",
+        "notFound": "Nenhum Dossificacaos encontrado"
+      },
+      "created": "Um novo Dossificacao foi criado com o identificador {{ param }}",
+      "updated": "Dossificacao com identificador {{ param }} foi actualizado",
+      "deleted": "Dossificacao com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Dossificacao {{ id }}?"
+      },
+      "detail": {
+        "title": "Dossificacao"
+      },
+      "periodoLectivo": "Periodo Lectivo",
+      "anoLectivo": "Ano Lectivo",
+      "objectivoGeral": "Objectivo Geral",
+      "objectivoEspecifico": "Objectivo Especifico",
+      "semanaLectiva": "Semana Lectiva",
+      "de": "De",
+      "ate": "Ate",
+      "conteudo": "Conteudo",
+      "procedimentoEnsino": "Procedimento Ensino",
+      "recursosDidatico": "Recursos Didatico",
+      "tempoAula": "Tempo Aula",
+      "formaAvaliacao": "Forma Avaliacao",
+      "planoAula": "Plano Aula",
+      "curso": "Curso",
+      "classe": "Classe",
+      "disciplina": "Disciplina"
+    }
+  }
+}

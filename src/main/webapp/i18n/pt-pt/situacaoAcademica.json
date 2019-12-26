@@ -1,0 +1,28 @@
+{
+  "ensinoApp": {
+    "situacaoAcademica": {
+      "home": {
+        "title": "Situacao Academicas",
+        "createLabel": "Criar novo(a) Situacao Academica",
+        "createOrEditLabel": "Criar ou editar Situacao Academica",
+        "search": "Procurar por Situacao Academica",
+        "notFound": "Nenhum Situacao Academicas encontrado"
+      },
+      "created": "Um novo Situacao Academica foi criado com o identificador {{ param }}",
+      "updated": "Situacao Academica com identificador {{ param }} foi actualizado",
+      "deleted": "Situacao Academica com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Situacao Academica {{ id }}?"
+      },
+      "detail": {
+        "title": "Situacao Academica"
+      },
+      "anoLectivo": "Ano Lectivo",
+      "data": "Data",
+      "estado": "Estado",
+      "descricao": "Descricao",
+      "aluno": "Aluno",
+      "disciplina": "Disciplina"
+    }
+  }
+}

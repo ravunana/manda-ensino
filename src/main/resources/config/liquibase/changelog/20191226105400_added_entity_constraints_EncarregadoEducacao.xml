@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity EncarregadoEducacao.
+    -->
+    <changeSet id="20191226105400-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="pessoa_id"
+                                 baseTableName="sec_encarregado_educacao"
+                                 constraintName="fk_sec_encarregado_educacao_pessoa_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="core_pessoa"/>
+
+    </changeSet>
+</databaseChangeLog>

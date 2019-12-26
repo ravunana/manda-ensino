@@ -1,0 +1,35 @@
+{
+  "ensinoApp": {
+    "documentoMatricula": {
+      "home": {
+        "title": "Documento Matriculas",
+        "createLabel": "Criar novo(a) Documento Matricula",
+        "createOrEditLabel": "Criar ou editar Documento Matricula",
+        "search": "Procurar por Documento Matricula",
+        "notFound": "Nenhum Documento Matriculas encontrado"
+      },
+      "created": "Um novo Documento Matricula foi criado com o identificador {{ param }}",
+      "updated": "Documento Matricula com identificador {{ param }} foi actualizado",
+      "deleted": "Documento Matricula com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Documento Matricula {{ id }}?"
+      },
+      "detail": {
+        "title": "Documento Matricula"
+      },
+      "fotografia": "Fotografia",
+      "certificado": "Certificado",
+      "bilhete": "Bilhete",
+      "resenciamentoMilitar": "Resenciamento Militar",
+      "cartaoVacina": "Cartao Vacina",
+      "atestadoMedico": "Atestado Medico",
+      "fichaTrnasferencia": "Ficha Trnasferencia",
+      "historicoEscolar": "Historico Escolar",
+      "cedula": "Cedula",
+      "descricao": "Descricao",
+      "anoLectivo": "Ano Lectivo",
+      "data": "Data",
+      "matricula": "Matricula"
+    }
+  }
+}

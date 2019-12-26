@@ -1,0 +1,104 @@
+{
+    "name": "PlanoActividade",
+    "fields": [
+        {
+            "fieldName": "numeroActividade",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "unique",
+                "min"
+            ],
+            "fieldValidateRulesMin": 1
+        },
+        {
+            "fieldName": "atividade",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "objectivos",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "de",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ate",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "responsavel",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "local",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "observacao",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "participantes",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "coResponsavel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "statusActividade",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "anoLectivo",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "periodoLectivo",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "planoActividade",
+            "relationshipName": "utilizador",
+            "otherEntityField": "login"
+        }
+    ],
+    "changelogDate": "20191226105348",
+    "entityTableName": "pdg_plano_actividade",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

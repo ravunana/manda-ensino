@@ -1,0 +1,106 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ensinoApp.planoActividade.home.title">Plano Actividades</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-plano-actividade" [routerLink]="['/plano-actividade/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="ensinoApp.planoActividade.home.createLabel">
+            Create a new Plano Actividade
+            </span>
+        </button>
+    </h2>
+    <rv-alert-error></rv-alert-error>
+    <rv-alert></rv-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'ensinoApp.planoActividade.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="planoActividades?.length === 0">
+        <span jhiTranslate="ensinoApp.planoActividade.home.notFound">No planoActividades found</span>
+    </div>
+    <div class="table-responsive" *ngIf="planoActividades?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="numeroActividade"><span jhiTranslate="ensinoApp.planoActividade.numeroActividade">Numero Actividade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="atividade"><span jhiTranslate="ensinoApp.planoActividade.atividade">Atividade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="objectivos"><span jhiTranslate="ensinoApp.planoActividade.objectivos">Objectivos</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="de"><span jhiTranslate="ensinoApp.planoActividade.de">De</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="ate"><span jhiTranslate="ensinoApp.planoActividade.ate">Ate</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="responsavel"><span jhiTranslate="ensinoApp.planoActividade.responsavel">Responsavel</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="local"><span jhiTranslate="ensinoApp.planoActividade.local">Local</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="observacao"><span jhiTranslate="ensinoApp.planoActividade.observacao">Observacao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="participantes"><span jhiTranslate="ensinoApp.planoActividade.participantes">Participantes</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="coResponsavel"><span jhiTranslate="ensinoApp.planoActividade.coResponsavel">Co Responsavel</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="statusActividade"><span jhiTranslate="ensinoApp.planoActividade.statusActividade">Status Actividade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="anoLectivo"><span jhiTranslate="ensinoApp.planoActividade.anoLectivo">Ano Lectivo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="periodoLectivo"><span jhiTranslate="ensinoApp.planoActividade.periodoLectivo">Periodo Lectivo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="utilizadorLogin"><span jhiTranslate="ensinoApp.planoActividade.utilizador">Utilizador</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let planoActividade of planoActividades ;trackBy: trackId">
+                <td><a [routerLink]="['/plano-actividade', planoActividade.id, 'view' ]">{{planoActividade.id}}</a></td>
+                <td>{{planoActividade.numeroActividade}}</td>
+                <td>{{planoActividade.atividade}}</td>
+                <td>{{planoActividade.objectivos}}</td>
+                <td>{{planoActividade.de | date:'mediumDate'}}</td>
+                <td>{{planoActividade.ate | date:'mediumDate'}}</td>
+                <td>{{planoActividade.responsavel}}</td>
+                <td>{{planoActividade.local}}</td>
+                <td>{{planoActividade.observacao}}</td>
+                <td>{{planoActividade.participantes}}</td>
+                <td>{{planoActividade.coResponsavel}}</td>
+                <td>{{planoActividade.statusActividade}}</td>
+                <td>{{planoActividade.anoLectivo | date:'mediumDate'}}</td>
+                <td>{{planoActividade.periodoLectivo}}</td>
+                <td>
+                    {{planoActividade.utilizadorLogin}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/plano-actividade', planoActividade.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/plano-actividade', planoActividade.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(planoActividade)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="planoActividades?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+{
+  "ensinoApp": {
+    "contrato": {
+      "home": {
+        "title": "Contratoes",
+        "createLabel": "Criar novo(a) Contrato",
+        "createOrEditLabel": "Criar ou editar Contrato",
+        "search": "Procurar por Contrato",
+        "notFound": "Nenhum Contratoes encontrado"
+      },
+      "created": "Um novo Contrato foi criado com o identificador {{ param }}",
+      "updated": "Contrato com identificador {{ param }} foi actualizado",
+      "deleted": "Contrato com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Contrato {{ id }}?"
+      },
+      "detail": {
+        "title": "Contrato"
+      },
+      "de": "De",
+      "ate": "Ate",
+      "contrato": "Contrato",
+      "aceitaTermos": "Aceita Termos",
+      "observacao": "Observacao",
+      "termos": "Termos",
+      "emVigor": "Em Vigor",
+      "aluno": "Aluno"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "ensinoApp": {
+    "requerimento": {
+      "home": {
+        "title": "Requerimentos",
+        "createLabel": "Criar novo(a) Requerimento",
+        "createOrEditLabel": "Criar ou editar Requerimento",
+        "search": "Procurar por Requerimento",
+        "notFound": "Nenhum Requerimentos encontrado"
+      },
+      "created": "Um novo Requerimento foi criado com o identificador {{ param }}",
+      "updated": "Requerimento com identificador {{ param }} foi actualizado",
+      "deleted": "Requerimento com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Requerimento {{ id }}?"
+      },
+      "detail": {
+        "title": "Requerimento"
+      },
+      "requerimento": "Requerimento",
+      "data": "Data",
+      "statusRequerimento": "Status Requerimento",
+      "utilizador": "Utilizador",
+      "categoria": "Categoria",
+      "aluno": "Aluno"
+    }
+  }
+}

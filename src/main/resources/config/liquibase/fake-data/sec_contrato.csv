@@ -1,0 +1,11 @@
+id;de;ate;contrato;aceita_termos;observacao;termos;termos_content_type;em_vigor;aluno_id
+1;2019-12-26;2019-12-26;Cotton Gloves;true;../fake-data/blob/hipster.txt;../fake-data/blob/hipster.png;image/png;true;1
+2;2019-12-26;2019-12-26;Rustic Books;false;../fake-data/blob/hipster.txt;../fake-data/blob/hipster.png;image/png;false;2
+3;2019-12-26;2019-12-25;Steel Soft;true;../fake-data/blob/hipster.txt;../fake-data/blob/hipster.png;image/png;false;3
+4;2019-12-25;2019-12-25;Rwanda;false;../fake-data/blob/hipster.txt;../fake-data/blob/hipster.png;image/png;false;4
+5;2019-12-26;2019-12-25;regional Jersey Steel;false;../fake-data/blob/hipster.txt;../fake-data/blob/hipster.png;image/png;true;5
+6;2019-12-25;2019-12-26;Russian Ruble back-end Engineer;true;../fake-data/blob/hipster.txt;../fake-data/blob/hipster.png;image/png;true;6
+7;2019-12-26;2019-12-26;leading-edge Architect;true;../fake-data/blob/hipster.txt;../fake-data/blob/hipster.png;image/png;true;7
+8;2019-12-25;2019-12-25;JBOD;true;../fake-data/blob/hipster.txt;../fake-data/blob/hipster.png;image/png;false;8
+9;2019-12-26;2019-12-25;Mountain;false;../fake-data/blob/hipster.txt;../fake-data/blob/hipster.png;image/png;false;9
+10;2019-12-25;2019-12-26;envisioneer Center Cambridgeshire;true;../fake-data/blob/hipster.txt;../fake-data/blob/hipster.png;image/png;false;10

@@ -1,0 +1,26 @@
+{
+  "ensinoApp": {
+    "sala": {
+      "home": {
+        "title": "Salas",
+        "createLabel": "Criar novo(a) Sala",
+        "createOrEditLabel": "Criar ou editar Sala",
+        "search": "Procurar por Sala",
+        "notFound": "Nenhum Salas encontrado"
+      },
+      "created": "Um novo Sala foi criado com o identificador {{ param }}",
+      "updated": "Sala com identificador {{ param }} foi actualizado",
+      "deleted": "Sala com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Sala {{ id }}?"
+      },
+      "detail": {
+        "title": "Sala"
+      },
+      "numero": "Numero",
+      "descricao": "Descricao",
+      "lotacao": "Lotacao",
+      "turma": "Turma"
+    }
+  }
+}

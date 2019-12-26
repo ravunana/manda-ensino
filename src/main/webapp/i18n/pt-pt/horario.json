@@ -1,0 +1,34 @@
+{
+  "ensinoApp": {
+    "horario": {
+      "home": {
+        "title": "Horarios",
+        "createLabel": "Criar novo(a) Horario",
+        "createOrEditLabel": "Criar ou editar Horario",
+        "search": "Procurar por Horario",
+        "notFound": "Nenhum Horarios encontrado"
+      },
+      "created": "Um novo Horario foi criado com o identificador {{ param }}",
+      "updated": "Horario com identificador {{ param }} foi actualizado",
+      "deleted": "Horario com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Horario {{ id }}?"
+      },
+      "detail": {
+        "title": "Horario"
+      },
+      "inicioAula": "Inicio Aula",
+      "terminoAlua": "Termino Alua",
+      "intervalo": "Intervalo",
+      "diaSemana": "Dia Semana",
+      "regimeCurricular": "Regime Curricular",
+      "data": "Data",
+      "anoLectivo": "Ano Lectivo",
+      "categoria": "Categoria",
+      "utilizador": "Utilizador",
+      "turma": "Turma",
+      "professor": "Professor",
+      "disciplina": "Disciplina"
+    }
+  }
+}

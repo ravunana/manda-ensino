@@ -1,0 +1,26 @@
+{
+  "ensinoApp": {
+    "detalheOcorrencia": {
+      "home": {
+        "title": "Detalhe Ocorrencias",
+        "createLabel": "Criar novo(a) Detalhe Ocorrencia",
+        "createOrEditLabel": "Criar ou editar Detalhe Ocorrencia",
+        "search": "Procurar por Detalhe Ocorrencia",
+        "notFound": "Nenhum Detalhe Ocorrencias encontrado"
+      },
+      "created": "Um novo Detalhe Ocorrencia foi criado com o identificador {{ param }}",
+      "updated": "Detalhe Ocorrencia com identificador {{ param }} foi actualizado",
+      "deleted": "Detalhe Ocorrencia com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Detalhe Ocorrencia {{ id }}?"
+      },
+      "detail": {
+        "title": "Detalhe Ocorrencia"
+      },
+      "de": "De",
+      "ate": "Ate",
+      "motivo": "Motivo",
+      "ocorrencia": "Ocorrencia"
+    }
+  }
+}

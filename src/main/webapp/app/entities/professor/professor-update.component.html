@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="rv-professor-heading" jhiTranslate="ensinoApp.professor.home.createOrEditLabel">Create or edit a Professor</h2>
+            <div>
+                <rv-alert-error></rv-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.professor.numeroAgente" for="field_numeroAgente">Numero Agente</label>
+                    <input type="text" class="form-control" name="numeroAgente" id="field_numeroAgente"
+                           formControlName="numeroAgente"/>
+                    <div *ngIf="editForm.get('numeroAgente')!.invalid && (editForm.get('numeroAgente')!.dirty || editForm.get('numeroAgente')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('numeroAgente')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.professor.ativo" for="field_ativo">Ativo</label>
+                    <input type="checkbox" class="form-control" name="ativo" id="field_ativo"
+                           formControlName="ativo"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.professor.pessoa" for="field_pessoa">Pessoa</label>
+                    <select class="form-control" id="field_pessoa" name="pessoa" formControlName="pessoaId">
+                        <option *ngIf="!editForm.get('pessoaId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="pessoaOption.id" *ngFor="let pessoaOption of pessoas; trackBy: trackById">{{pessoaOption.nome}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('pessoaId')!.invalid && (editForm.get('pessoaId')!.dirty || editForm.get('pessoaId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('pessoaId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.professor.utilizador" for="field_utilizador">Utilizador</label>
+                    <select class="form-control" id="field_utilizador" name="utilizador" formControlName="utilizadorId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackById">{{userOption.login}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

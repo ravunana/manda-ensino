@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity DetalhePagamento.
+    -->
+    <changeSet id="20191226105411-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="utilizador_id"
+                                 baseTableName="fin_detalhe_pagamento"
+                                 constraintName="fk_fin_detalhe_pagamento_utilizador_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rv_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="emolumento_id"
+                                 baseTableName="fin_detalhe_pagamento"
+                                 constraintName="fk_fin_detalhe_pagamento_emolumento_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fin_emolumento"/>
+
+        <addForeignKeyConstraint baseColumnNames="deposito_id"
+                                 baseTableName="fin_detalhe_pagamento"
+                                 constraintName="fk_fin_detalhe_pagamento_deposito_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fin_deposito"/>
+
+    </changeSet>
+</databaseChangeLog>

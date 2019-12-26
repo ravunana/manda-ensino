@@ -1,0 +1,37 @@
+{
+    "name": "SerieDocumento",
+    "fields": [
+        {
+            "fieldName": "serie",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sequencia",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "entidade",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "instituicaoEnsino",
+            "otherEntityRelationshipName": "serieDocumento",
+            "relationshipName": "instituicaoEnsino",
+            "otherEntityField": "nome",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20191226105320",
+    "entityTableName": "core_serie_documento",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

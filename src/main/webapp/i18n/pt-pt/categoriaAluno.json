@@ -1,0 +1,31 @@
+{
+  "ensinoApp": {
+    "categoriaAluno": {
+      "home": {
+        "title": "Categoria Alunos",
+        "createLabel": "Criar novo(a) Categoria Aluno",
+        "createOrEditLabel": "Criar ou editar Categoria Aluno",
+        "search": "Procurar por Categoria Aluno",
+        "notFound": "Nenhum Categoria Alunos encontrado"
+      },
+      "created": "Um novo Categoria Aluno foi criado com o identificador {{ param }}",
+      "updated": "Categoria Aluno com identificador {{ param }} foi actualizado",
+      "deleted": "Categoria Aluno com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Categoria Aluno {{ id }}?"
+      },
+      "detail": {
+        "title": "Categoria Aluno"
+      },
+      "nome": "Nome",
+      "desconto": "Desconto",
+      "pagaPropina": "Paga Propina",
+      "pagaMulta": "Paga Multa",
+      "descricao": "Descricao",
+      "diaPagamento": "Dia Pagamento",
+      "mesAtual": "Mes Atual",
+      "ativo": "Ativo",
+      "matricula": "Matricula"
+    }
+  }
+}

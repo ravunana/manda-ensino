@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="rv-requerimento-heading" jhiTranslate="ensinoApp.requerimento.home.createOrEditLabel">Create or edit a Requerimento</h2>
+            <div>
+                <rv-alert-error></rv-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.requerimento.requerimento" for="field_requerimento">Requerimento</label>
+                    <div>
+                        <div *ngIf="editForm.get('requerimento')!.value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('requerimentoContentType')!.value, editForm.get('requerimento')!.value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('requerimentoContentType')!.value}}, {{byteSize(editForm.get('requerimento')!.value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({requerimento: null});editForm.patchValue({requerimentoContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_requerimento" (change)="setFileData($event, 'requerimento', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="requerimento" id="field_requerimento"
+                           formControlName="requerimento"/>
+                    <input type="hidden" class="form-control" name="requerimentoContentType" id="field_requerimentoContentType"
+                           formControlName="requerimentoContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.requerimento.data" for="field_data">Data</label>
+                    <div class="d-flex">
+                        <input id="field_data" type="datetime-local" class="form-control" name="data" formControlName="data" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.requerimento.statusRequerimento" for="field_statusRequerimento">Status Requerimento</label>
+                    <input type="text" class="form-control" name="statusRequerimento" id="field_statusRequerimento"
+                           formControlName="statusRequerimento"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.requerimento.utilizador" for="field_utilizador">Utilizador</label>
+                    <select class="form-control" id="field_utilizador" name="utilizador" formControlName="utilizadorId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackById">{{userOption.login}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.requerimento.categoria" for="field_categoria">Categoria</label>
+                    <select class="form-control" id="field_categoria" name="categoria" formControlName="categoriaId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="categoriaRequerimentoOption.id" *ngFor="let categoriaRequerimentoOption of categoriarequerimentos; trackBy: trackById">{{categoriaRequerimentoOption.nome}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.requerimento.aluno" for="field_aluno">Aluno</label>
+                    <select class="form-control" id="field_aluno" name="aluno" formControlName="alunoId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="alunoOption.id" *ngFor="let alunoOption of alunos; trackBy: trackById">{{alunoOption.numeroProcesso}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

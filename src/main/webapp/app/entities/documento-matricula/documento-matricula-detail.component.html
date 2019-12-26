@@ -1,0 +1,77 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="documentoMatricula">
+            <h2><span jhiTranslate="ensinoApp.documentoMatricula.detail.title">Documento Matricula</span> {{documentoMatricula.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.documentoMatricula.fotografia">Fotografia</span></dt>
+                <dd>
+                    <span>{{documentoMatricula.fotografia}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.documentoMatricula.certificado">Certificado</span></dt>
+                <dd>
+                    <span>{{documentoMatricula.certificado}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.documentoMatricula.bilhete">Bilhete</span></dt>
+                <dd>
+                    <span>{{documentoMatricula.bilhete}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.documentoMatricula.resenciamentoMilitar">Resenciamento Militar</span></dt>
+                <dd>
+                    <span>{{documentoMatricula.resenciamentoMilitar}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.documentoMatricula.cartaoVacina">Cartao Vacina</span></dt>
+                <dd>
+                    <span>{{documentoMatricula.cartaoVacina}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.documentoMatricula.atestadoMedico">Atestado Medico</span></dt>
+                <dd>
+                    <span>{{documentoMatricula.atestadoMedico}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.documentoMatricula.fichaTrnasferencia">Ficha Trnasferencia</span></dt>
+                <dd>
+                    <span>{{documentoMatricula.fichaTrnasferencia}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.documentoMatricula.historicoEscolar">Historico Escolar</span></dt>
+                <dd>
+                    <span>{{documentoMatricula.historicoEscolar}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.documentoMatricula.cedula">Cedula</span></dt>
+                <dd>
+                    <span>{{documentoMatricula.cedula}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.documentoMatricula.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{documentoMatricula.descricao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.documentoMatricula.anoLectivo">Ano Lectivo</span></dt>
+                <dd>
+                    <span>{{documentoMatricula.anoLectivo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.documentoMatricula.data">Data</span></dt>
+                <dd>
+                    <span>{{documentoMatricula.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.documentoMatricula.matricula">Matricula</span></dt>
+                <dd>
+                    <div *ngIf="documentoMatricula.matriculaId">
+                        <a [routerLink]="['/matricula', documentoMatricula.matriculaId, 'view']">{{documentoMatricula.matriculaNumero}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/documento-matricula', documentoMatricula.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,137 @@
+{
+    "name": "Dossificacao",
+    "fields": [
+        {
+            "fieldName": "periodoLectivo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "anoLectivo",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "objectivoGeral",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "objectivoEspecifico",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "semanaLectiva",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "de",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ate",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "conteudo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "procedimentoEnsino",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "recursosDidatico",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tempoAula",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "formaAvaliacao",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "planoAula",
+            "otherEntityRelationshipName": "dossificacao",
+            "relationshipName": "planoAula"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "curso",
+            "otherEntityRelationshipName": "dossificacao",
+            "relationshipValidateRules": "required",
+            "relationshipName": "curso",
+            "otherEntityField": "nome",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "classe",
+            "otherEntityRelationshipName": "dossificacao",
+            "relationshipValidateRules": "required",
+            "relationshipName": "classe",
+            "otherEntityField": "descricao",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "disciplina",
+            "otherEntityRelationshipName": "dossificacao",
+            "relationshipValidateRules": "required",
+            "relationshipName": "disciplina",
+            "otherEntityField": "nome"
+        }
+    ],
+    "changelogDate": "20191226105350",
+    "entityTableName": "pdg_dossificacao",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

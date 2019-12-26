@@ -1,0 +1,160 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="rv-plano-actividade-heading" jhiTranslate="ensinoApp.planoActividade.home.createOrEditLabel">Create or edit a Plano Actividade</h2>
+            <div>
+                <rv-alert-error></rv-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoActividade.numeroActividade" for="field_numeroActividade">Numero Actividade</label>
+                    <input type="number" class="form-control" name="numeroActividade" id="field_numeroActividade"
+                           formControlName="numeroActividade"/>
+                    <div *ngIf="editForm.get('numeroActividade')!.invalid && (editForm.get('numeroActividade')!.dirty || editForm.get('numeroActividade')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('numeroActividade')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 1 }">
+                            This field should be at least 1.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('numeroActividade')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoActividade.atividade" for="field_atividade">Atividade</label>
+                    <input type="text" class="form-control" name="atividade" id="field_atividade"
+                           formControlName="atividade"/>
+                    <div *ngIf="editForm.get('atividade')!.invalid && (editForm.get('atividade')!.dirty || editForm.get('atividade')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('atividade')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoActividade.objectivos" for="field_objectivos">Objectivos</label>
+                    <textarea class="form-control" name="objectivos" id="field_objectivos"
+                              formControlName="objectivos"></textarea>
+                    <div *ngIf="editForm.get('objectivos')!.invalid && (editForm.get('objectivos')!.dirty || editForm.get('objectivos')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('objectivos')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoActividade.de" for="field_de">De</label>
+                    <div class="input-group">
+                        <input id="field_de" type="text" class="form-control" name="de" ngbDatepicker  #deDp="ngbDatepicker" formControlName="de"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="deDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('de')!.invalid && (editForm.get('de')!.dirty || editForm.get('de')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('de')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoActividade.ate" for="field_ate">Ate</label>
+                    <div class="input-group">
+                        <input id="field_ate" type="text" class="form-control" name="ate" ngbDatepicker  #ateDp="ngbDatepicker" formControlName="ate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="ateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('ate')!.invalid && (editForm.get('ate')!.dirty || editForm.get('ate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('ate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoActividade.responsavel" for="field_responsavel">Responsavel</label>
+                    <input type="text" class="form-control" name="responsavel" id="field_responsavel"
+                           formControlName="responsavel"/>
+                    <div *ngIf="editForm.get('responsavel')!.invalid && (editForm.get('responsavel')!.dirty || editForm.get('responsavel')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('responsavel')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoActividade.local" for="field_local">Local</label>
+                    <input type="text" class="form-control" name="local" id="field_local"
+                           formControlName="local"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoActividade.observacao" for="field_observacao">Observacao</label>
+                    <textarea class="form-control" name="observacao" id="field_observacao"
+                              formControlName="observacao"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoActividade.participantes" for="field_participantes">Participantes</label>
+                    <input type="text" class="form-control" name="participantes" id="field_participantes"
+                           formControlName="participantes"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoActividade.coResponsavel" for="field_coResponsavel">Co Responsavel</label>
+                    <input type="text" class="form-control" name="coResponsavel" id="field_coResponsavel"
+                           formControlName="coResponsavel"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoActividade.statusActividade" for="field_statusActividade">Status Actividade</label>
+                    <input type="text" class="form-control" name="statusActividade" id="field_statusActividade"
+                           formControlName="statusActividade"/>
+                    <div *ngIf="editForm.get('statusActividade')!.invalid && (editForm.get('statusActividade')!.dirty || editForm.get('statusActividade')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('statusActividade')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoActividade.anoLectivo" for="field_anoLectivo">Ano Lectivo</label>
+                    <div class="input-group">
+                        <input id="field_anoLectivo" type="text" class="form-control" name="anoLectivo" ngbDatepicker  #anoLectivoDp="ngbDatepicker" formControlName="anoLectivo"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="anoLectivoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('anoLectivo')!.invalid && (editForm.get('anoLectivo')!.dirty || editForm.get('anoLectivo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('anoLectivo')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoActividade.periodoLectivo" for="field_periodoLectivo">Periodo Lectivo</label>
+                    <input type="text" class="form-control" name="periodoLectivo" id="field_periodoLectivo"
+                           formControlName="periodoLectivo"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.planoActividade.utilizador" for="field_utilizador">Utilizador</label>
+                    <select class="form-control" id="field_utilizador" name="utilizador" formControlName="utilizadorId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackById">{{userOption.login}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

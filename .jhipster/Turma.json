@@ -1,0 +1,114 @@
+{
+    "name": "Turma",
+    "fields": [
+        {
+            "fieldName": "descricao",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "anoLectivo",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "regime",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "turno",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "data",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "ativo",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "horario",
+            "otherEntityRelationshipName": "turma",
+            "relationshipName": "horario"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "nota",
+            "otherEntityRelationshipName": "turma",
+            "relationshipName": "nota"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "aula",
+            "otherEntityRelationshipName": "turma",
+            "relationshipName": "aula"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "matricula",
+            "otherEntityRelationshipName": "turma",
+            "relationshipName": "matricula"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "turma",
+            "relationshipName": "utilizador",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "sala",
+            "otherEntityRelationshipName": "turma",
+            "relationshipValidateRules": "required",
+            "relationshipName": "sala",
+            "otherEntityField": "numero"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "classe",
+            "otherEntityRelationshipName": "turma",
+            "relationshipValidateRules": "required",
+            "relationshipName": "classe",
+            "otherEntityField": "descricao"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "curso",
+            "otherEntityRelationshipName": "turma",
+            "relationshipValidateRules": "required",
+            "relationshipName": "curso",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "planoAula",
+            "otherEntityRelationshipName": "turma",
+            "relationshipName": "planoAula",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191226105346",
+    "entityTableName": "pdg_turma",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

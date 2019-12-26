@@ -1,0 +1,73 @@
+{
+    "name": "Pessoa",
+    "fields": [
+        {
+            "fieldName": "tipoPessoa",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "imagem",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "pai",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mae",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nascimento",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "moradaPessoa",
+            "otherEntityRelationshipName": "pessoa",
+            "relationshipName": "moradaPessoa"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "contactoPessoa",
+            "otherEntityRelationshipName": "pessoa",
+            "relationshipName": "contactoPessoa"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "documentacaoPessoa",
+            "otherEntityRelationshipName": "pessoa",
+            "relationshipName": "documentacaoPessoa"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "pessoa",
+            "relationshipName": "utilizador",
+            "otherEntityField": "login"
+        }
+    ],
+    "changelogDate": "20191226105327",
+    "entityTableName": "core_pessoa",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

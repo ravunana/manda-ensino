@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity UnidadeCurricular.
+    -->
+    <changeSet id="20191226105344-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="disciplina_id"
+                                 baseTableName="pdg_unidade_curricular"
+                                 constraintName="fk_pdg_unidade_curricular_disciplina_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pdg_disciplina"/>
+
+        <addForeignKeyConstraint baseColumnNames="classe_id"
+                                 baseTableName="pdg_unidade_curricular"
+                                 constraintName="fk_pdg_unidade_curricular_classe_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pdg_classe"/>
+
+        <addForeignKeyConstraint baseColumnNames="herarquia_id"
+                                 baseTableName="pdg_unidade_curricular"
+                                 constraintName="fk_pdg_unidade_curricular_herarquia_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pdg_unidade_curricular"/>
+
+    </changeSet>
+</databaseChangeLog>

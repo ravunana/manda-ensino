@@ -1,0 +1,33 @@
+{
+  "ensinoApp": {
+    "criterioAvaliacao": {
+      "home": {
+        "title": "Criterio Avaliacaos",
+        "createLabel": "Criar novo(a) Criterio Avaliacao",
+        "createOrEditLabel": "Criar ou editar Criterio Avaliacao",
+        "search": "Procurar por Criterio Avaliacao",
+        "notFound": "Nenhum Criterio Avaliacaos encontrado"
+      },
+      "created": "Um novo Criterio Avaliacao foi criado com o identificador {{ param }}",
+      "updated": "Criterio Avaliacao com identificador {{ param }} foi actualizado",
+      "deleted": "Criterio Avaliacao com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Criterio Avaliacao {{ id }}?"
+      },
+      "detail": {
+        "title": "Criterio Avaliacao"
+      },
+      "aprovaCom": "Aprova Com",
+      "reporvaCom": "Reporva Com",
+      "recursoCom": "Recurso Com",
+      "fazExame": "Faz Exame",
+      "fazRecurso": "Faz Recurso",
+      "fazExameEspecial": "Faz Exame Especial",
+      "numeroFaltaReprova": "Numero Falta Reprova",
+      "menorNota": "Menor Nota",
+      "maiorNota": "Maior Nota",
+      "notaMinimaAprovacao": "Nota Minima Aprovacao",
+      "planoCurricular": "Plano Curricular"
+    }
+  }
+}

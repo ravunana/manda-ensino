@@ -1,0 +1,87 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="rv-ocorrencia-heading" jhiTranslate="ensinoApp.ocorrencia.home.createOrEditLabel">Create or edit a Ocorrencia</h2>
+            <div>
+                <rv-alert-error></rv-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.ocorrencia.tipo" for="field_tipo">Tipo</label>
+                    <input type="text" class="form-control" name="tipo" id="field_tipo"
+                           formControlName="tipo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.ocorrencia.data" for="field_data">Data</label>
+                    <div class="d-flex">
+                        <input id="field_data" type="datetime-local" class="form-control" name="data" formControlName="data" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('data')!.invalid && (editForm.get('data')!.dirty || editForm.get('data')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('data')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('data')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.ocorrencia.numero" for="field_numero">Numero</label>
+                    <input type="text" class="form-control" name="numero" id="field_numero"
+                           formControlName="numero"/>
+                    <div *ngIf="editForm.get('numero')!.invalid && (editForm.get('numero')!.dirty || editForm.get('numero')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('numero')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.ocorrencia.reportarEncarregado" for="field_reportarEncarregado">Reportar Encarregado</label>
+                    <input type="checkbox" class="form-control" name="reportarEncarregado" id="field_reportarEncarregado"
+                           formControlName="reportarEncarregado"/>
+                    <div *ngIf="editForm.get('reportarEncarregado')!.invalid && (editForm.get('reportarEncarregado')!.dirty || editForm.get('reportarEncarregado')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('reportarEncarregado')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.ocorrencia.utilizador" for="field_utilizador">Utilizador</label>
+                    <select class="form-control" id="field_utilizador" name="utilizador" formControlName="utilizadorId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackById">{{userOption.login}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.ocorrencia.matricula" for="field_matricula">Matricula</label>
+                    <select class="form-control" id="field_matricula" name="matricula" formControlName="matriculaId">
+                        <option *ngIf="!editForm.get('matriculaId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="matriculaOption.id" *ngFor="let matriculaOption of matriculas; trackBy: trackById">{{matriculaOption.numero}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('matriculaId')!.invalid && (editForm.get('matriculaId')!.dirty || editForm.get('matriculaId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('matriculaId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

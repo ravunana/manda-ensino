@@ -1,0 +1,89 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dossificacao">
+            <h2><span jhiTranslate="ensinoApp.dossificacao.detail.title">Dossificacao</span> {{dossificacao.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.dossificacao.periodoLectivo">Periodo Lectivo</span></dt>
+                <dd>
+                    <span>{{dossificacao.periodoLectivo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.dossificacao.anoLectivo">Ano Lectivo</span></dt>
+                <dd>
+                    <span>{{dossificacao.anoLectivo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.dossificacao.objectivoGeral">Objectivo Geral</span></dt>
+                <dd>
+                    <span>{{dossificacao.objectivoGeral}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.dossificacao.objectivoEspecifico">Objectivo Especifico</span></dt>
+                <dd>
+                    <span>{{dossificacao.objectivoEspecifico}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.dossificacao.semanaLectiva">Semana Lectiva</span></dt>
+                <dd>
+                    <span>{{dossificacao.semanaLectiva}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.dossificacao.de">De</span></dt>
+                <dd>
+                    <span>{{dossificacao.de}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.dossificacao.ate">Ate</span></dt>
+                <dd>
+                    <span>{{dossificacao.ate}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.dossificacao.conteudo">Conteudo</span></dt>
+                <dd>
+                    <span>{{dossificacao.conteudo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.dossificacao.procedimentoEnsino">Procedimento Ensino</span></dt>
+                <dd>
+                    <span>{{dossificacao.procedimentoEnsino}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.dossificacao.recursosDidatico">Recursos Didatico</span></dt>
+                <dd>
+                    <span>{{dossificacao.recursosDidatico}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.dossificacao.tempoAula">Tempo Aula</span></dt>
+                <dd>
+                    <span>{{dossificacao.tempoAula}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.dossificacao.formaAvaliacao">Forma Avaliacao</span></dt>
+                <dd>
+                    <span>{{dossificacao.formaAvaliacao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.dossificacao.curso">Curso</span></dt>
+                <dd>
+                    <span *ngFor="let curso of dossificacao.cursos; let last = last">
+                        <a [routerLink]="['/curso', curso?.id, 'view' ]">{{curso.nome}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.dossificacao.classe">Classe</span></dt>
+                <dd>
+                    <span *ngFor="let classe of dossificacao.classes; let last = last">
+                        <a [routerLink]="['/classe', classe?.id, 'view' ]">{{classe.descricao}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.dossificacao.disciplina">Disciplina</span></dt>
+                <dd>
+                    <div *ngIf="dossificacao.disciplinaId">
+                        <a [routerLink]="['/disciplina', dossificacao.disciplinaId, 'view']">{{dossificacao.disciplinaNome}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/dossificacao', dossificacao.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

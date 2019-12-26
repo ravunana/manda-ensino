@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="documentacaoPessoa">
+            <h2><span jhiTranslate="ensinoApp.documentacaoPessoa.detail.title">Documentacao Pessoa</span> {{documentacaoPessoa.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.documentacaoPessoa.tipo">Tipo</span></dt>
+                <dd>
+                    <span>{{documentacaoPessoa.tipo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.documentacaoPessoa.numero">Numero</span></dt>
+                <dd>
+                    <span>{{documentacaoPessoa.numero}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.documentacaoPessoa.emissao">Emissao</span></dt>
+                <dd>
+                    <span>{{documentacaoPessoa.emissao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.documentacaoPessoa.validade">Validade</span></dt>
+                <dd>
+                    <span>{{documentacaoPessoa.validade}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.documentacaoPessoa.naturalidade">Naturalidade</span></dt>
+                <dd>
+                    <span>{{documentacaoPessoa.naturalidade}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.documentacaoPessoa.nacionalidade">Nacionalidade</span></dt>
+                <dd>
+                    <span>{{documentacaoPessoa.nacionalidade}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.documentacaoPessoa.localEmissao">Local Emissao</span></dt>
+                <dd>
+                    <span>{{documentacaoPessoa.localEmissao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.documentacaoPessoa.nif">Nif</span></dt>
+                <dd>
+                    <span>{{documentacaoPessoa.nif}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.documentacaoPessoa.pessoa">Pessoa</span></dt>
+                <dd>
+                    <div *ngIf="documentacaoPessoa.pessoaId">
+                        <a [routerLink]="['/pessoa', documentacaoPessoa.pessoaId, 'view']">{{documentacaoPessoa.pessoaNome}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/documentacao-pessoa', documentacaoPessoa.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

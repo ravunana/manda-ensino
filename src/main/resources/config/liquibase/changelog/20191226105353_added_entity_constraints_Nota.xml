@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Nota.
+    -->
+    <changeSet id="20191226105353-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="utilizador_id"
+                                 baseTableName="prof_nota"
+                                 constraintName="fk_prof_nota_utilizador_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rv_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="disciplina_id"
+                                 baseTableName="prof_nota"
+                                 constraintName="fk_prof_nota_disciplina_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pdg_disciplina"/>
+
+        <addForeignKeyConstraint baseColumnNames="turma_id"
+                                 baseTableName="prof_nota"
+                                 constraintName="fk_prof_nota_turma_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pdg_turma"/>
+
+        <addForeignKeyConstraint baseColumnNames="categoria_avaliacao_id"
+                                 baseTableName="prof_nota"
+                                 constraintName="fk_prof_nota_categoria_avaliacao_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pdg_categoria_avaliacao"/>
+
+        <addForeignKeyConstraint baseColumnNames="matricula_id"
+                                 baseTableName="prof_nota"
+                                 constraintName="fk_prof_nota_matricula_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sec_matricula"/>
+
+    </changeSet>
+</databaseChangeLog>

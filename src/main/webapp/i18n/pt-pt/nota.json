@@ -1,0 +1,31 @@
+{
+  "ensinoApp": {
+    "nota": {
+      "home": {
+        "title": "Notas",
+        "createLabel": "Criar novo(a) Nota",
+        "createOrEditLabel": "Criar ou editar Nota",
+        "search": "Procurar por Nota",
+        "notFound": "Nenhum Notas encontrado"
+      },
+      "created": "Um novo Nota foi criado com o identificador {{ param }}",
+      "updated": "Nota com identificador {{ param }} foi actualizado",
+      "deleted": "Nota com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Nota {{ id }}?"
+      },
+      "detail": {
+        "title": "Nota"
+      },
+      "valor": "Valor",
+      "data": "Data",
+      "anoLectivo": "Ano Lectivo",
+      "periodoLectivo": "Periodo Lectivo",
+      "utilizador": "Utilizador",
+      "disciplina": "Disciplina",
+      "turma": "Turma",
+      "categoriaAvaliacao": "Categoria Avaliacao",
+      "matricula": "Matricula"
+    }
+  }
+}

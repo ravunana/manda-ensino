@@ -1,0 +1,27 @@
+{
+  "ensinoApp": {
+    "categoriaValiacao": {
+      "home": {
+        "title": "Categoria Valiacaos",
+        "createLabel": "Criar novo(a) Categoria Valiacao",
+        "createOrEditLabel": "Criar ou editar Categoria Valiacao",
+        "search": "Procurar por Categoria Valiacao",
+        "notFound": "Nenhum Categoria Valiacaos encontrado"
+      },
+      "created": "Um novo Categoria Valiacao foi criado com o identificador {{ param }}",
+      "updated": "Categoria Valiacao com identificador {{ param }} foi actualizado",
+      "deleted": "Categoria Valiacao com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Categoria Valiacao {{ id }}?"
+      },
+      "detail": {
+        "title": "Categoria Valiacao"
+      },
+      "nome": "Nome",
+      "siglaInterna": "Sigla Interna",
+      "siglaPauta": "Sigla Pauta",
+      "nota": "Nota",
+      "areaFormacao": "Area Formacao"
+    }
+  }
+}

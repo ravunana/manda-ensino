@@ -1,0 +1,49 @@
+{
+    "name": "MeioLiquidacao",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "unique",
+                "required"
+            ]
+        },
+        {
+            "fieldName": "sigla",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "icon",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mostrarPontoVenda",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "deposito",
+            "otherEntityRelationshipName": "meioLiquidacao",
+            "relationshipName": "deposito"
+        }
+    ],
+    "changelogDate": "20191226105409",
+    "entityTableName": "fin_meio_liquidacao",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

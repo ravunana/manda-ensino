@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="assinaturaDigital">
+            <h2><span jhiTranslate="ensinoApp.assinaturaDigital.detail.title">Assinatura Digital</span> {{assinaturaDigital.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.assinaturaDigital.tipo">Tipo</span></dt>
+                <dd>
+                    <span>{{assinaturaDigital.tipo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.assinaturaDigital.assinatura">Assinatura</span></dt>
+                <dd>
+                    <div *ngIf="assinaturaDigital.assinatura">
+                        <a (click)="openFile(assinaturaDigital.assinaturaContentType!, assinaturaDigital.assinatura)" jhiTranslate="entity.action.open">open</a>
+                        {{assinaturaDigital.assinaturaContentType}}, {{byteSize(assinaturaDigital.assinatura)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.assinaturaDigital.hashcode">Hashcode</span></dt>
+                <dd>
+                    <span>{{assinaturaDigital.hashcode}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.assinaturaDigital.data">Data</span></dt>
+                <dd>
+                    <span>{{assinaturaDigital.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.assinaturaDigital.instituicao">Instituicao</span></dt>
+                <dd>
+                    <div *ngIf="assinaturaDigital.instituicaoId">
+                        <a [routerLink]="['/instituicao-ensino', assinaturaDigital.instituicaoId, 'view']">{{assinaturaDigital.instituicaoNome}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/assinatura-digital', assinaturaDigital.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

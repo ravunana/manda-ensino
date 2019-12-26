@@ -1,0 +1,30 @@
+{
+  "ensinoApp": {
+    "localizacaoInstituicaoEnsino": {
+      "home": {
+        "title": "Localizacao Instituicao Ensinos",
+        "createLabel": "Criar novo(a) Localizacao Instituicao Ensino",
+        "createOrEditLabel": "Criar ou editar Localizacao Instituicao Ensino",
+        "search": "Procurar por Localizacao Instituicao Ensino",
+        "notFound": "Nenhum Localizacao Instituicao Ensinos encontrado"
+      },
+      "created": "Um novo Localizacao Instituicao Ensino foi criado com o identificador {{ param }}",
+      "updated": "Localizacao Instituicao Ensino com identificador {{ param }} foi actualizado",
+      "deleted": "Localizacao Instituicao Ensino com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Localizacao Instituicao Ensino {{ id }}?"
+      },
+      "detail": {
+        "title": "Localizacao Instituicao Ensino"
+      },
+      "provincia": "Provincia",
+      "municipio": "Municipio",
+      "bairro": "Bairro",
+      "rua": "Rua",
+      "quarteirao": "Quarteirao",
+      "numeroPorta": "Numero Porta",
+      "caixaPostal": "Caixa Postal",
+      "instituicaoEnsino": "Instituicao Ensino"
+    }
+  }
+}

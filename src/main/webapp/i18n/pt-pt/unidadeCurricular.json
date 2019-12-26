@@ -1,0 +1,29 @@
+{
+  "ensinoApp": {
+    "unidadeCurricular": {
+      "home": {
+        "title": "Unidade Curriculars",
+        "createLabel": "Criar novo(a) Unidade Curricular",
+        "createOrEditLabel": "Criar ou editar Unidade Curricular",
+        "search": "Procurar por Unidade Curricular",
+        "notFound": "Nenhum Unidade Curriculars encontrado"
+      },
+      "created": "Um novo Unidade Curricular foi criado com o identificador {{ param }}",
+      "updated": "Unidade Curricular com identificador {{ param }} foi actualizado",
+      "deleted": "Unidade Curricular com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Unidade Curricular {{ id }}?"
+      },
+      "detail": {
+        "title": "Unidade Curricular"
+      },
+      "descricao": "Descricao",
+      "unidade": "Unidade",
+      "numero": "Numero",
+      "unidadeCurricular": "Unidade Curricular",
+      "disciplina": "Disciplina",
+      "classe": "Classe",
+      "herarquia": "Herarquia"
+    }
+  }
+}

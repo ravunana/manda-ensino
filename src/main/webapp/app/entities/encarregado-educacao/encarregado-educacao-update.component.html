@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="rv-encarregado-educacao-heading" jhiTranslate="ensinoApp.encarregadoEducacao.home.createOrEditLabel">Create or edit a Encarregado Educacao</h2>
+            <div>
+                <rv-alert-error></rv-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.encarregadoEducacao.profissao" for="field_profissao">Profissao</label>
+                    <input type="text" class="form-control" name="profissao" id="field_profissao"
+                           formControlName="profissao"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.encarregadoEducacao.cargo" for="field_cargo">Cargo</label>
+                    <input type="text" class="form-control" name="cargo" id="field_cargo"
+                           formControlName="cargo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.encarregadoEducacao.faixaSalarial" for="field_faixaSalarial">Faixa Salarial</label>
+                    <input type="number" class="form-control" name="faixaSalarial" id="field_faixaSalarial"
+                           formControlName="faixaSalarial"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.encarregadoEducacao.nomeEmpresa" for="field_nomeEmpresa">Nome Empresa</label>
+                    <input type="text" class="form-control" name="nomeEmpresa" id="field_nomeEmpresa"
+                           formControlName="nomeEmpresa"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.encarregadoEducacao.contactoEmpresa" for="field_contactoEmpresa">Contacto Empresa</label>
+                    <input type="text" class="form-control" name="contactoEmpresa" id="field_contactoEmpresa"
+                           formControlName="contactoEmpresa"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.encarregadoEducacao.pessoa" for="field_pessoa">Pessoa</label>
+                    <select class="form-control" id="field_pessoa" name="pessoa" formControlName="pessoaId">
+                        <option *ngIf="!editForm.get('pessoaId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="pessoaOption.id" *ngFor="let pessoaOption of pessoas; trackBy: trackById">{{pessoaOption.nome}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('pessoaId')!.invalid && (editForm.get('pessoaId')!.dirty || editForm.get('pessoaId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('pessoaId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+{
+    "name": "CategoriaRequerimento",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tempoResposta",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "pagase",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "descricao",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "requerimento",
+            "otherEntityRelationshipName": "categoria",
+            "relationshipName": "requerimento"
+        }
+    ],
+    "changelogDate": "20191226105403",
+    "entityTableName": "sec_categoria_requerimento",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,47 @@
+{
+    "name": "ContactoInstituicaoEnsino",
+    "fields": [
+        {
+            "fieldName": "tipoContacto",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "descricao",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "contacto",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "unique",
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "instituicaoEnsino",
+            "otherEntityRelationshipName": "contactoInstituicaoEnsino",
+            "relationshipValidateRules": "required",
+            "relationshipName": "instituicaoEnsino",
+            "otherEntityField": "nome"
+        }
+    ],
+    "changelogDate": "20191226105333",
+    "entityTableName": "core_contacto_instituicao",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

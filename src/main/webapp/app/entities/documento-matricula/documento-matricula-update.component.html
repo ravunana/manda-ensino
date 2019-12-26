@@ -1,0 +1,110 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="rv-documento-matricula-heading" jhiTranslate="ensinoApp.documentoMatricula.home.createOrEditLabel">Create or edit a Documento Matricula</h2>
+            <div>
+                <rv-alert-error></rv-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.documentoMatricula.fotografia" for="field_fotografia">Fotografia</label>
+                    <input type="checkbox" class="form-control" name="fotografia" id="field_fotografia"
+                           formControlName="fotografia"/>
+                    <div *ngIf="editForm.get('fotografia')!.invalid && (editForm.get('fotografia')!.dirty || editForm.get('fotografia')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('fotografia')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.documentoMatricula.certificado" for="field_certificado">Certificado</label>
+                    <input type="checkbox" class="form-control" name="certificado" id="field_certificado"
+                           formControlName="certificado"/>
+                    <div *ngIf="editForm.get('certificado')!.invalid && (editForm.get('certificado')!.dirty || editForm.get('certificado')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('certificado')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.documentoMatricula.bilhete" for="field_bilhete">Bilhete</label>
+                    <input type="checkbox" class="form-control" name="bilhete" id="field_bilhete"
+                           formControlName="bilhete"/>
+                    <div *ngIf="editForm.get('bilhete')!.invalid && (editForm.get('bilhete')!.dirty || editForm.get('bilhete')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('bilhete')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.documentoMatricula.resenciamentoMilitar" for="field_resenciamentoMilitar">Resenciamento Militar</label>
+                    <input type="checkbox" class="form-control" name="resenciamentoMilitar" id="field_resenciamentoMilitar"
+                           formControlName="resenciamentoMilitar"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.documentoMatricula.cartaoVacina" for="field_cartaoVacina">Cartao Vacina</label>
+                    <input type="checkbox" class="form-control" name="cartaoVacina" id="field_cartaoVacina"
+                           formControlName="cartaoVacina"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.documentoMatricula.atestadoMedico" for="field_atestadoMedico">Atestado Medico</label>
+                    <input type="checkbox" class="form-control" name="atestadoMedico" id="field_atestadoMedico"
+                           formControlName="atestadoMedico"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.documentoMatricula.fichaTrnasferencia" for="field_fichaTrnasferencia">Ficha Trnasferencia</label>
+                    <input type="checkbox" class="form-control" name="fichaTrnasferencia" id="field_fichaTrnasferencia"
+                           formControlName="fichaTrnasferencia"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.documentoMatricula.historicoEscolar" for="field_historicoEscolar">Historico Escolar</label>
+                    <input type="checkbox" class="form-control" name="historicoEscolar" id="field_historicoEscolar"
+                           formControlName="historicoEscolar"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.documentoMatricula.cedula" for="field_cedula">Cedula</label>
+                    <input type="checkbox" class="form-control" name="cedula" id="field_cedula"
+                           formControlName="cedula"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.documentoMatricula.descricao" for="field_descricao">Descricao</label>
+                    <input type="text" class="form-control" name="descricao" id="field_descricao"
+                           formControlName="descricao"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.documentoMatricula.anoLectivo" for="field_anoLectivo">Ano Lectivo</label>
+                    <input type="number" class="form-control" name="anoLectivo" id="field_anoLectivo"
+                           formControlName="anoLectivo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.documentoMatricula.data" for="field_data">Data</label>
+                    <div class="d-flex">
+                        <input id="field_data" type="datetime-local" class="form-control" name="data" formControlName="data" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.documentoMatricula.matricula" for="field_matricula">Matricula</label>
+                    <select class="form-control" id="field_matricula" name="matricula" formControlName="matriculaId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="matriculaOption.id" *ngFor="let matriculaOption of matriculas; trackBy: trackById">{{matriculaOption.numero}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

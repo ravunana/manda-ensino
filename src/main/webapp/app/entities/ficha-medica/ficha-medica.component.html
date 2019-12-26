@@ -1,0 +1,106 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ensinoApp.fichaMedica.home.title">Ficha Medicas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ficha-medica" [routerLink]="['/ficha-medica/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="ensinoApp.fichaMedica.home.createLabel">
+            Create a new Ficha Medica
+            </span>
+        </button>
+    </h2>
+    <rv-alert-error></rv-alert-error>
+    <rv-alert></rv-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'ensinoApp.fichaMedica.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="fichaMedicas?.length === 0">
+        <span jhiTranslate="ensinoApp.fichaMedica.home.notFound">No fichaMedicas found</span>
+    </div>
+    <div class="table-responsive" *ngIf="fichaMedicas?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="fazEducacaoFisica"><span jhiTranslate="ensinoApp.fichaMedica.fazEducacaoFisica">Faz Educacao Fisica</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupoSanguinio"><span jhiTranslate="ensinoApp.fichaMedica.grupoSanguinio">Grupo Sanguinio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="altura"><span jhiTranslate="ensinoApp.fichaMedica.altura">Altura</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="peso"><span jhiTranslate="ensinoApp.fichaMedica.peso">Peso</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="autorizaMedicamento"><span jhiTranslate="ensinoApp.fichaMedica.autorizaMedicamento">Autoriza Medicamento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="observacao"><span jhiTranslate="ensinoApp.fichaMedica.observacao">Observacao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="nomeMedico"><span jhiTranslate="ensinoApp.fichaMedica.nomeMedico">Nome Medico</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="contactoMedico"><span jhiTranslate="ensinoApp.fichaMedica.contactoMedico">Contacto Medico</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="desmaioConstante"><span jhiTranslate="ensinoApp.fichaMedica.desmaioConstante">Desmaio Constante</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="complicacoesSaude"><span jhiTranslate="ensinoApp.fichaMedica.complicacoesSaude">Complicacoes Saude</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="alunoNumeroProcesso"><span jhiTranslate="ensinoApp.fichaMedica.aluno">Aluno</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="utilizadorLogin"><span jhiTranslate="ensinoApp.fichaMedica.utilizador">Utilizador</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let fichaMedica of fichaMedicas ;trackBy: trackId">
+                <td><a [routerLink]="['/ficha-medica', fichaMedica.id, 'view' ]">{{fichaMedica.id}}</a></td>
+                <td>{{fichaMedica.fazEducacaoFisica}}</td>
+                <td>{{fichaMedica.grupoSanguinio}}</td>
+                <td>{{fichaMedica.altura}}</td>
+                <td>{{fichaMedica.peso}}</td>
+                <td>{{fichaMedica.autorizaMedicamento}}</td>
+                <td>{{fichaMedica.observacao}}</td>
+                <td>{{fichaMedica.nomeMedico}}</td>
+                <td>{{fichaMedica.contactoMedico}}</td>
+                <td>{{fichaMedica.desmaioConstante}}</td>
+                <td>{{fichaMedica.complicacoesSaude}}</td>
+                <td>
+                    <div *ngIf="fichaMedica.alunoId">
+                        <a [routerLink]="['/aluno', fichaMedica.alunoId , 'view' ]" >{{fichaMedica.alunoNumeroProcesso}}</a>
+                    </div>
+                </td>
+                <td>
+                    {{fichaMedica.utilizadorLogin}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/ficha-medica', fichaMedica.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/ficha-medica', fichaMedica.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(fichaMedica)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="fichaMedicas?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

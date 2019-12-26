@@ -1,0 +1,142 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="rv-instituicao-ensino-heading" jhiTranslate="ensinoApp.instituicaoEnsino.home.createOrEditLabel">Create or edit a Instituicao Ensino</h2>
+            <div>
+                <rv-alert-error></rv-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.instituicaoEnsino.nome" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                           formControlName="nome"/>
+                    <div *ngIf="editForm.get('nome')!.invalid && (editForm.get('nome')!.dirty || editForm.get('nome')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nome')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.instituicaoEnsino.logotipo" for="field_logotipo">Logotipo</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('logotipoContentType')!.value + ';base64,' + editForm.get('logotipo')!.value" style="max-height: 100px;" *ngIf="editForm.get('logotipo')!.value" alt="instituicaoEnsino image"/>
+                        <div *ngIf="editForm.get('logotipo')!.value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('logotipoContentType')!.value}}, {{byteSize(editForm.get('logotipo')!.value)}}</span>
+                            <button type="button" (click)="clearInputImage('logotipo', 'logotipoContentType', 'file_logotipo')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_logotipo" (change)="setFileData($event, 'logotipo', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="logotipo" id="field_logotipo"
+                           formControlName="logotipo"/>
+                    <input type="hidden" class="form-control" name="logotipoContentType" id="field_logotipoContentType"
+                           formControlName="logotipoContentType" />
+                    <div *ngIf="editForm.get('logotipo')!.invalid && (editForm.get('logotipo')!.dirty || editForm.get('logotipo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('logotipo')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.instituicaoEnsino.fundacao" for="field_fundacao">Fundacao</label>
+                    <div class="input-group">
+                        <input id="field_fundacao" type="text" class="form-control" name="fundacao" ngbDatepicker  #fundacaoDp="ngbDatepicker" formControlName="fundacao"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fundacaoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.instituicaoEnsino.numero" for="field_numero">Numero</label>
+                    <input type="text" class="form-control" name="numero" id="field_numero"
+                           formControlName="numero"/>
+                    <div *ngIf="editForm.get('numero')!.invalid && (editForm.get('numero')!.dirty || editForm.get('numero')!.touched)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.instituicaoEnsino.tipoVinculo" for="field_tipoVinculo">Tipo Vinculo</label>
+                    <input type="text" class="form-control" name="tipoVinculo" id="field_tipoVinculo"
+                           formControlName="tipoVinculo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.instituicaoEnsino.unidadePagadora" for="field_unidadePagadora">Unidade Pagadora</label>
+                    <input type="text" class="form-control" name="unidadePagadora" id="field_unidadePagadora"
+                           formControlName="unidadePagadora"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.instituicaoEnsino.unidadeOrganica" for="field_unidadeOrganica">Unidade Organica</label>
+                    <input type="text" class="form-control" name="unidadeOrganica" id="field_unidadeOrganica"
+                           formControlName="unidadeOrganica"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.instituicaoEnsino.tipoInstalacao" for="field_tipoInstalacao">Tipo Instalacao</label>
+                    <input type="text" class="form-control" name="tipoInstalacao" id="field_tipoInstalacao"
+                           formControlName="tipoInstalacao"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.instituicaoEnsino.dimensao" for="field_dimensao">Dimensao</label>
+                    <input type="text" class="form-control" name="dimensao" id="field_dimensao"
+                           formControlName="dimensao"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.instituicaoEnsino.carimbo" for="field_carimbo">Carimbo</label>
+                    <div>
+                        <div *ngIf="editForm.get('carimbo')!.value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('carimboContentType')!.value, editForm.get('carimbo')!.value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('carimboContentType')!.value}}, {{byteSize(editForm.get('carimbo')!.value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({carimbo: null});editForm.patchValue({carimboContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_carimbo" (change)="setFileData($event, 'carimbo', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="carimbo" id="field_carimbo"
+                           formControlName="carimbo"/>
+                    <input type="hidden" class="form-control" name="carimboContentType" id="field_carimboContentType"
+                           formControlName="carimboContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.instituicaoEnsino.sede" for="field_sede">Sede</label>
+                    <input type="checkbox" class="form-control" name="sede" id="field_sede"
+                           formControlName="sede"/>
+                    <div *ngIf="editForm.get('sede')!.invalid && (editForm.get('sede')!.dirty || editForm.get('sede')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('sede')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.instituicaoEnsino.utilizador" for="field_utilizador">Utilizador</label>
+                    <select class="form-control" id="field_utilizador" name="utilizador" formControlName="utilizadorId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackById">{{userOption.login}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.instituicaoEnsino.hierarquia" for="field_hierarquia">Hierarquia</label>
+                    <select class="form-control" id="field_hierarquia" name="hierarquia" formControlName="hierarquiaId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="instituicaoEnsinoOption.id" *ngFor="let instituicaoEnsinoOption of instituicaoensinos; trackBy: trackById">{{instituicaoEnsinoOption.nome}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="coordenadaBancaria">
+            <h2><span jhiTranslate="ensinoApp.coordenadaBancaria.detail.title">Coordenada Bancaria</span> {{coordenadaBancaria.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.coordenadaBancaria.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{coordenadaBancaria.descricao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.coordenadaBancaria.proprietario">Proprietario</span></dt>
+                <dd>
+                    <span>{{coordenadaBancaria.proprietario}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.coordenadaBancaria.numeroConta">Numero Conta</span></dt>
+                <dd>
+                    <span>{{coordenadaBancaria.numeroConta}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.coordenadaBancaria.iban">Iban</span></dt>
+                <dd>
+                    <span>{{coordenadaBancaria.iban}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.coordenadaBancaria.ativo">Ativo</span></dt>
+                <dd>
+                    <span>{{coordenadaBancaria.ativo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.coordenadaBancaria.mostrarDocumento">Mostrar Documento</span></dt>
+                <dd>
+                    <span>{{coordenadaBancaria.mostrarDocumento}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.coordenadaBancaria.mostrarPontoVenda">Mostrar Ponto Venda</span></dt>
+                <dd>
+                    <span>{{coordenadaBancaria.mostrarPontoVenda}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.coordenadaBancaria.padraoRecebimento">Padrao Recebimento</span></dt>
+                <dd>
+                    <span>{{coordenadaBancaria.padraoRecebimento}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.coordenadaBancaria.padraoPagamento">Padrao Pagamento</span></dt>
+                <dd>
+                    <span>{{coordenadaBancaria.padraoPagamento}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.coordenadaBancaria.instituicaoEnsino">Instituicao Ensino</span></dt>
+                <dd>
+                    <span *ngFor="let instituicaoEnsino of coordenadaBancaria.instituicaoEnsinos; let last = last">
+                        <a [routerLink]="['/instituicao-ensino', instituicaoEnsino?.id, 'view' ]">{{instituicaoEnsino.nome}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/coordenada-bancaria', coordenadaBancaria.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

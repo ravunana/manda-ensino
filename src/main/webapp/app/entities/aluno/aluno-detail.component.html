@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="aluno">
+            <h2><span jhiTranslate="ensinoApp.aluno.detail.title">Aluno</span> {{aluno.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.aluno.numeroProcesso">Numero Processo</span></dt>
+                <dd>
+                    <span>{{aluno.numeroProcesso}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.aluno.transferido">Transferido</span></dt>
+                <dd>
+                    <span>{{aluno.transferido}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.aluno.data">Data</span></dt>
+                <dd>
+                    <span>{{aluno.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.aluno.turmaAnterior">Turma Anterior</span></dt>
+                <dd>
+                    <span>{{aluno.turmaAnterior}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.aluno.anoConclusao">Ano Conclusao</span></dt>
+                <dd>
+                    <span>{{aluno.anoConclusao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.aluno.cursoFrequentado">Curso Frequentado</span></dt>
+                <dd>
+                    <span>{{aluno.cursoFrequentado}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.aluno.nomeEscolaAnteriror">Nome Escola Anteriror</span></dt>
+                <dd>
+                    <span>{{aluno.nomeEscolaAnteriror}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.aluno.enderecoEscolaAnterior">Endereco Escola Anterior</span></dt>
+                <dd>
+                    <span>{{aluno.enderecoEscolaAnterior}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.aluno.classeConcluida">Classe Concluida</span></dt>
+                <dd>
+                    <span>{{aluno.classeConcluida}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.aluno.numeroProcessoAnterior">Numero Processo Anterior</span></dt>
+                <dd>
+                    <span>{{aluno.numeroProcessoAnterior}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.aluno.situacaoAnterior">Situacao Anterior</span></dt>
+                <dd>
+                    <span>{{aluno.situacaoAnterior}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.aluno.pessoa">Pessoa</span></dt>
+                <dd>
+                    <div *ngIf="aluno.pessoaId">
+                        <a [routerLink]="['/pessoa', aluno.pessoaId, 'view']">{{aluno.pessoaNome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.aluno.utilizador">Utilizador</span></dt>
+                <dd>
+                    {{aluno.utilizadorLogin}}
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.aluno.encarregadoEducacao">Encarregado Educacao</span></dt>
+                <dd>
+                    <div *ngIf="aluno.encarregadoEducacaoId">
+                        <a [routerLink]="['/encarregado-educacao', aluno.encarregadoEducacaoId, 'view']">{{aluno.encarregadoEducacaoId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/aluno', aluno.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

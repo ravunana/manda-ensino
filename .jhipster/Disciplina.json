@@ -1,0 +1,77 @@
+{
+    "name": "Disciplina",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "sigla",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "unique"
+            ],
+            "fieldValidateRulesMinlength": 3
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "planoCurricular",
+            "otherEntityRelationshipName": "disciplina",
+            "relationshipName": "planoCurricular"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "horario",
+            "otherEntityRelationshipName": "disciplina",
+            "relationshipName": "horario"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "nota",
+            "otherEntityRelationshipName": "disciplina",
+            "relationshipName": "nota"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "planoAula",
+            "otherEntityRelationshipName": "disciplina",
+            "relationshipName": "planoAula"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "dossificacao",
+            "otherEntityRelationshipName": "disciplina",
+            "relationshipName": "dossificacao"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "unidadeCurricular",
+            "otherEntityRelationshipName": "disciplina",
+            "relationshipName": "unidadeCurricular"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "situacaoAcademica",
+            "otherEntityRelationshipName": "disciplina",
+            "relationshipName": "situacaoAcademica"
+        }
+    ],
+    "changelogDate": "20191226105341",
+    "entityTableName": "pdg_disciplina",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

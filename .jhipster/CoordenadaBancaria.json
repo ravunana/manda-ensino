@@ -1,0 +1,85 @@
+{
+    "name": "CoordenadaBancaria",
+    "fields": [
+        {
+            "fieldName": "descricao",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "proprietario",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numeroConta",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "unique",
+                "required"
+            ]
+        },
+        {
+            "fieldName": "iban",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "ativo",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "mostrarDocumento",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "mostrarPontoVenda",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "padraoRecebimento",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "padraoPagamento",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "deposito",
+            "otherEntityRelationshipName": "conta",
+            "relationshipName": "deposito"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "instituicaoEnsino",
+            "otherEntityRelationshipName": "coordenadaBancaria",
+            "relationshipValidateRules": "required",
+            "relationshipName": "instituicaoEnsino",
+            "otherEntityField": "nome",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20191226105334",
+    "entityTableName": "core_coordenada_bancaria",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="unidadeCurricular">
+            <h2><span jhiTranslate="ensinoApp.unidadeCurricular.detail.title">Unidade Curricular</span> {{unidadeCurricular.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.unidadeCurricular.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{unidadeCurricular.descricao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.unidadeCurricular.unidade">Unidade</span></dt>
+                <dd>
+                    <span>{{unidadeCurricular.unidade}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.unidadeCurricular.numero">Numero</span></dt>
+                <dd>
+                    <span>{{unidadeCurricular.numero}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.unidadeCurricular.disciplina">Disciplina</span></dt>
+                <dd>
+                    <div *ngIf="unidadeCurricular.disciplinaId">
+                        <a [routerLink]="['/disciplina', unidadeCurricular.disciplinaId, 'view']">{{unidadeCurricular.disciplinaNome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.unidadeCurricular.classe">Classe</span></dt>
+                <dd>
+                    <div *ngIf="unidadeCurricular.classeId">
+                        <a [routerLink]="['/classe', unidadeCurricular.classeId, 'view']">{{unidadeCurricular.classeDescricao}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.unidadeCurricular.herarquia">Herarquia</span></dt>
+                <dd>
+                    <div *ngIf="unidadeCurricular.herarquiaId">
+                        <a [routerLink]="['/unidade-curricular', unidadeCurricular.herarquiaId, 'view']">{{unidadeCurricular.herarquiaUnidade}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/unidade-curricular', unidadeCurricular.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

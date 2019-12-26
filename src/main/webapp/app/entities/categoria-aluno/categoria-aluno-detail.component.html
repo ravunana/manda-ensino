@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="categoriaAluno">
+            <h2><span jhiTranslate="ensinoApp.categoriaAluno.detail.title">Categoria Aluno</span> {{categoriaAluno.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.categoriaAluno.nome">Nome</span></dt>
+                <dd>
+                    <span>{{categoriaAluno.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.categoriaAluno.desconto">Desconto</span></dt>
+                <dd>
+                    <span>{{categoriaAluno.desconto}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.categoriaAluno.pagaPropina">Paga Propina</span></dt>
+                <dd>
+                    <span>{{categoriaAluno.pagaPropina}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.categoriaAluno.pagaMulta">Paga Multa</span></dt>
+                <dd>
+                    <span>{{categoriaAluno.pagaMulta}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.categoriaAluno.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{categoriaAluno.descricao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.categoriaAluno.diaPagamento">Dia Pagamento</span></dt>
+                <dd>
+                    <span>{{categoriaAluno.diaPagamento}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.categoriaAluno.mesAtual">Mes Atual</span></dt>
+                <dd>
+                    <span>{{categoriaAluno.mesAtual}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.categoriaAluno.ativo">Ativo</span></dt>
+                <dd>
+                    <span>{{categoriaAluno.ativo}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/categoria-aluno', categoriaAluno.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

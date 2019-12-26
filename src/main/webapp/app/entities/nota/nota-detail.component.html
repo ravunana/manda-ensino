@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="nota">
+            <h2><span jhiTranslate="ensinoApp.nota.detail.title">Nota</span> {{nota.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.nota.valor">Valor</span></dt>
+                <dd>
+                    <span>{{nota.valor}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.nota.data">Data</span></dt>
+                <dd>
+                    <span>{{nota.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.nota.anoLectivo">Ano Lectivo</span></dt>
+                <dd>
+                    <span>{{nota.anoLectivo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.nota.periodoLectivo">Periodo Lectivo</span></dt>
+                <dd>
+                    <span>{{nota.periodoLectivo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.nota.utilizador">Utilizador</span></dt>
+                <dd>
+                    {{nota.utilizadorLogin}}
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.nota.disciplina">Disciplina</span></dt>
+                <dd>
+                    <div *ngIf="nota.disciplinaId">
+                        <a [routerLink]="['/disciplina', nota.disciplinaId, 'view']">{{nota.disciplinaNome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.nota.turma">Turma</span></dt>
+                <dd>
+                    <div *ngIf="nota.turmaId">
+                        <a [routerLink]="['/turma', nota.turmaId, 'view']">{{nota.turmaDescricao}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.nota.categoriaAvaliacao">Categoria Avaliacao</span></dt>
+                <dd>
+                    <div *ngIf="nota.categoriaAvaliacaoId">
+                        <a [routerLink]="['/categoria-valiacao', nota.categoriaAvaliacaoId, 'view']">{{nota.categoriaAvaliacaoNome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.nota.matricula">Matricula</span></dt>
+                <dd>
+                    <div *ngIf="nota.matriculaId">
+                        <a [routerLink]="['/matricula', nota.matriculaId, 'view']">{{nota.matriculaNumero}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/nota', nota.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

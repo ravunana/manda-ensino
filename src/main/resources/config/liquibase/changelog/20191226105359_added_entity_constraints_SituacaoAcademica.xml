@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity SituacaoAcademica.
+    -->
+    <changeSet id="20191226105359-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="aluno_id"
+                                 baseTableName="sec_situacao_academica"
+                                 constraintName="fk_sec_situacao_academica_aluno_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sec_aluno"/>
+
+        <addForeignKeyConstraint baseColumnNames="disciplina_id"
+                                 baseTableName="sec_situacao_academica"
+                                 constraintName="fk_sec_situacao_academica_disciplina_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pdg_disciplina"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="rv-detalhe-ocorrencia-heading" jhiTranslate="ensinoApp.detalheOcorrencia.home.createOrEditLabel">Create or edit a Detalhe Ocorrencia</h2>
+            <div>
+                <rv-alert-error></rv-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.detalheOcorrencia.de" for="field_de">De</label>
+                    <div class="input-group">
+                        <input id="field_de" type="text" class="form-control" name="de" ngbDatepicker  #deDp="ngbDatepicker" formControlName="de"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="deDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.detalheOcorrencia.ate" for="field_ate">Ate</label>
+                    <div class="input-group">
+                        <input id="field_ate" type="text" class="form-control" name="ate" ngbDatepicker  #ateDp="ngbDatepicker" formControlName="ate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="ateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.detalheOcorrencia.motivo" for="field_motivo">Motivo</label>
+                    <textarea class="form-control" name="motivo" id="field_motivo"
+                              formControlName="motivo"></textarea>
+                    <div *ngIf="editForm.get('motivo')!.invalid && (editForm.get('motivo')!.dirty || editForm.get('motivo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('motivo')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.detalheOcorrencia.ocorrencia" for="field_ocorrencia">Ocorrencia</label>
+                    <select class="form-control" id="field_ocorrencia" name="ocorrencia" formControlName="ocorrenciaId">
+                        <option *ngIf="!editForm.get('ocorrenciaId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="ocorrenciaOption.id" *ngFor="let ocorrenciaOption of ocorrencias; trackBy: trackById">{{ocorrenciaOption.numero}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('ocorrenciaId')!.invalid && (editForm.get('ocorrenciaId')!.dirty || editForm.get('ocorrenciaId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('ocorrenciaId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

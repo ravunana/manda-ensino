@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="turma">
+            <h2><span jhiTranslate="ensinoApp.turma.detail.title">Turma</span> {{turma.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.turma.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{turma.descricao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.turma.anoLectivo">Ano Lectivo</span></dt>
+                <dd>
+                    <span>{{turma.anoLectivo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.turma.regime">Regime</span></dt>
+                <dd>
+                    <span>{{turma.regime}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.turma.turno">Turno</span></dt>
+                <dd>
+                    <span>{{turma.turno}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.turma.data">Data</span></dt>
+                <dd>
+                    <span>{{turma.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.turma.ativo">Ativo</span></dt>
+                <dd>
+                    <span>{{turma.ativo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.turma.utilizador">Utilizador</span></dt>
+                <dd>
+                    {{turma.utilizadorLogin}}
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.turma.sala">Sala</span></dt>
+                <dd>
+                    <div *ngIf="turma.salaId">
+                        <a [routerLink]="['/sala', turma.salaId, 'view']">{{turma.salaNumero}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.turma.classe">Classe</span></dt>
+                <dd>
+                    <div *ngIf="turma.classeId">
+                        <a [routerLink]="['/classe', turma.classeId, 'view']">{{turma.classeDescricao}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.turma.curso">Curso</span></dt>
+                <dd>
+                    <div *ngIf="turma.cursoId">
+                        <a [routerLink]="['/curso', turma.cursoId, 'view']">{{turma.cursoNome}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/turma', turma.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

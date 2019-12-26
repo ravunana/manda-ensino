@@ -1,0 +1,52 @@
+{
+    "name": "EncarregadoEducacao",
+    "fields": [
+        {
+            "fieldName": "profissao",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cargo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "faixaSalarial",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "nomeEmpresa",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactoEmpresa",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "pessoa",
+            "otherEntityRelationshipName": "encarregadoEducacao",
+            "relationshipValidateRules": "required",
+            "relationshipName": "pessoa",
+            "otherEntityField": "nome",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "aluno",
+            "otherEntityRelationshipName": "encarregadoEducacao",
+            "relationshipName": "aluno"
+        }
+    ],
+    "changelogDate": "20191226105400",
+    "entityTableName": "sec_encarregado_educacao",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

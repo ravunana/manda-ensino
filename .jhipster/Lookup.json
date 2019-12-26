@@ -1,0 +1,39 @@
+{
+    "name": "Lookup",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "entidade",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "modificavel",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "lookupItem",
+            "otherEntityRelationshipName": "lookup",
+            "relationshipName": "lookupItem"
+        }
+    ],
+    "changelogDate": "20191226105323",
+    "entityTableName": "core_lookup",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,114 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ensinoApp.matricula.home.title">Matriculas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-matricula" [routerLink]="['/matricula/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="ensinoApp.matricula.home.createLabel">
+            Create a new Matricula
+            </span>
+        </button>
+    </h2>
+    <rv-alert-error></rv-alert-error>
+    <rv-alert></rv-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'ensinoApp.matricula.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="matriculas?.length === 0">
+        <span jhiTranslate="ensinoApp.matricula.home.notFound">No matriculas found</span>
+    </div>
+    <div class="table-responsive" *ngIf="matriculas?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="data"><span jhiTranslate="ensinoApp.matricula.data">Data</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="numero"><span jhiTranslate="ensinoApp.matricula.numero">Numero</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="observacao"><span jhiTranslate="ensinoApp.matricula.observacao">Observacao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="anoLectivo"><span jhiTranslate="ensinoApp.matricula.anoLectivo">Ano Lectivo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="peridoLectivo"><span jhiTranslate="ensinoApp.matricula.peridoLectivo">Perido Lectivo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="utilizadorLogin"><span jhiTranslate="ensinoApp.matricula.utilizador">Utilizador</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="alunoNumeroProcesso"><span jhiTranslate="ensinoApp.matricula.aluno">Aluno</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="confirmacaoNumero"><span jhiTranslate="ensinoApp.matricula.confirmacao">Confirmacao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="categoriaNome"><span jhiTranslate="ensinoApp.matricula.categoria">Categoria</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="turmaDescricao"><span jhiTranslate="ensinoApp.matricula.turma">Turma</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let matricula of matriculas ;trackBy: trackId">
+                <td><a [routerLink]="['/matricula', matricula.id, 'view' ]">{{matricula.id}}</a></td>
+                <td>{{matricula.data | date:'medium'}}</td>
+                <td>{{matricula.numero}}</td>
+                <td>{{matricula.observacao}}</td>
+                <td>{{matricula.anoLectivo}}</td>
+                <td>{{matricula.peridoLectivo}}</td>
+                <td>
+                    {{matricula.utilizadorLogin}}
+                </td>
+                <td>
+                    <div *ngIf="matricula.alunoId">
+                        <a [routerLink]="['/aluno', matricula.alunoId , 'view' ]" >{{matricula.alunoNumeroProcesso}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="matricula.confirmacaoId">
+                        <a [routerLink]="['/matricula', matricula.confirmacaoId , 'view' ]" >{{matricula.confirmacaoNumero}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="matricula.categoriaId">
+                        <a [routerLink]="['/categoria-aluno', matricula.categoriaId , 'view' ]" >{{matricula.categoriaNome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="matricula.turmaId">
+                        <a [routerLink]="['/turma', matricula.turmaId , 'view' ]" >{{matricula.turmaDescricao}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/matricula', matricula.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/matricula', matricula.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(matricula)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="matriculas?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

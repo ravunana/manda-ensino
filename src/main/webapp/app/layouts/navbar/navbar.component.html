@@ -27,6 +27,318 @@
                     </span>
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
+                    <li>
+                        <a class="dropdown-item" routerLink="serie-documento" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.serieDocumento">Serie Documento</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="software" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.software">Software</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="licenca-software" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.licencaSoftware">Licenca Software</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="lookup" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.lookup">Lookup</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="lookup-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.lookupItem">Lookup Item</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="morada-pessoa" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.moradaPessoa">Morada Pessoa</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="contacto-pessoa" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.contactoPessoa">Contacto Pessoa</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="pessoa" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.pessoa">Pessoa</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="documentacao-pessoa" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.documentacaoPessoa">Documentacao Pessoa</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="relacionamento-pessoa" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.relacionamentoPessoa">Relacionamento Pessoa</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="instituicao-ensino" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.instituicaoEnsino">Instituicao Ensino</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="assinatura-digital" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.assinaturaDigital">Assinatura Digital</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="localizacao-instituicao-ensino" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.localizacaoInstituicaoEnsino">Localizacao Instituicao Ensino</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="contacto-instituicao-ensino" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.contactoInstituicaoEnsino">Contacto Instituicao Ensino</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="coordenada-bancaria" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.coordenadaBancaria">Coordenada Bancaria</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="arquivo" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.arquivo">Arquivo</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="professor" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.professor">Professor</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="sala" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.sala">Sala</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="area-formacao" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.areaFormacao">Area Formacao</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="curso" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.curso">Curso</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="classe" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.classe">Classe</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="disciplina" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.disciplina">Disciplina</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="matriz-curricular" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.matrizCurricular">Matriz Curricular</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="plano-curricular" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.planoCurricular">Plano Curricular</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="unidade-curricular" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.unidadeCurricular">Unidade Curricular</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="criterio-avaliacao" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.criterioAvaliacao">Criterio Avaliacao</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="turma" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.turma">Turma</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="horario" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.horario">Horario</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="plano-actividade" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.planoActividade">Plano Actividade</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="aula" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.aula">Aula</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="dossificacao" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.dossificacao">Dossificacao</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="plano-aula" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.planoAula">Plano Aula</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="categoria-valiacao" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.categoriaValiacao">Categoria Valiacao</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="nota" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.nota">Nota</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="categoria-aluno" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.categoriaAluno">Categoria Aluno</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="ocorrencia" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.ocorrencia">Ocorrencia</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="detalhe-ocorrencia" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.detalheOcorrencia">Detalhe Ocorrencia</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="ficha-medica" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.fichaMedica">Ficha Medica</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="aluno" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.aluno">Aluno</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="situacao-academica" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.situacaoAcademica">Situacao Academica</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="encarregado-educacao" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.encarregadoEducacao">Encarregado Educacao</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="matricula" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.matricula">Matricula</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="documento-matricula" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.documentoMatricula">Documento Matricula</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="categoria-requerimento" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.categoriaRequerimento">Categoria Requerimento</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="requerimento" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.requerimento">Requerimento</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="contrato" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.contrato">Contrato</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="emolumento" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.emolumento">Emolumento</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="deposito" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.deposito">Deposito</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="forma-liquidacao" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.formaLiquidacao">Forma Liquidacao</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="meio-liquidacao" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.meioLiquidacao">Meio Liquidacao</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="pagamento" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.pagamento">Pagamento</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="detalhe-pagamento" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.detalhePagamento">Detalhe Pagamento</span>
+                        </a>
+                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>

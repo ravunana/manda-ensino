@@ -1,0 +1,42 @@
+{
+  "ensinoApp": {
+    "aluno": {
+      "home": {
+        "title": "Alunos",
+        "createLabel": "Criar novo(a) Aluno",
+        "createOrEditLabel": "Criar ou editar Aluno",
+        "search": "Procurar por Aluno",
+        "notFound": "Nenhum Alunos encontrado"
+      },
+      "created": "Um novo Aluno foi criado com o identificador {{ param }}",
+      "updated": "Aluno com identificador {{ param }} foi actualizado",
+      "deleted": "Aluno com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Aluno {{ id }}?"
+      },
+      "detail": {
+        "title": "Aluno"
+      },
+      "numeroProcesso": "Numero Processo",
+      "transferido": "Transferido",
+      "data": "Data",
+      "turmaAnterior": "Turma Anterior",
+      "anoConclusao": "Ano Conclusao",
+      "cursoFrequentado": "Curso Frequentado",
+      "nomeEscolaAnteriror": "Nome Escola Anteriror",
+      "enderecoEscolaAnterior": "Endereco Escola Anterior",
+      "classeConcluida": "Classe Concluida",
+      "numeroProcessoAnterior": "Numero Processo Anterior",
+      "situacaoAnterior": "Situacao Anterior",
+      "pessoa": "Pessoa",
+      "matricula": "Matricula",
+      "contrato": "Contrato",
+      "situacaoAcademica": "Situacao Academica",
+      "requerimento": "Requerimento",
+      "pagamento": "Pagamento",
+      "deposito": "Deposito",
+      "utilizador": "Utilizador",
+      "encarregadoEducacao": "Encarregado Educacao"
+    }
+  }
+}

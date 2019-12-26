@@ -1,0 +1,26 @@
+{
+  "ensinoApp": {
+    "areaFormacao": {
+      "home": {
+        "title": "Area Formacaos",
+        "createLabel": "Criar novo(a) Area Formacao",
+        "createOrEditLabel": "Criar ou editar Area Formacao",
+        "search": "Procurar por Area Formacao",
+        "notFound": "Nenhum Area Formacaos encontrado"
+      },
+      "created": "Um novo Area Formacao foi criado com o identificador {{ param }}",
+      "updated": "Area Formacao com identificador {{ param }} foi actualizado",
+      "deleted": "Area Formacao com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Area Formacao {{ id }}?"
+      },
+      "detail": {
+        "title": "Area Formacao"
+      },
+      "nome": "Nome",
+      "competencias": "Competencias",
+      "curso": "Curso",
+      "categoriaValiacao": "Categoria Valiacao"
+    }
+  }
+}

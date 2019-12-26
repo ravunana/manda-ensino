@@ -1,0 +1,31 @@
+{
+  "ensinoApp": {
+    "documentacaoPessoa": {
+      "home": {
+        "title": "Documentacao Pessoas",
+        "createLabel": "Criar novo(a) Documentacao Pessoa",
+        "createOrEditLabel": "Criar ou editar Documentacao Pessoa",
+        "search": "Procurar por Documentacao Pessoa",
+        "notFound": "Nenhum Documentacao Pessoas encontrado"
+      },
+      "created": "Um novo Documentacao Pessoa foi criado com o identificador {{ param }}",
+      "updated": "Documentacao Pessoa com identificador {{ param }} foi actualizado",
+      "deleted": "Documentacao Pessoa com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Documentacao Pessoa {{ id }}?"
+      },
+      "detail": {
+        "title": "Documentacao Pessoa"
+      },
+      "tipo": "Tipo",
+      "numero": "Numero",
+      "emissao": "Emissao",
+      "validade": "Validade",
+      "naturalidade": "Naturalidade",
+      "nacionalidade": "Nacionalidade",
+      "localEmissao": "Local Emissao",
+      "nif": "Nif",
+      "pessoa": "Pessoa"
+    }
+  }
+}

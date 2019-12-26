@@ -1,0 +1,67 @@
+{
+    "name": "DocumentacaoPessoa",
+    "fields": [
+        {
+            "fieldName": "tipo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numero",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "unique",
+                "required"
+            ]
+        },
+        {
+            "fieldName": "emissao",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "validade",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "naturalidade",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nacionalidade",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "localEmissao",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nif",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "unique"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "pessoa",
+            "otherEntityRelationshipName": "documentacaoPessoa",
+            "relationshipValidateRules": "required",
+            "relationshipName": "pessoa",
+            "otherEntityField": "nome"
+        }
+    ],
+    "changelogDate": "20191226105328",
+    "entityTableName": "core_documento_pessoa",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

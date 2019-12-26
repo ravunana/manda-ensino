@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="contrato">
+            <h2><span jhiTranslate="ensinoApp.contrato.detail.title">Contrato</span> {{contrato.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.contrato.de">De</span></dt>
+                <dd>
+                    <span>{{contrato.de}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.contrato.ate">Ate</span></dt>
+                <dd>
+                    <span>{{contrato.ate}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.contrato.contrato">Contrato</span></dt>
+                <dd>
+                    <span>{{contrato.contrato}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.contrato.aceitaTermos">Aceita Termos</span></dt>
+                <dd>
+                    <span>{{contrato.aceitaTermos}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.contrato.observacao">Observacao</span></dt>
+                <dd>
+                    <span>{{contrato.observacao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.contrato.termos">Termos</span></dt>
+                <dd>
+                    <div *ngIf="contrato.termos">
+                        <a (click)="openFile(contrato.termosContentType!, contrato.termos)" jhiTranslate="entity.action.open">open</a>
+                        {{contrato.termosContentType}}, {{byteSize(contrato.termos)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.contrato.emVigor">Em Vigor</span></dt>
+                <dd>
+                    <span>{{contrato.emVigor}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.contrato.aluno">Aluno</span></dt>
+                <dd>
+                    <div *ngIf="contrato.alunoId">
+                        <a [routerLink]="['/aluno', contrato.alunoId, 'view']">{{contrato.alunoNumeroProcesso}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/contrato', contrato.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

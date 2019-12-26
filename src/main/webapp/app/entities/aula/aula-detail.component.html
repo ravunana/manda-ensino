@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="aula">
+            <h2><span jhiTranslate="ensinoApp.aula.detail.title">Aula</span> {{aula.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.aula.data">Data</span></dt>
+                <dd>
+                    <span>{{aula.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.aula.sumario">Sumario</span></dt>
+                <dd>
+                    <span>{{aula.sumario}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.aula.licao">Licao</span></dt>
+                <dd>
+                    <span>{{aula.licao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.aula.dada">Dada</span></dt>
+                <dd>
+                    <span>{{aula.dada}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.aula.utilizador">Utilizador</span></dt>
+                <dd>
+                    {{aula.utilizadorLogin}}
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.aula.planoAula">Plano Aula</span></dt>
+                <dd>
+                    <span *ngFor="let planoAula of aula.planoAulas; let last = last">
+                        <a [routerLink]="['/plano-aula', planoAula?.id, 'view' ]">{{planoAula.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.aula.turma">Turma</span></dt>
+                <dd>
+                    <div *ngIf="aula.turmaId">
+                        <a [routerLink]="['/turma', aula.turmaId, 'view']">{{aula.turmaDescricao}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/aula', aula.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

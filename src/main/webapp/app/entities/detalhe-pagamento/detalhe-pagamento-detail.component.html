@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="detalhePagamento">
+            <h2><span jhiTranslate="ensinoApp.detalhePagamento.detail.title">Detalhe Pagamento</span> {{detalhePagamento.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.detalhePagamento.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{detalhePagamento.descricao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.detalhePagamento.mensalidade">Mensalidade</span></dt>
+                <dd>
+                    <span>{{detalhePagamento.mensalidade}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.detalhePagamento.quantidade">Quantidade</span></dt>
+                <dd>
+                    <span>{{detalhePagamento.quantidade}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.detalhePagamento.valor">Valor</span></dt>
+                <dd>
+                    <span>{{detalhePagamento.valor}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.detalhePagamento.desconto">Desconto</span></dt>
+                <dd>
+                    <span>{{detalhePagamento.desconto}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.detalhePagamento.multa">Multa</span></dt>
+                <dd>
+                    <span>{{detalhePagamento.multa}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.detalhePagamento.juro">Juro</span></dt>
+                <dd>
+                    <span>{{detalhePagamento.juro}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.detalhePagamento.data">Data</span></dt>
+                <dd>
+                    <span>{{detalhePagamento.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.detalhePagamento.vencimento">Vencimento</span></dt>
+                <dd>
+                    <span>{{detalhePagamento.vencimento}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.detalhePagamento.quitado">Quitado</span></dt>
+                <dd>
+                    <span>{{detalhePagamento.quitado}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.detalhePagamento.utilizador">Utilizador</span></dt>
+                <dd>
+                    {{detalhePagamento.utilizadorLogin}}
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.detalhePagamento.emolumento">Emolumento</span></dt>
+                <dd>
+                    <div *ngIf="detalhePagamento.emolumentoId">
+                        <a [routerLink]="['/emolumento', detalhePagamento.emolumentoId, 'view']">{{detalhePagamento.emolumentoNome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.detalhePagamento.deposito">Deposito</span></dt>
+                <dd>
+                    <div *ngIf="detalhePagamento.depositoId">
+                        <a [routerLink]="['/deposito', detalhePagamento.depositoId, 'view']">{{detalhePagamento.depositoNumeroTalao}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/detalhe-pagamento', detalhePagamento.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

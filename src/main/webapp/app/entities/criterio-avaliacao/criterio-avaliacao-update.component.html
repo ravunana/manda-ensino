@@ -1,0 +1,197 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="rv-criterio-avaliacao-heading" jhiTranslate="ensinoApp.criterioAvaliacao.home.createOrEditLabel">Create or edit a Criterio Avaliacao</h2>
+            <div>
+                <rv-alert-error></rv-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.criterioAvaliacao.aprovaCom" for="field_aprovaCom">Aprova Com</label>
+                    <input type="number" class="form-control" name="aprovaCom" id="field_aprovaCom"
+                           formControlName="aprovaCom"/>
+                    <div *ngIf="editForm.get('aprovaCom')!.invalid && (editForm.get('aprovaCom')!.dirty || editForm.get('aprovaCom')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('aprovaCom')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('aprovaCom')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('aprovaCom')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.criterioAvaliacao.reporvaCom" for="field_reporvaCom">Reporva Com</label>
+                    <input type="number" class="form-control" name="reporvaCom" id="field_reporvaCom"
+                           formControlName="reporvaCom"/>
+                    <div *ngIf="editForm.get('reporvaCom')!.invalid && (editForm.get('reporvaCom')!.dirty || editForm.get('reporvaCom')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('reporvaCom')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('reporvaCom')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('reporvaCom')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.criterioAvaliacao.recursoCom" for="field_recursoCom">Recurso Com</label>
+                    <input type="number" class="form-control" name="recursoCom" id="field_recursoCom"
+                           formControlName="recursoCom"/>
+                    <div *ngIf="editForm.get('recursoCom')!.invalid && (editForm.get('recursoCom')!.dirty || editForm.get('recursoCom')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('recursoCom')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('recursoCom')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('recursoCom')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.criterioAvaliacao.fazExame" for="field_fazExame">Faz Exame</label>
+                    <input type="checkbox" class="form-control" name="fazExame" id="field_fazExame"
+                           formControlName="fazExame"/>
+                    <div *ngIf="editForm.get('fazExame')!.invalid && (editForm.get('fazExame')!.dirty || editForm.get('fazExame')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('fazExame')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.criterioAvaliacao.fazRecurso" for="field_fazRecurso">Faz Recurso</label>
+                    <input type="checkbox" class="form-control" name="fazRecurso" id="field_fazRecurso"
+                           formControlName="fazRecurso"/>
+                    <div *ngIf="editForm.get('fazRecurso')!.invalid && (editForm.get('fazRecurso')!.dirty || editForm.get('fazRecurso')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('fazRecurso')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.criterioAvaliacao.fazExameEspecial" for="field_fazExameEspecial">Faz Exame Especial</label>
+                    <input type="checkbox" class="form-control" name="fazExameEspecial" id="field_fazExameEspecial"
+                           formControlName="fazExameEspecial"/>
+                    <div *ngIf="editForm.get('fazExameEspecial')!.invalid && (editForm.get('fazExameEspecial')!.dirty || editForm.get('fazExameEspecial')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('fazExameEspecial')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.criterioAvaliacao.numeroFaltaReprova" for="field_numeroFaltaReprova">Numero Falta Reprova</label>
+                    <input type="number" class="form-control" name="numeroFaltaReprova" id="field_numeroFaltaReprova"
+                           formControlName="numeroFaltaReprova"/>
+                    <div *ngIf="editForm.get('numeroFaltaReprova')!.invalid && (editForm.get('numeroFaltaReprova')!.dirty || editForm.get('numeroFaltaReprova')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('numeroFaltaReprova')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('numeroFaltaReprova')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('numeroFaltaReprova')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.criterioAvaliacao.menorNota" for="field_menorNota">Menor Nota</label>
+                    <input type="number" class="form-control" name="menorNota" id="field_menorNota"
+                           formControlName="menorNota"/>
+                    <div *ngIf="editForm.get('menorNota')!.invalid && (editForm.get('menorNota')!.dirty || editForm.get('menorNota')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('menorNota')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('menorNota')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('menorNota')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.criterioAvaliacao.maiorNota" for="field_maiorNota">Maior Nota</label>
+                    <input type="number" class="form-control" name="maiorNota" id="field_maiorNota"
+                           formControlName="maiorNota"/>
+                    <div *ngIf="editForm.get('maiorNota')!.invalid && (editForm.get('maiorNota')!.dirty || editForm.get('maiorNota')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('maiorNota')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('maiorNota')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('maiorNota')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.criterioAvaliacao.notaMinimaAprovacao" for="field_notaMinimaAprovacao">Nota Minima Aprovacao</label>
+                    <input type="number" class="form-control" name="notaMinimaAprovacao" id="field_notaMinimaAprovacao"
+                           formControlName="notaMinimaAprovacao"/>
+                    <div *ngIf="editForm.get('notaMinimaAprovacao')!.invalid && (editForm.get('notaMinimaAprovacao')!.dirty || editForm.get('notaMinimaAprovacao')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notaMinimaAprovacao')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notaMinimaAprovacao')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('notaMinimaAprovacao')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ensinoApp.criterioAvaliacao.planoCurricular" for="field_planoCurricular">Plano Curricular</label>
+                    <select class="form-control" id="field_planoCurricular" name="planoCurricular" formControlName="planoCurricularId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="planoCurricularOption.id" *ngFor="let planoCurricularOption of planocurriculars; trackBy: trackById">{{planoCurricularOption.descricao}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+{
+  "ensinoApp": {
+    "LookupType": {
+      "null": "",
+      "USUARIO": "USUARIO",
+      "SISTEMA": "SISTEMA"
+    }
+  }
+}

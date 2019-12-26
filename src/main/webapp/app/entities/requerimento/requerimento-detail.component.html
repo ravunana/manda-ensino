@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="requerimento">
+            <h2><span jhiTranslate="ensinoApp.requerimento.detail.title">Requerimento</span> {{requerimento.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.requerimento.requerimento">Requerimento</span></dt>
+                <dd>
+                    <div *ngIf="requerimento.requerimento">
+                        <a (click)="openFile(requerimento.requerimentoContentType!, requerimento.requerimento)" jhiTranslate="entity.action.open">open</a>
+                        {{requerimento.requerimentoContentType}}, {{byteSize(requerimento.requerimento)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.requerimento.data">Data</span></dt>
+                <dd>
+                    <span>{{requerimento.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.requerimento.statusRequerimento">Status Requerimento</span></dt>
+                <dd>
+                    <span>{{requerimento.statusRequerimento}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.requerimento.utilizador">Utilizador</span></dt>
+                <dd>
+                    {{requerimento.utilizadorLogin}}
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.requerimento.categoria">Categoria</span></dt>
+                <dd>
+                    <div *ngIf="requerimento.categoriaId">
+                        <a [routerLink]="['/categoria-requerimento', requerimento.categoriaId, 'view']">{{requerimento.categoriaNome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.requerimento.aluno">Aluno</span></dt>
+                <dd>
+                    <div *ngIf="requerimento.alunoId">
+                        <a [routerLink]="['/aluno', requerimento.alunoId, 'view']">{{requerimento.alunoNumeroProcesso}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/requerimento', requerimento.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

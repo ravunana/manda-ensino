@@ -1,0 +1,36 @@
+{
+  "ensinoApp": {
+    "planoActividade": {
+      "home": {
+        "title": "Plano Actividades",
+        "createLabel": "Criar novo(a) Plano Actividade",
+        "createOrEditLabel": "Criar ou editar Plano Actividade",
+        "search": "Procurar por Plano Actividade",
+        "notFound": "Nenhum Plano Actividades encontrado"
+      },
+      "created": "Um novo Plano Actividade foi criado com o identificador {{ param }}",
+      "updated": "Plano Actividade com identificador {{ param }} foi actualizado",
+      "deleted": "Plano Actividade com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Plano Actividade {{ id }}?"
+      },
+      "detail": {
+        "title": "Plano Actividade"
+      },
+      "numeroActividade": "Numero Actividade",
+      "atividade": "Atividade",
+      "objectivos": "Objectivos",
+      "de": "De",
+      "ate": "Ate",
+      "responsavel": "Responsavel",
+      "local": "Local",
+      "observacao": "Observacao",
+      "participantes": "Participantes",
+      "coResponsavel": "Co Responsavel",
+      "statusActividade": "Status Actividade",
+      "anoLectivo": "Ano Lectivo",
+      "periodoLectivo": "Periodo Lectivo",
+      "utilizador": "Utilizador"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "ensinoApp": {
+    "classe": {
+      "home": {
+        "title": "Classes",
+        "createLabel": "Criar novo(a) Classe",
+        "createOrEditLabel": "Criar ou editar Classe",
+        "search": "Procurar por Classe",
+        "notFound": "Nenhum Classes encontrado"
+      },
+      "created": "Um novo Classe foi criado com o identificador {{ param }}",
+      "updated": "Classe com identificador {{ param }} foi actualizado",
+      "deleted": "Classe com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Classe {{ id }}?"
+      },
+      "detail": {
+        "title": "Classe"
+      },
+      "descricao": "Descricao",
+      "tipoEnsino": "Tipo Ensino",
+      "turma": "Turma",
+      "planoCurricular": "Plano Curricular",
+      "unidadeCurricular": "Unidade Curricular",
+      "emolumento": "Emolumento",
+      "dossificacao": "Dossificacao"
+    }
+  }
+}

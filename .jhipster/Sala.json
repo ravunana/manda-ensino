@@ -1,0 +1,45 @@
+{
+    "name": "Sala",
+    "fields": [
+        {
+            "fieldName": "numero",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "descricao",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "lotacao",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": 30
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "turma",
+            "otherEntityRelationshipName": "sala",
+            "relationshipName": "turma"
+        }
+    ],
+    "changelogDate": "20191226105337",
+    "entityTableName": "pdg_sala",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="classe">
+            <h2><span jhiTranslate="ensinoApp.classe.detail.title">Classe</span> {{classe.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.classe.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{classe.descricao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.classe.tipoEnsino">Tipo Ensino</span></dt>
+                <dd>
+                    <span>{{classe.tipoEnsino}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/classe', classe.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

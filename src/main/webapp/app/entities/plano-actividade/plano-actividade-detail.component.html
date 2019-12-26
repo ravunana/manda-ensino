@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="planoActividade">
+            <h2><span jhiTranslate="ensinoApp.planoActividade.detail.title">Plano Actividade</span> {{planoActividade.id}}</h2>
+            <hr>
+            <rv-alert-error></rv-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ensinoApp.planoActividade.numeroActividade">Numero Actividade</span></dt>
+                <dd>
+                    <span>{{planoActividade.numeroActividade}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoActividade.atividade">Atividade</span></dt>
+                <dd>
+                    <span>{{planoActividade.atividade}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoActividade.objectivos">Objectivos</span></dt>
+                <dd>
+                    <span>{{planoActividade.objectivos}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoActividade.de">De</span></dt>
+                <dd>
+                    <span>{{planoActividade.de}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoActividade.ate">Ate</span></dt>
+                <dd>
+                    <span>{{planoActividade.ate}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoActividade.responsavel">Responsavel</span></dt>
+                <dd>
+                    <span>{{planoActividade.responsavel}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoActividade.local">Local</span></dt>
+                <dd>
+                    <span>{{planoActividade.local}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoActividade.observacao">Observacao</span></dt>
+                <dd>
+                    <span>{{planoActividade.observacao}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoActividade.participantes">Participantes</span></dt>
+                <dd>
+                    <span>{{planoActividade.participantes}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoActividade.coResponsavel">Co Responsavel</span></dt>
+                <dd>
+                    <span>{{planoActividade.coResponsavel}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoActividade.statusActividade">Status Actividade</span></dt>
+                <dd>
+                    <span>{{planoActividade.statusActividade}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoActividade.anoLectivo">Ano Lectivo</span></dt>
+                <dd>
+                    <span>{{planoActividade.anoLectivo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoActividade.periodoLectivo">Periodo Lectivo</span></dt>
+                <dd>
+                    <span>{{planoActividade.periodoLectivo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ensinoApp.planoActividade.utilizador">Utilizador</span></dt>
+                <dd>
+                    {{planoActividade.utilizadorLogin}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/plano-actividade', planoActividade.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

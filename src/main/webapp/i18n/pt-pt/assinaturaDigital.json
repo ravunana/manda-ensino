@@ -1,0 +1,27 @@
+{
+  "ensinoApp": {
+    "assinaturaDigital": {
+      "home": {
+        "title": "Assinatura Digitals",
+        "createLabel": "Criar novo(a) Assinatura Digital",
+        "createOrEditLabel": "Criar ou editar Assinatura Digital",
+        "search": "Procurar por Assinatura Digital",
+        "notFound": "Nenhum Assinatura Digitals encontrado"
+      },
+      "created": "Um novo Assinatura Digital foi criado com o identificador {{ param }}",
+      "updated": "Assinatura Digital com identificador {{ param }} foi actualizado",
+      "deleted": "Assinatura Digital com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Assinatura Digital {{ id }}?"
+      },
+      "detail": {
+        "title": "Assinatura Digital"
+      },
+      "tipo": "Tipo",
+      "assinatura": "Assinatura",
+      "hashcode": "Hashcode",
+      "data": "Data",
+      "instituicao": "Instituicao"
+    }
+  }
+}

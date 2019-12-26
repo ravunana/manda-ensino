@@ -1,0 +1,11 @@
+id;nome;desconto;paga_propina;paga_multa;descricao;dia_pagamento;mes_atual;ativo
+1;Factors brand;54808;false;false;../fake-data/blob/hipster.txt;27477;true;false
+2;Generic Metal Chair secured line;53348;true;true;../fake-data/blob/hipster.txt;40865;false;false
+3;New Zealand Dollar monitor;65118;true;true;../fake-data/blob/hipster.txt;17799;false;false
+4;HTTP;72763;true;true;../fake-data/blob/hipster.txt;65796;true;true
+5;Checking Account Philippine Peso Internal;17330;false;false;../fake-data/blob/hipster.txt;49897;true;false
+6;Car;32137;false;true;../fake-data/blob/hipster.txt;99878;true;true
+7;Dynamic;83161;false;true;../fake-data/blob/hipster.txt;52797;true;true
+8;Peso Uruguayo Uruguay Peso en Unidades Indexadas global Licensed Wooden Chicken;46294;false;false;../fake-data/blob/hipster.txt;8542;false;true
+9;challenge Gloves Tools;49455;false;true;../fake-data/blob/hipster.txt;88516;true;true
+10;Papua New Guinea;56959;true;true;../fake-data/blob/hipster.txt;26145;true;false
