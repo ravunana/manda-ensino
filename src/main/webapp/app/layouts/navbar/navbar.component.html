@@ -239,13 +239,6 @@
                             <span jhiTranslate="global.menu.entities.planoActividade">Plano Actividade</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="aula" routerLinkActive="active"
-                            [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.aula">Aula</span>
-                        </a>
-                    </li>
                 </ul>
             </li>
             <!-- ./ PEDAGOGICO -->
@@ -272,6 +265,13 @@
                             [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.planoAula">Plano Aula</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="aula" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.aula">Aula</span>
                         </a>
                     </li>
                     <li>
