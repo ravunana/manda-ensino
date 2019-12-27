@@ -2,24 +2,24 @@
   "ensinoApp": {
     "formaLiquidacao": {
       "home": {
-        "title": "Forma Liquidacaos",
-        "createLabel": "Criar novo(a) Forma Liquidacao",
-        "createOrEditLabel": "Criar ou editar Forma Liquidacao",
-        "search": "Procurar por Forma Liquidacao",
-        "notFound": "Nenhum Forma Liquidacaos encontrado"
+        "title": "Forma de pagamento",
+        "createLabel": "Nova forma de pagamento",
+        "createOrEditLabel": "Forma de pagamento",
+        "search": "Procurar por forma de pagamento",
+        "notFound": "Nenhuma forma de pagamento encontrado"
       },
-      "created": "Um novo Forma Liquidacao foi criado com o identificador {{ param }}",
-      "updated": "Forma Liquidacao com identificador {{ param }} foi actualizado",
-      "deleted": "Forma Liquidacao com identificador {{ param }} foi eliminado",
+      "created": "Uma nova forma de pagamento foi criado com o identificador {{ param }}",
+      "updated": "Forma de pagamento com identificador {{ param }} foi actualizado",
+      "deleted": "Forma de pagamento com identificador {{ param }} foi eliminado",
       "delete": {
-        "question": "Tem a certeza que pretende eliminar o(a) Forma Liquidacao {{ id }}?"
+        "question": "Tem a certeza que pretende eliminar a forma de pagamento {{ id }}?"
       },
       "detail": {
-        "title": "Forma Liquidacao"
+        "title": "Forma de pagamento"
       },
       "nome": "Nome",
-      "juro": "Juro",
-      "prazoLiquidacao": "Prazo Liquidacao",
+      "juro": "Juro (%)",
+      "prazoLiquidacao": "Prazo de pagamento",
       "quantidade": "Quantidade",
       "icon": "Icon",
       "pagamento": "Pagamento"

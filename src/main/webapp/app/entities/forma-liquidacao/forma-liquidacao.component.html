@@ -46,9 +46,9 @@
             <tr *ngFor="let formaLiquidacao of formaLiquidacaos ;trackBy: trackId">
                 <td><a [routerLink]="['/forma-liquidacao', formaLiquidacao.id, 'view' ]">{{formaLiquidacao.id}}</a></td>
                 <td>{{formaLiquidacao.nome}}</td>
-                <td>{{formaLiquidacao.juro}}</td>
-                <td>{{formaLiquidacao.prazoLiquidacao}}</td>
-                <td>{{formaLiquidacao.quantidade}}</td>
+                <td>{{formaLiquidacao.juro/100 | percent }}</td>
+                <td>{{formaLiquidacao.prazoLiquidacao}} dia(s) </td>
+                <td>{{formaLiquidacao.quantidade}}X</td>
                 <td>{{formaLiquidacao.icon}}</td>
                 <td class="text-right">
                     <div class="btn-group">

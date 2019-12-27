@@ -65,7 +65,7 @@ export class FormaLiquidacaoUpdateComponent implements OnInit {
     return {
       ...new FormaLiquidacao(),
       id: this.editForm.get(['id'])!.value,
-      nome: this.editForm.get(['nome'])!.value,
+      nome: this.editForm.get(['nome'])!.value.toUpperCase(),
       juro: this.editForm.get(['juro'])!.value,
       prazoLiquidacao: this.editForm.get(['prazoLiquidacao'])!.value,
       quantidade: this.editForm.get(['quantidade'])!.value,
