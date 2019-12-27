@@ -3,11 +3,13 @@ package com.ravunana.ensino.service;
 import com.ravunana.ensino.domain.Emolumento;
 import com.ravunana.ensino.repository.EmolumentoRepository;
 import com.ravunana.ensino.repository.search.EmolumentoSearchRepository;
+import com.ravunana.ensino.service.dto.CursoDTO;
 import com.ravunana.ensino.service.dto.EmolumentoDTO;
 import com.ravunana.ensino.service.mapper.EmolumentoMapper;
+import com.ravunana.ensino.service.dto.ClasseDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -32,6 +34,12 @@ public class EmolumentoService {
 
     private final EmolumentoSearchRepository emolumentoSearchRepository;
 
+    @Autowired
+    private CursoService cursoService;
+
+    @Autowired
+    private ClasseService classeService;
+
     public EmolumentoService(EmolumentoRepository emolumentoRepository, EmolumentoMapper emolumentoMapper, EmolumentoSearchRepository emolumentoSearchRepository) {
         this.emolumentoRepository = emolumentoRepository;
         this.emolumentoMapper = emolumentoMapper;
@@ -46,11 +54,34 @@ public class EmolumentoService {
      */
     public EmolumentoDTO save(EmolumentoDTO emolumentoDTO) {
         log.debug("Request to save Emolumento : {}", emolumentoDTO);
-        Emolumento emolumento = emolumentoMapper.toEntity(emolumentoDTO);
-        emolumento = emolumentoRepository.save(emolumento);
-        EmolumentoDTO result = emolumentoMapper.toDto(emolumento);
-        emolumentoSearchRepository.save(emolumento);
+        EmolumentoDTO result = null;
+
+        // if ( emolumentoDTO.getId() != null ) {
+        //     Emolumento emolumentoSalvo = emolumentoRepository.findById( emolumentoDTO.getId() ).get();
+
+        //     emolumentoSalvo.setNome( getNomeEmolumento(emolumentoDTO) );
+        //     result = emolumentoMapper.toDto(emolumentoSalvo);
+        //     emolumentoSearchRepository.save(emolumentoSalvo);
+
+        // } else {
+            Emolumento emolumento = emolumentoMapper.toEntity(emolumentoDTO);
+            emolumento.setNome(getNomeEmolumento(emolumentoDTO));
+            emolumento = emolumentoRepository.save(emolumento);
+            result = emolumentoMapper.toDto(emolumento);
+            emolumentoSearchRepository.save(emolumento);
+        // }
         return result;
+    }
+
+    private String getNomeEmolumento( EmolumentoDTO emolumentoDTO ) {
+
+        if ( emolumentoDTO.getCursoId() != null || emolumentoDTO.getClasseId() != null ) {
+            CursoDTO curso = cursoService.findOne( emolumentoDTO.getCursoId() ).get();
+            ClasseDTO classe = classeService.findOne( emolumentoDTO.getClasseId() ).get();
+            return emolumentoDTO.getNome() + " " + classe.getDescricao() + "ª" + " " + curso.getSigla() + " " + emolumentoDTO.getQuantidade().intValue() + "x" + emolumentoDTO.getValor();
+        } else {
+            return emolumentoDTO.getNome() + " " + emolumentoDTO.getQuantidade().intValue() + "x" + emolumentoDTO.getValor();
+        }
     }
 
     /**

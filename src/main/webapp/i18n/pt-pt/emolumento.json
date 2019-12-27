@@ -3,24 +3,24 @@
     "emolumento": {
       "home": {
         "title": "Emolumentos",
-        "createLabel": "Criar novo(a) Emolumento",
-        "createOrEditLabel": "Criar ou editar Emolumento",
-        "search": "Procurar por Emolumento",
-        "notFound": "Nenhum Emolumentos encontrado"
+        "createLabel": "Novo emolumento",
+        "createOrEditLabel": "Emolumento",
+        "search": "Procurar por emolumento",
+        "notFound": "Nenhum emolumento encontrado"
       },
-      "created": "Um novo Emolumento foi criado com o identificador {{ param }}",
+      "created": "Um novo emolumento foi criado com o identificador {{ param }}",
       "updated": "Emolumento com identificador {{ param }} foi actualizado",
       "deleted": "Emolumento com identificador {{ param }} foi eliminado",
       "delete": {
-        "question": "Tem a certeza que pretende eliminar o(a) Emolumento {{ id }}?"
+        "question": "Tem a certeza que pretende eliminar o emolumento {{ id }}?"
       },
       "detail": {
         "title": "Emolumento"
       },
-      "nome": "Nome",
+      "nome": "Nome do emolumento",
       "valor": "Valor",
-      "valorMulta": "Valor Multa",
-      "tempoMulta": "Tempo Multa",
+      "valorMulta": "Valor da multa",
+      "tempoMulta": "Tempo de aplicação da multa (em dias)",
       "quantidade": "Quantidade",
       "detalhePagamento": "Detalhe Pagamento",
       "curso": "Curso",

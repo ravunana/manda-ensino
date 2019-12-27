@@ -48,10 +48,10 @@
             <tr *ngFor="let emolumento of emolumentos ;trackBy: trackId">
                 <td><a [routerLink]="['/emolumento', emolumento.id, 'view' ]">{{emolumento.id}}</a></td>
                 <td>{{emolumento.nome}}</td>
-                <td>{{emolumento.valor}}</td>
-                <td>{{emolumento.valorMulta}}</td>
-                <td>{{emolumento.tempoMulta}}</td>
-                <td>{{emolumento.quantidade}}</td>
+                <td>{{emolumento.valor | currency: 'AOA' }}</td>
+                <td>{{emolumento.valorMulta | currency: 'AOA'  }}</td>
+                <td>{{emolumento.tempoMulta }} dia(s)</td>
+                <td>{{emolumento.quantidade}}X</td>
                 <td>
                     <div *ngIf="emolumento.cursoId">
                         <a [routerLink]="['/curso', emolumento.cursoId , 'view' ]" >{{emolumento.cursoNome}}</a>
@@ -59,7 +59,7 @@
                 </td>
                 <td>
                     <div *ngIf="emolumento.classeId">
-                        <a [routerLink]="['/classe', emolumento.classeId , 'view' ]" >{{emolumento.classeDescricao}}</a>
+                        <a [routerLink]="['/classe', emolumento.classeId , 'view' ]" >{{emolumento.classeDescricao}}ª classe</a>
                     </div>
                 </td>
                 <td class="text-right">

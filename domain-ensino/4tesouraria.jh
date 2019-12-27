@@ -8,11 +8,12 @@ classe 10
 curso Informatica de gestao
 */
 entity Emolumento(fin_emolumento) {
-    nome String required unique,
+    nome String required unique, /* Ex. PROPINA 10ª INFO/M */
     valor BigDecimal required min(0),
     valorMulta Double required min(0), // porcentagem
-    tempoMulta Integer required min(1),
-    quantidade Double min(0)
+    tempoMulta Integer required min(0),
+    quantidade Double min(0),
+    turno String
 }
 
 entity Deposito(fin_deposito) {
@@ -58,6 +59,17 @@ entity DetalhePagamento(fin_detalhe_pagamento) {
     quitado Boolean required
 }
 
+entity Contrato(sec_contrato) {
+	de LocalDate required,
+	ate LocalDate required,
+	aceitaTermos Boolean required,
+	observacao TextBlob,
+	termos AnyBlob,
+	emVigor Boolean required,
+	anoLectivo Integer,
+	regimeCurricular String
+}
+
 
 /**
  * One to many relationship.
@@ -71,7 +83,8 @@ relationship OneToMany {
     Aluno to Deposito{aluno(numeroProcesso) required },
     Curso to Emolumento{curso(nome)},
     Classe to Emolumento{classe(descricao)},
-    CoordenadaBancaria to Deposito{conta(descricao) required }
+    CoordenadaBancaria to Deposito{conta(descricao) required },
+    Matricula to Contrato{matricula(numero) required }
 }
 
 /**
@@ -81,6 +94,10 @@ relationship ManyToOne {
     Deposito{utilizador(login) required } to User,
     Pagamento{utilizador(login) required } to User,
     DetalhePagamento{utilizador(login) required } to User
+}
+
+relationship ManyToMany {
+    Contrato{emolumento(nome) required } to Emolumento
 }
 
 dto * with mapstruct

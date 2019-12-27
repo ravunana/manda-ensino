@@ -2,6 +2,7 @@
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
             <h2 id="rv-emolumento-heading" jhiTranslate="ensinoApp.emolumento.home.createOrEditLabel">Create or edit a Emolumento</h2>
+            <hr>
             <div>
                 <rv-alert-error></rv-alert-error>
                 <div class="form-group" [hidden]="!editForm.get('id')!.value">
@@ -104,10 +105,11 @@
                     <label class="form-control-label" jhiTranslate="ensinoApp.emolumento.classe" for="field_classe">Classe</label>
                     <select class="form-control" id="field_classe" name="classe" formControlName="classeId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="classeOption.id" *ngFor="let classeOption of classes; trackBy: trackById">{{classeOption.descricao}}</option>
+                        <option [ngValue]="classeOption.id" *ngFor="let classeOption of classes; trackBy: trackById">{{classeOption.descricao}}ª classe</option>
                     </select>
                 </div>
             </div>
+            <hr>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
                     <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>

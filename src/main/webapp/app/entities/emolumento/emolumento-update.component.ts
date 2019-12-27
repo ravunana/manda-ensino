@@ -100,7 +100,7 @@ export class EmolumentoUpdateComponent implements OnInit {
     return {
       ...new Emolumento(),
       id: this.editForm.get(['id'])!.value,
-      nome: this.editForm.get(['nome'])!.value,
+      nome: this.editForm.get(['nome'])!.value.toUpperCase(),
       valor: this.editForm.get(['valor'])!.value,
       valorMulta: this.editForm.get(['valorMulta'])!.value,
       tempoMulta: this.editForm.get(['tempoMulta'])!.value,
