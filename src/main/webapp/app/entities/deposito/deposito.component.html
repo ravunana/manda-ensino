@@ -50,8 +50,8 @@
                 <td><a [routerLink]="['/deposito', deposito.id, 'view' ]">{{deposito.id}}</a></td>
                 <td>{{deposito.numeroTalao}}</td>
                 <td>{{deposito.dataDeposito | date:'mediumDate'}}</td>
-                <td>{{deposito.valor}}</td>
-                <td>{{deposito.saldo}}</td>
+                <td>{{deposito.valor | currency: 'AOA' }}</td>
+                <td>{{deposito.saldo | currency: 'AOA' }}</td>
                 <td>
                     {{deposito.utilizadorLogin}}
                 </td>

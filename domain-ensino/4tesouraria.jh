@@ -20,6 +20,8 @@ entity Deposito(fin_deposito) {
     numeroTalao String required unique,
     dataDeposito LocalDate required,
     valor BigDecimal min(0) required,
+    data ZonedDateTime required,
+    anexo AnyBlob,
     saldo BigDecimal min(0) required // saldo é igual ao valor depositado, quando usado o deposito é decrementado o saldo pelo valor de pagamento quando o saldo é zera é dado como usado o deposito
 }
 

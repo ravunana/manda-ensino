@@ -3,27 +3,27 @@
     "deposito": {
       "home": {
         "title": "Depositos",
-        "createLabel": "Criar novo(a) Deposito",
-        "createOrEditLabel": "Criar ou editar Deposito",
-        "search": "Procurar por Deposito",
-        "notFound": "Nenhum Depositos encontrado"
+        "createLabel": "Novo deposito",
+        "createOrEditLabel": "Deposito",
+        "search": "Procurar por deposito",
+        "notFound": "Nenhum deposito encontrado"
       },
-      "created": "Um novo Deposito foi criado com o identificador {{ param }}",
+      "created": "Um novo deposito foi criado com o identificador {{ param }}",
       "updated": "Deposito com identificador {{ param }} foi actualizado",
       "deleted": "Deposito com identificador {{ param }} foi eliminado",
       "delete": {
-        "question": "Tem a certeza que pretende eliminar o(a) Deposito {{ id }}?"
+        "question": "Tem a certeza que pretende eliminar o deposito {{ id }}?"
       },
       "detail": {
         "title": "Deposito"
       },
-      "numeroTalao": "Numero Talao",
-      "dataDeposito": "Data Deposito",
+      "numeroTalao": "Numero do talão",
+      "dataDeposito": "Data de deposito",
       "valor": "Valor",
       "saldo": "Saldo",
       "detalhePagamento": "Detalhe Pagamento",
       "utilizador": "Utilizador",
-      "meioLiquidacao": "Meio Liquidacao",
+      "meioLiquidacao": "Meio de pagamento",
       "aluno": "Aluno",
       "conta": "Conta"
     }

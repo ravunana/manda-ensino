@@ -7,7 +7,7 @@ import com.ravunana.ensino.service.dto.DepositoDTO;
 import com.ravunana.ensino.service.mapper.DepositoMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -32,6 +32,9 @@ public class DepositoService {
 
     private final DepositoSearchRepository depositoSearchRepository;
 
+    @Autowired
+    private UserService userService;
+
     public DepositoService(DepositoRepository depositoRepository, DepositoMapper depositoMapper, DepositoSearchRepository depositoSearchRepository) {
         this.depositoRepository = depositoRepository;
         this.depositoMapper = depositoMapper;
@@ -47,6 +50,8 @@ public class DepositoService {
     public DepositoDTO save(DepositoDTO depositoDTO) {
         log.debug("Request to save Deposito : {}", depositoDTO);
         Deposito deposito = depositoMapper.toEntity(depositoDTO);
+        deposito.setUtilizador( userService.getCurrentUserLogged() );
+        deposito.setSaldo( deposito.getValor() );
         deposito = depositoRepository.save(deposito);
         DepositoDTO result = depositoMapper.toDto(deposito);
         depositoSearchRepository.save(deposito);
