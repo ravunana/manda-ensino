@@ -7,12 +7,13 @@ import com.ravunana.ensino.service.dto.PagamentoDTO;
 import com.ravunana.ensino.service.mapper.PagamentoMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.ZonedDateTime;
 import java.util.Optional;
 
 import static org.elasticsearch.index.query.QueryBuilders.*;
@@ -32,6 +33,9 @@ public class PagamentoService {
 
     private final PagamentoSearchRepository pagamentoSearchRepository;
 
+    @Autowired
+    private UserService userService;
+
     public PagamentoService(PagamentoRepository pagamentoRepository, PagamentoMapper pagamentoMapper, PagamentoSearchRepository pagamentoSearchRepository) {
         this.pagamentoRepository = pagamentoRepository;
         this.pagamentoMapper = pagamentoMapper;
@@ -47,6 +51,8 @@ public class PagamentoService {
     public PagamentoDTO save(PagamentoDTO pagamentoDTO) {
         log.debug("Request to save Pagamento : {}", pagamentoDTO);
         Pagamento pagamento = pagamentoMapper.toEntity(pagamentoDTO);
+        pagamento.setData( ZonedDateTime.now() );
+        pagamento.setUtilizador( userService.getCurrentUserLogged() );
         pagamento = pagamentoRepository.save(pagamento);
         PagamentoDTO result = pagamentoMapper.toDto(pagamento);
         pagamentoSearchRepository.save(pagamento);
@@ -104,4 +110,9 @@ public class PagamentoService {
         return pagamentoSearchRepository.search(queryStringQuery(query), pageable)
             .map(pagamentoMapper::toDto);
     }
+
+    // private String getNumeroFactura() {
+
+    //     return "";
+    // }
 }

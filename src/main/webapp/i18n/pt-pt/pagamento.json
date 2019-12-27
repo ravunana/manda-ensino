@@ -3,25 +3,25 @@
     "pagamento": {
       "home": {
         "title": "Pagamentos",
-        "createLabel": "Criar novo(a) Pagamento",
-        "createOrEditLabel": "Criar ou editar Pagamento",
-        "search": "Procurar por Pagamento",
-        "notFound": "Nenhum Pagamentos encontrado"
+        "createLabel": "Novo pagamento",
+        "createOrEditLabel": "Pagamento",
+        "search": "Procurar por pagamento",
+        "notFound": "Nenhum pagamento encontrado"
       },
       "created": "Um novo Pagamento foi criado com o identificador {{ param }}",
       "updated": "Pagamento com identificador {{ param }} foi actualizado",
       "deleted": "Pagamento com identificador {{ param }} foi eliminado",
       "delete": {
-        "question": "Tem a certeza que pretende eliminar o(a) Pagamento {{ id }}?"
+        "question": "Tem a certeza que pretende eliminar o pagamento {{ id }}?"
       },
       "detail": {
         "title": "Pagamento"
       },
-      "data": "Data",
-      "numero": "Numero",
+      "data": "Data do pagamento",
+      "numero": "Numero da factura",
       "utilizador": "Utilizador",
       "aluno": "Aluno",
-      "formaLiquidacao": "Forma Liquidacao"
+      "formaLiquidacao": "Forma de pagamento"
     }
   }
 }

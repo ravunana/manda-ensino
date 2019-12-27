@@ -2,6 +2,7 @@
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
             <h2 id="rv-pagamento-heading" jhiTranslate="ensinoApp.pagamento.home.createOrEditLabel">Create or edit a Pagamento</h2>
+            <hr>
             <div>
                 <rv-alert-error></rv-alert-error>
                 <div class="form-group" [hidden]="!editForm.get('id')!.value">
@@ -9,13 +10,13 @@
                     <input type="text" class="form-control" id="id" name="id" formControlName="id"
                         readonly />
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="form-control-label" jhiTranslate="ensinoApp.pagamento.data" for="field_data">Data</label>
                     <div class="d-flex">
                         <input id="field_data" type="datetime-local" class="form-control" name="data" formControlName="data" placeholder="YYYY-MM-DD HH:mm"/>
                     </div>
-                </div>
-                <div class="form-group">
+                </div> -->
+                <!-- <div class="form-group">
                     <label class="form-control-label" jhiTranslate="ensinoApp.pagamento.numero" for="field_numero">Numero</label>
                     <input type="text" class="form-control" name="numero" id="field_numero"
                            formControlName="numero"/>
@@ -25,9 +26,9 @@
                         This field is required.
                         </small>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="form-control-label" jhiTranslate="ensinoApp.pagamento.utilizador" for="field_utilizador">Utilizador</label>
                     <select class="form-control" id="field_utilizador" name="utilizador" formControlName="utilizadorId">
                         <option *ngIf="!editForm.get('utilizadorId')!.value" [ngValue]="null" selected></option>
@@ -39,34 +40,42 @@
                            *ngIf="editForm.get('utilizadorId')?.errors?.required" jhiTranslate="entity.validation.required">
                         This field is required.
                     </small>
-                </div>
+                </div> -->
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="ensinoApp.pagamento.aluno" for="field_aluno">Aluno</label>
                     <select class="form-control" id="field_aluno" name="aluno" formControlName="alunoId">
                         <option *ngIf="!editForm.get('alunoId')!.value" [ngValue]="null" selected></option>
                         <option [ngValue]="alunoOption.id" *ngFor="let alunoOption of alunos; trackBy: trackById">{{alunoOption.numeroProcesso}}</option>
                     </select>
+                    <div *ngIf="editForm.get('alunoId')!.invalid && (editForm.get('alunoId')!.dirty || editForm.get('alunoId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('alunoId')?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
                 </div>
-                <div *ngIf="editForm.get('alunoId')!.invalid && (editForm.get('alunoId')!.dirty || editForm.get('alunoId')!.touched)">
-                    <small class="form-text text-danger"
-                           *ngIf="editForm.get('alunoId')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                    </small>
-                </div>
+                <hr>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="ensinoApp.pagamento.formaLiquidacao" for="field_formaLiquidacao">Forma Liquidacao</label>
                     <select class="form-control" id="field_formaLiquidacao" name="formaLiquidacao" formControlName="formaLiquidacaoId">
                         <option *ngIf="!editForm.get('formaLiquidacaoId')!.value" [ngValue]="null" selected></option>
                         <option [ngValue]="formaLiquidacaoOption.id" *ngFor="let formaLiquidacaoOption of formaliquidacaos; trackBy: trackById">{{formaLiquidacaoOption.nome}}</option>
                     </select>
+                    <div *ngIf="editForm.get('formaLiquidacaoId')!.invalid && (editForm.get('formaLiquidacaoId')!.dirty || editForm.get('formaLiquidacaoId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('formaLiquidacaoId')?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
                 </div>
-                <div *ngIf="editForm.get('formaLiquidacaoId')!.invalid && (editForm.get('formaLiquidacaoId')!.dirty || editForm.get('formaLiquidacaoId')!.touched)">
-                    <small class="form-text text-danger"
-                           *ngIf="editForm.get('formaLiquidacaoId')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                    </small>
-                </div>
+
+                <p-accordion>
+                    <p-accordionTab header="Emolumentos á pagar"  [selected]="true" >
+                        <button type="button" class="btn btn-success" [routerLink]="['/detalhe-pagamento/new']">Incluir emolumento</button>
+                    </p-accordionTab>
+                </p-accordion>
             </div>
+            <hr>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
                     <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>

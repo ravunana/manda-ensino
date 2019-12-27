@@ -45,7 +45,8 @@ entity MeioLiquidacao(fin_meio_liquidacao) {
 
 entity Pagamento(fin_pagamento) {
     data ZonedDateTime,
-    numero String unique required
+    numero String unique required,
+    estado String // Liquidado, Por liquidar, A Liquidar, Necessita verificacao, Pendente
 }
 
 entity DetalhePagamento(fin_detalhe_pagamento) {
