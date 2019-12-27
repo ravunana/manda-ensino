@@ -59,8 +59,8 @@ export class MeioLiquidacaoUpdateComponent implements OnInit {
     return {
       ...new MeioLiquidacao(),
       id: this.editForm.get(['id'])!.value,
-      nome: this.editForm.get(['nome'])!.value,
-      sigla: this.editForm.get(['sigla'])!.value,
+      nome: this.editForm.get(['nome'])!.value.toUpperCase(),
+      sigla: this.editForm.get(['sigla'])!.value.toUpperCase(),
       icon: this.editForm.get(['icon'])!.value,
       mostrarPontoVenda: this.editForm.get(['mostrarPontoVenda'])!.value
     };

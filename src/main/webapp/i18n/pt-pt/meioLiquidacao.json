@@ -2,25 +2,25 @@
   "ensinoApp": {
     "meioLiquidacao": {
       "home": {
-        "title": "Meio Liquidacaos",
-        "createLabel": "Criar novo(a) Meio Liquidacao",
-        "createOrEditLabel": "Criar ou editar Meio Liquidacao",
-        "search": "Procurar por Meio Liquidacao",
-        "notFound": "Nenhum Meio Liquidacaos encontrado"
+        "title": "Meio de pagamento",
+        "createLabel": "Novo meio de pagamento",
+        "createOrEditLabel": "Meio de pagamento",
+        "search": "Procurar por meio de pagamento",
+        "notFound": "Nenhum meio de pagamento encontrado"
       },
-      "created": "Um novo Meio Liquidacao foi criado com o identificador {{ param }}",
-      "updated": "Meio Liquidacao com identificador {{ param }} foi actualizado",
-      "deleted": "Meio Liquidacao com identificador {{ param }} foi eliminado",
+      "created": "Um novo meio de pagamento foi criado com o identificador {{ param }}",
+      "updated": "Meio de pagamento com identificador {{ param }} foi actualizado",
+      "deleted": "Meio de pagamento com identificador {{ param }} foi eliminado",
       "delete": {
-        "question": "Tem a certeza que pretende eliminar o(a) Meio Liquidacao {{ id }}?"
+        "question": "Tem a certeza que pretende eliminar o meio de pagamento {{ id }}?"
       },
       "detail": {
-        "title": "Meio Liquidacao"
+        "title": "Meio de pagamento"
       },
       "nome": "Nome",
       "sigla": "Sigla",
       "icon": "Icon",
-      "mostrarPontoVenda": "Mostrar Ponto Venda",
+      "mostrarPontoVenda": "Mostrar no pagamento",
       "deposito": "Deposito"
     }
   }
