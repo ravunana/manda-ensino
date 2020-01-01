@@ -2,22 +2,22 @@
   "ensinoApp": {
     "detalhePagamento": {
       "home": {
-        "title": "Detalhe Pagamentos",
-        "createLabel": "Criar novo(a) Detalhe Pagamento",
-        "createOrEditLabel": "Criar ou editar Detalhe Pagamento",
-        "search": "Procurar por Detalhe Pagamento",
+        "title": "Detalhes de pagamentos",
+        "createLabel": "Novo detalhe",
+        "createOrEditLabel": "Detalhe do pagamento",
+        "search": "Procurar por Detalhe do pagamento",
         "notFound": "Nenhum Detalhe Pagamentos encontrado"
       },
-      "created": "Um novo Detalhe Pagamento foi criado com o identificador {{ param }}",
-      "updated": "Detalhe Pagamento com identificador {{ param }} foi actualizado",
-      "deleted": "Detalhe Pagamento com identificador {{ param }} foi eliminado",
+      "created": "Um novo Detalhe foi criado com o identificador {{ param }}",
+      "updated": "Detalhe com identificador {{ param }} foi actualizado",
+      "deleted": "Detalhe com identificador {{ param }} foi eliminado",
       "delete": {
-        "question": "Tem a certeza que pretende eliminar o(a) Detalhe Pagamento {{ id }}?"
+        "question": "Tem a certeza que pretende eliminar o Detalhe {{ id }}?"
       },
       "detail": {
-        "title": "Detalhe Pagamento"
+        "title": "Detalhe do pagamento"
       },
-      "descricao": "Descricao",
+      "descricao": "Descrição",
       "mensalidade": "Mensalidade",
       "quantidade": "Quantidade",
       "valor": "Valor",

@@ -79,7 +79,6 @@ entity Contrato(sec_contrato) {
  */
 relationship OneToMany {
     Emolumento to DetalhePagamento{emolumento(nome) required},
-    Deposito to DetalhePagamento{deposito(numeroTalao) required},
     Aluno to Pagamento{aluno(numeroProcesso) required },
     FormaLiquidacao to Pagamento{formaLiquidacao(nome) required },
     MeioLiquidacao to Deposito{meioLiquidacao(nome) required },
@@ -100,7 +99,8 @@ relationship ManyToOne {
 }
 
 relationship ManyToMany {
-    Contrato{emolumento(nome) required } to Emolumento
+    Contrato{emolumento(nome) required } to Emolumento,
+    DetalhePagamento{deposito(numeroTalao)} to Deposito
 }
 
 dto * with mapstruct
